@@ -86,6 +86,7 @@ public class EnemyAI : MonoBehaviour
         agent.isStopped = true;
         if(!alreadyAttacked)
         {
+            //Animation would go here
             var treasureHealthComponent = treasure.GetComponent<Health>();
             if(treasureHealthComponent != null)
             {
@@ -111,6 +112,7 @@ public class EnemyAI : MonoBehaviour
 
         if(!alreadyAttacked)
         {
+            //Animation would go here
             var wallHealthComponent = Wall.GetComponent<Health>();
             if(wallHealthComponent != null)
             {
@@ -134,6 +136,7 @@ public class EnemyAI : MonoBehaviour
 
         if(!alreadyAttacked)
         {
+            //Animation would go here
             var playerHealthComponent = player.GetComponent<Health>();
             if(playerHealthComponent != null)
             {
