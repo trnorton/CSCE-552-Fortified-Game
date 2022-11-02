@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1631775811572188504}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efe413ca35fb1c046b73e4bc00d1fb7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  treasure: {fileID: 0}
-  northWall: {fileID: 0}
-  southWall: {fileID: 0}
-  eastWall: {fileID: 0}
-  westWall: {fileID: 0}
+  player: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
+  treasure: {fileID: 1866383699912069446, guid: 56c05e488b7d4c64694b3f6938a20972, type: 3}
+  northWall: {fileID: 1893839365825744422, guid: d6f42f86ced467e44b72f121edc728a8, type: 3}
+  southWall: {fileID: 7714033100540344656, guid: aab07700b3ac43b499231c9931cbf039, type: 3}
+  eastWall: {fileID: 4671729721385734876, guid: c7e7b7767937f5649b2040d253332f42, type: 3}
+  westWall: {fileID: 3445361448756593591, guid: 64fae80990229ad4cab6bc8111984e3c, type: 3}
+  deathTimer: 7
 --- !u!135 &5796515181702734403
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -23,6 +23,12 @@ public class RangedEnemyAI : MonoBehaviour
     public bool treasureDes;
     public bool wallDes;
 
+    public Transform firePoint;
+    public float fireSpeed;
+    public float fireTimer;
+    public bool isFiring;
+
+
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
@@ -30,6 +36,7 @@ public class RangedEnemyAI : MonoBehaviour
     {
         treasureDes = false;
         wallDes = false;
+        isFiring = false;
     }
     private void Awake()
     {
@@ -84,54 +91,62 @@ public class RangedEnemyAI : MonoBehaviour
     //Atack Treasure
     private void AttackTreasure()
     {
+        var treasureHealthComponent = treasure.GetComponent<Health>();
         agent.isStopped = true;
         transform.LookAt(treasure.transform);
-        if(!alreadyAttacked)
+        if(!isFiring)
         {
-            Rigidbody rbp = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rbp.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rbp.AddForce(transform.up * 8f, ForceMode.Impulse);
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            StartCoroutine(fire());
+        }
+        if(treasureHealthComponent.currentHealth == 0)
+        {
+            treasure.SetActive(false);
+            agent.isStopped = false;
         }
     }
     //Atack Wall
     private void AttackWall()
     {
+        var wallHealthComponent = Wall.GetComponent<Health>();
         agent.isStopped = true;
         transform.LookAt(Wall.transform);
-
-        if(!alreadyAttacked)
+        if(!isFiring)
         {
-            Rigidbody rbp = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rbp.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rbp.AddForce(transform.up * 8f, ForceMode.Impulse);
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            StartCoroutine(fire());
+        }
+        if(wallHealthComponent.currentHealth == 0)
+        {
+            Wall.SetActive(false);
+            agent.isStopped = false;
         }
     }
     //Attack Player
     private void AttackPlayer()
     {
+        var playerHealthComponent = player.GetComponent<Health>();
         agent.isStopped = true;
         transform.LookAt(player.transform);
-        if(!alreadyAttacked)
+        if(!isFiring)
         {
-            Rigidbody rbp = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rbp.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rbp.AddForce(transform.up * 8f, ForceMode.Impulse);
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            StartCoroutine(fire());
+        }
+        if(playerHealthComponent.currentHealth == 0)
+        {
+            player.SetActive(false);
+            agent.isStopped = false;
         }
     }
 
-    private void ResetAttack()
+    IEnumerator fire()
     {
-        alreadyAttacked = false;
+            isFiring = true;
+            GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+            yield return new WaitForSeconds(fireTimer);
+            isFiring = false;
+
     }
+
 }
 
 

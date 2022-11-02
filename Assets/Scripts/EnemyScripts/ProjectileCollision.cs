@@ -4,69 +4,57 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject treasure;
-    public GameObject northWall;
-    public GameObject southWall;
-    public GameObject eastWall;
-    public GameObject westWall;
+    public float deathTimer;
 
+    void Start()
+    {
+        StartCoroutine(Timer());
+    }
     void OnCollisionEnter(Collision col)
     {
-        var playerHealthComponent = player.GetComponent<Health>();
-        var nWallHealthComponent = northWall.GetComponent<Health>();
-        var sWallHealthComponent = southWall.GetComponent<Health>();
-        var wWallHealthComponent = westWall.GetComponent<Health>();
-        var eWallHealthComponent = eastWall.GetComponent<Health>();
-        var treasureHealthComponent = treasure.GetComponent<Health>();
-        
+ 
         if(col.gameObject.name == "WestWall")
         {
-            if(wWallHealthComponent != null)
-            {
-                wWallHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
 
         if(col.gameObject.name == "EastWall")
         {
-            if(eWallHealthComponent != null)
-            {
-                eWallHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
 
         if(col.gameObject.name == "NorthWall")
         {
-            if(nWallHealthComponent != null)
-            {
-                nWallHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
 
         if(col.gameObject.name == "SouthWall")
         {
-            if(sWallHealthComponent != null)
-            {
-                sWallHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
 
         if(col.gameObject.name == "Player")
         {
-            if(playerHealthComponent != null)
-            {
-                playerHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
 
         if(col.gameObject.name == "Treasure")
         {
-            if(treasureHealthComponent != null)
-            {
-                treasureHealthComponent.TakeDamage(1);
-            }
+            projectileDie();
         }
-        Destroy(this.gameObject);
+
+        if(col.gameObject.layer == 8)
+        {
+            projectileDie();
+        }
+    }
+    IEnumerator Timer()
+    {
+        yield return new WaitForSeconds(deathTimer);
+        projectileDie();
+    }
+    void projectileDie()
+    {
+        Destroy(gameObject);
     }
 }
