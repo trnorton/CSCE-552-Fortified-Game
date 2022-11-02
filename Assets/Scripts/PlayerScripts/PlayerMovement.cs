@@ -14,10 +14,12 @@ public class PlayerMovement : MonoBehaviour
     public float airMultiplier;
     bool canJump;
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
 
     public float playerHeight;
     public LayerMask ground;
     bool grounded;
+    bool canSprint;
     public Transform orientation;
     float horizontalInput;
     float verticalInput;
@@ -30,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         canJump = true;
+        canSprint = true;
     }
 
     // Update is called once per frame
@@ -65,9 +68,19 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(jumpKey) && canJump && grounded)
         {
             canJump = false;
+            canSprint = false;
             Jump();
             //We can continuously jump if holding space down
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        if(Input.GetKey(sprintKey) && canSprint && grounded)
+        {
+            moveSpeed = 16;
+        }
+        else
+        {
+            moveSpeed = 8;
         }
     }
 
@@ -110,5 +123,6 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         canJump = true;
+        canSprint = true;
     }
 }
