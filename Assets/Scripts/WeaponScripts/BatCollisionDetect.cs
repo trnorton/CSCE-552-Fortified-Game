@@ -10,7 +10,6 @@ public class BatCollisionDetect : MonoBehaviour
     {
         GameObject collsionGameObject = col.gameObject;
         var healComponent = collsionGameObject.GetComponent<Health>();
-        Debug.Log(healComponent.currentHealth);
         if(collsionGameObject.tag == "Enemy" && wc.isAttacking)
         {
             healComponent.TakeDamage(1);

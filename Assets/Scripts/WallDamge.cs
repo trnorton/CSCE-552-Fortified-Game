@@ -8,7 +8,6 @@ public class WallDamge : MonoBehaviour
     {
         var healComponent = GetComponent<Health>();
         GameObject collsionGameObject = col.gameObject;
-        Debug.Log(healComponent.currentHealth);
         if(collsionGameObject.tag == "Projectile")
             healComponent.TakeDamage(1);
     }

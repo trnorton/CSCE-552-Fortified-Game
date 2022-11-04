@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public GameObject player;
+    public GameObject enemyDmgEffect;
     public WeaponController wc;
     public NavMeshAgent agent;
     public GameObject treasure;
@@ -165,18 +166,24 @@ public class EnemyAI : MonoBehaviour
         var enemyHealCompoent = GetComponent<Health>();
         if(other.tag == "Weapon" && wc.isAttacking)
         {
-            Debug.Log(enemyHealCompoent.currentHealth);
             enemyHealCompoent.TakeDamage(1);
+            Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+            isElim(enemyHealCompoent.currentHealth);
 
-            if(enemyHealCompoent.currentHealth <= 0)
-            {
-                var playermoney = player.GetComponent<Money>();
-                playermoney.AddMoney(enemyMoneyValue);
-                Destroy(gameObject);
-            }
         }
 
 
+    }
+
+    public void isElim(int currHealth)
+    {
+        Debug.Log(currHealth);
+        if(currHealth == 0)
+        {
+            var playermoney = player.GetComponent<Money>();
+            playermoney.AddMoney(enemyMoneyValue);
+            Destroy(gameObject);
+        }
     }
 
 }
