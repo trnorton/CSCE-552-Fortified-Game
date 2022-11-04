@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RangedEnemyAI : MonoBehaviour
 {
     public GameObject player;
+    public GameObject enemyDmgEffect;
     public WeaponController wc;
     public NavMeshAgent agent;
     public GameObject treasure;
