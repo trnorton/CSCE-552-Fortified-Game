@@ -1333,7 +1333,7 @@ GameObject:
   - component: {fileID: 516011114}
   m_Layer: 0
   m_Name: WeaponHolder
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2074,19 +2074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
---- !u!114 &1087064687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087064678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8fcd7cd9b7d9646836860d692e66cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wc: {fileID: 516011114}
 --- !u!1 &1093222089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,8 +2190,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 24.300215, y: 3.6249666, z: 8.119382}
-  m_Center: {x: -10.52521, y: -0.81248885, z: 0.74067056}
+  m_Size: {x: 27.653152, y: 4.728647, z: 8.119382}
+  m_Center: {x: -9.376772, y: -0.551841, z: 0}
 --- !u!1 &1160392109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7714033100540344656, guid: aab07700b3ac43b499231c9931cbf039, type: 3}
@@ -2475,19 +2462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
---- !u!114 &1307216947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307216938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8fcd7cd9b7d9646836860d692e66cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wc: {fileID: 516011114}
 --- !u!4 &1350314510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2832560727728315671, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
@@ -3484,6 +3458,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EastEnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 5461111540464064614, guid: 7f98481be776bfc45a7c17ae527e7ae5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5727017073698064652, guid: 7f98481be776bfc45a7c17ae527e7ae5, type: 3}
+      propertyPath: wc
+      value: 
+      objectReference: {fileID: 516011114}
     - target: {fileID: 5727017073698064652, guid: 7f98481be776bfc45a7c17ae527e7ae5, type: 3}
       propertyPath: Wall
       value: 
@@ -3528,6 +3510,10 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4107709643235876141, guid: 955a772d42ead9a43863c9c45d9eb4ee, type: 3}
+      propertyPath: wc
+      value: 
+      objectReference: {fileID: 516011114}
+    - target: {fileID: 4107709643235876141, guid: 955a772d42ead9a43863c9c45d9eb4ee, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 766326151}
@@ -3546,6 +3532,10 @@ PrefabInstance:
     - target: {fileID: 4107709643235876141, guid: 955a772d42ead9a43863c9c45d9eb4ee, type: 3}
       propertyPath: playerRange
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445672425706622023, guid: 955a772d42ead9a43863c9c45d9eb4ee, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7601465026065539506, guid: 955a772d42ead9a43863c9c45d9eb4ee, type: 3}
       propertyPath: m_RootOrder
@@ -3604,7 +3594,7 @@ GameObject:
   - component: {fileID: 1718709058}
   m_Layer: 0
   m_Name: bat
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3953,19 +3943,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
---- !u!114 &1902118040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051981661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8fcd7cd9b7d9646836860d692e66cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wc: {fileID: 516011114}
 --- !u!4 &1937140595 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb1cacb8f9fa34428bfa3131ba8f663a, type: 3}
@@ -3988,6 +3965,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1177053544593897331, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
+      propertyPath: wc
+      value: 
+      objectReference: {fileID: 516011114}
     - target: {fileID: 1177053544593897331, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
       propertyPath: Wall
       value: 
@@ -4084,6 +4065,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8121972376802721318, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8845561260328225459, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
       propertyPath: m_Name
       value: SouthEnemyRanged
@@ -4117,19 +4102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
---- !u!114 &2040400858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2040400849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8fcd7cd9b7d9646836860d692e66cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wc: {fileID: 516011114}
 --- !u!4 &2135495431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb1cacb8f9fa34428bfa3131ba8f663a, type: 3}
@@ -4223,6 +4195,10 @@ PrefabInstance:
       value: NorthEnemyMelee
       objectReference: {fileID: 0}
     - target: {fileID: 1321501594771845518, guid: 841e94988b84df04b89028d6182d1c5c, type: 3}
+      propertyPath: wc
+      value: 
+      objectReference: {fileID: 516011114}
+    - target: {fileID: 1321501594771845518, guid: 841e94988b84df04b89028d6182d1c5c, type: 3}
       propertyPath: Wall
       value: 
       objectReference: {fileID: 62834192}
@@ -4237,6 +4213,10 @@ PrefabInstance:
     - target: {fileID: 1321501594771845518, guid: 841e94988b84df04b89028d6182d1c5c, type: 3}
       propertyPath: attackRange
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1321501594771845519, guid: 841e94988b84df04b89028d6182d1c5c, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1321501594771845520, guid: 841e94988b84df04b89028d6182d1c5c, type: 3}
       propertyPath: m_Mass
