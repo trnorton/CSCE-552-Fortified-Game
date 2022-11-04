@@ -23,4 +23,8 @@ public class Money : MonoBehaviour
         money += value;
 
     }
+    public int MoneyToInt()
+    {
+        return money;
+    }
 }
