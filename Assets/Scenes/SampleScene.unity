@@ -4923,6 +4923,10 @@ PrefabInstance:
       value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 1177053544593897331, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
+      propertyPath: enemyDmgEffect
+      value: 
+      objectReference: {fileID: 5899714678659762444, guid: 6a9fef403a6162d4b816765fa9c3d74b, type: 3}
+    - target: {fileID: 1177053544593897331, guid: 80ba2f5be0711a34eb369ddcc6ebcaa6, type: 3}
       propertyPath: enemyMoneyValue
       value: 10
       objectReference: {fileID: 0}
