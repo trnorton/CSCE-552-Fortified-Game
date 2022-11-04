@@ -24,6 +24,7 @@ public class RangedEnemyAI : MonoBehaviour
     public bool treasureDes;
     public bool wallDes;
 
+    public int enemyMoneyValue;
     public Transform firePoint;
     public float fireSpeed;
     public float fireTimer;
@@ -148,7 +149,11 @@ public class RangedEnemyAI : MonoBehaviour
             enemyHealCompoent.TakeDamage(1);
 
             if(enemyHealCompoent.currentHealth <= 0)
+            {
+                var playermoney = player.GetComponent<Money>();
+                playermoney.AddMoney(enemyMoneyValue);
                 Destroy(gameObject);
+            }
         }
 
 

@@ -23,6 +23,7 @@ public class EnemyAI : MonoBehaviour
     public bool treasureDes;
     public bool wallDes;
 
+    public int enemyMoneyValue;
     public float timeBetweenAttacks;
     bool alreadyAttacked;
 
@@ -168,7 +169,11 @@ public class EnemyAI : MonoBehaviour
             enemyHealCompoent.TakeDamage(1);
 
             if(enemyHealCompoent.currentHealth <= 0)
+            {
+                var playermoney = player.GetComponent<Money>();
+                playermoney.AddMoney(enemyMoneyValue);
                 Destroy(gameObject);
+            }
         }
 
 
