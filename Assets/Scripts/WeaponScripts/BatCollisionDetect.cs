@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallDamge : MonoBehaviour
+public class BatCollisionDetect : MonoBehaviour
 {
+    public WeaponController wc;
+
     private void OnCollisionEnter(Collision col)
     {
-        var healComponent = GetComponent<Health>();
         GameObject collsionGameObject = col.gameObject;
+        var healComponent = collsionGameObject.GetComponent<Health>();
         Debug.Log(healComponent.currentHealth);
-        if(collsionGameObject.tag == "Projectile")
+        if(collsionGameObject.tag == "Enemy" && wc.isAttacking)
+        {
             healComponent.TakeDamage(1);
+        }
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class RangedEnemyAI : MonoBehaviour
 {
     public GameObject player;
+    public WeaponController wc;
     public NavMeshAgent agent;
     public GameObject treasure;
     public LayerMask isTreasure, isPlayer, isWall;
@@ -75,6 +76,7 @@ public class RangedEnemyAI : MonoBehaviour
         if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront) ChaseTreasure();
         if(treasureInAttackRange && !wallInFront) AttackTreasure();
         if(wallInFront) AttackWall();
+        
 
     }
     //Enemy goes after treasure
@@ -135,6 +137,21 @@ public class RangedEnemyAI : MonoBehaviour
             player.SetActive(false);
             agent.isStopped = false;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var enemyHealCompoent = GetComponent<Health>();
+        if(other.tag == "Weapon" && wc.isAttacking)
+        {
+            Debug.Log(enemyHealCompoent.currentHealth);
+            enemyHealCompoent.TakeDamage(1);
+
+            if(enemyHealCompoent.currentHealth <= 0)
+                Destroy(gameObject);
+        }
+
+
     }
 
     IEnumerator fire()
