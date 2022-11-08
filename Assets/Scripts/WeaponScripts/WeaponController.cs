@@ -4,10 +4,20 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public GameObject[] weapons;
+    //public GameObject selected;
     public GameObject Bat; //add more weapons later
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool isAttacking = false;
+
+    void Start()
+    {
+        foreach(GameObject GO in weapons){
+            GO.SetActive(false);
+        }
+        weaponSelector(0);
+    }
 
     void Update()
     {
@@ -40,5 +50,9 @@ public class WeaponController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         isAttacking = false;
+    }
+
+    public void weaponSelector(int sel){
+        weapons[sel].SetActive(true);
     }
 }
