@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour
+public class NorthMeleeEnemyAI : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemyDmgEffect;
+    public GameObject weaponHolder;
     public WeaponController wc;
     public NavMeshAgent agent;
     public GameObject treasure;
@@ -35,6 +36,11 @@ public class EnemyAI : MonoBehaviour
     }
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
+        weaponHolder = GameObject.FindWithTag("weaponcontrol");
+        wc = weaponHolder.GetComponent<WeaponController>();
+        Wall = GameObject.FindWithTag("NorthWall");
+        treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -60,7 +66,7 @@ public class EnemyAI : MonoBehaviour
         else
             treasureInAttackRange = false;
         
-        if(distanceToWall <= attackRange && wallDes == false)
+        if(distanceToWall <= attackRange && Wall.activeSelf)
             wallInFront = true;
         else
             wallInFront = false;

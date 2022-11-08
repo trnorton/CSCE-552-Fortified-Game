@@ -8,6 +8,12 @@ TagManager:
   - Enemy
   - Projectile
   - Weapon
+  - weaponcontrol
+  - NorthWall
+  - SouthWall
+  - EastWall
+  - WestWall
+  - Treasure
   layers:
   - Default
   - TransparentFX
