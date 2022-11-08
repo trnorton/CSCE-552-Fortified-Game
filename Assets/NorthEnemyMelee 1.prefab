@@ -132,6 +132,7 @@ MonoBehaviour:
     m_Bits: 512
   Wall: {fileID: 0}
   playerRange: 10
+  wallAttackRange: 7
   attackRange: 7
   playerInRange: 0
   playerInAttackRange: 0

@@ -15,6 +15,7 @@ public class WestMeleeAI : MonoBehaviour
     public GameObject Wall;
     public float playerRange;
     public float attackRange;
+    public float wallAttackRange;
     public bool playerInRange;
     public bool playerInAttackRange;
     public bool treasureInAttackRange;
@@ -66,7 +67,7 @@ public class WestMeleeAI : MonoBehaviour
         else
             treasureInAttackRange = false;
         
-        if(distanceToWall <= attackRange && Wall.activeSelf)
+        if(distanceToWall <= wallAttackRange && Wall.activeSelf)
             wallInFront = true;
         else
             wallInFront = false;

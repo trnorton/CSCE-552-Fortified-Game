@@ -14,6 +14,7 @@ public class NorthMeleeEnemyAI : MonoBehaviour
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
     public float playerRange;
+    public float wallAttackRange;
     public float attackRange;
     public bool playerInRange;
     public bool playerInAttackRange;
@@ -66,7 +67,7 @@ public class NorthMeleeEnemyAI : MonoBehaviour
         else
             treasureInAttackRange = false;
         
-        if(distanceToWall <= attackRange && Wall.activeSelf)
+        if(distanceToWall <= wallAttackRange && Wall.activeSelf)
             wallInFront = true;
         else
             wallInFront = false;

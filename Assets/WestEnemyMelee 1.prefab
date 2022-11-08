@@ -252,6 +252,7 @@ MonoBehaviour:
   Wall: {fileID: 0}
   playerRange: 10
   attackRange: 7
+  wallAttackRange: 9
   playerInRange: 0
   playerInAttackRange: 0
   treasureInAttackRange: 0
