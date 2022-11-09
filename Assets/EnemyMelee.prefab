@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e35859ed856404ea015db9015d0483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 2
   currentHealth: 2
 --- !u!114 &5731647938250306611
 MonoBehaviour:
@@ -168,7 +168,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
-  enemyDmgEffect: {fileID: 5899714678659762444, guid: 6a9fef403a6162d4b816765fa9c3d74b, type: 3}
   weaponHolder: {fileID: 5297717869134896694, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
   wc: {fileID: 0}
   agent: {fileID: 1983473148194278057}
@@ -184,15 +183,6 @@ MonoBehaviour:
   Wall: {fileID: 0}
   playerRange: 10
   attackRange: 5
-  playerInRange: 0
-  playerInAttackRange: 0
-  treasureInAttackRange: 0
-  wallInFront: 0
-  distanceToPlayer: 0
-  distanceToTreasure: 0
-  distanceToWall: 0
-  treasureDes: 0
-  wallDes: 0
   enemyMoneyValue: 5
   timeBetweenAttacks: 1
 --- !u!1 &1983473148886474349

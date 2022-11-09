@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public Transform spawnObjectMelee;
+    public Transform[] spawnObjectMeleeRanged;
     public Transform spawnObjectGhost;
     public int spawnTotal = 3;
     public float timeBetweenSpawns;
@@ -62,7 +62,8 @@ public class WaveSpawner : MonoBehaviour
         for(var i = 0; i < spawnTotal; i++)
         {
             Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
-            Instantiate(spawnObjectMelee, randomSpawn.position, randomSpawn.rotation);
+            Transform randomEnemy = spawnObjectMeleeRanged[Random.Range(0, spawnObjectMeleeRanged.Length)];
+            Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         roundNumber++;

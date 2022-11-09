@@ -13,32 +13,16 @@ public class ProjectileCollision : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
  
-        if(col.gameObject.name == "WestWall")
+        if(col.gameObject.tag == "Wall")
+        {
+            projectileDie();
+        }
+        if(col.gameObject.tag == "Player")
         {
             projectileDie();
         }
 
-        if(col.gameObject.name == "EastWall")
-        {
-            projectileDie();
-        }
-
-        if(col.gameObject.name == "NorthWall")
-        {
-            projectileDie();
-        }
-
-        if(col.gameObject.name == "SouthWall")
-        {
-            projectileDie();
-        }
-
-        if(col.gameObject.name == "Player")
-        {
-            projectileDie();
-        }
-
-        if(col.gameObject.name == "Treasure")
+        if(col.gameObject.tag == "Treasure")
         {
             projectileDie();
         }

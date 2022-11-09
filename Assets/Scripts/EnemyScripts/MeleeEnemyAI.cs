@@ -23,7 +23,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private float distanceToTreasure;
     private float distanceToWall;
     private bool treasureDes;
-    private bool wallDes;
+    System.DateTime invincibleFrames = System.DateTime.Now;
 
     public int enemyMoneyValue;
     public float timeBetweenAttacks;
@@ -39,7 +39,6 @@ public class MeleeEnemyAI : MonoBehaviour
     void Start()
     {
         treasureDes = false;
-        wallDes = false;
        
     }
     private void Awake()
@@ -188,10 +187,13 @@ public class MeleeEnemyAI : MonoBehaviour
         var enemyHealCompoent = GetComponent<Health>();
         if(other.tag == "Weapon" && wc.isAttacking)
         {
-            enemyHealCompoent.TakeDamage(1);
-            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
-            isElim(enemyHealCompoent.currentHealth);
-
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(1);
+                // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
         }
 
 
@@ -228,6 +230,11 @@ public class MeleeEnemyAI : MonoBehaviour
         }
         return target;
 
+    }
+    //2 seconds of invincibility
+    void Reset()
+    {
+        invincibleFrames = System.DateTime.Now.AddSeconds(1);
     }
 
 }

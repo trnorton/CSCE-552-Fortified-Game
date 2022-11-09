@@ -441,7 +441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 36818502}
   m_Layer: 0
-  m_Name: SouthMeleeSP2
+  m_Name: SP7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,7 +521,7 @@ GameObject:
   m_Component:
   - component: {fileID: 70260075}
   m_Layer: 0
-  m_Name: WestMeleeSP2
+  m_Name: SP4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -742,7 +742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150970839}
   m_Layer: 0
-  m_Name: WestMeleeSP3
+  m_Name: SP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,6 +1555,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271352659}
   m_CullTransparentMesh: 1
+--- !u!1 &286321924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286321925}
+  m_Layer: 0
+  m_Name: SP10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286321925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286321924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 88.4, y: 1, z: 99.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &305186210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1978,6 +2009,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357147118}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &359187869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359187870}
+  m_Layer: 0
+  m_Name: SP11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &359187870
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359187869}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 115.8, y: 1, z: 83.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &373558453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2972,7 +3034,11 @@ MonoBehaviour:
   - {fileID: 1088229608}
   - {fileID: 2141972924}
   - {fileID: 2009679568}
-  spawnObjectMelee: {fileID: 1983473148194278066, guid: 11fd23fff4b3db5499d2e7b4ae99aaec, type: 3}
+  - {fileID: 286321925}
+  - {fileID: 359187870}
+  spawnObjectMeleeRanged:
+  - {fileID: 1983473148194278066, guid: 11fd23fff4b3db5499d2e7b4ae99aaec, type: 3}
+  - {fileID: 3891055585774575596, guid: 015f9ee0966e5174485b2c34aefb8fb8, type: 3}
   spawnObjectGhost: {fileID: 7094795369701766934, guid: 2b8d6c0208d2b774eb7ae46034963371, type: 3}
   spawnTotal: 6
   timeBetweenSpawns: 5
@@ -4337,7 +4403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088229608}
   m_Layer: 0
-  m_Name: NorthMeleeSP
+  m_Name: SP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7184,7 +7250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821907854}
   m_Layer: 0
-  m_Name: SouthMeleeSP3
+  m_Name: SP8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7377,7 +7443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1892331014}
   m_Layer: 0
-  m_Name: WestMeleeSP
+  m_Name: SP3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7520,7 +7586,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1914754525}
   m_Layer: 0
-  m_Name: SouthMeleeSP
+  m_Name: SP6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8100,7 +8166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009679568}
   m_Layer: 0
-  m_Name: NorthMeleeSP3
+  m_Name: SP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8536,7 +8602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2141972924}
   m_Layer: 0
-  m_Name: NorthMeleeSP2
+  m_Name: SP9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

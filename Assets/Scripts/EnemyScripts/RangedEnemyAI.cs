@@ -6,8 +6,9 @@ using UnityEngine.AI;
 public class RangedEnemyAI : MonoBehaviour
 {
     public GameObject player;
-    public GameObject enemyDmgEffect;
+    // public GameObject enemyDmgEffect;
     public WeaponController wc;
+    public GameObject weaponHolder;
     public NavMeshAgent agent;
     public GameObject treasure;
     public LayerMask isTreasure, isPlayer, isWall;
@@ -24,6 +25,7 @@ public class RangedEnemyAI : MonoBehaviour
     public float distanceToWall;
     public bool treasureDes;
     public bool wallDes;
+    System.DateTime invincibleFrames = System.DateTime.Now;
 
     public int enemyMoneyValue;
     public Transform firePoint;
@@ -31,6 +33,12 @@ public class RangedEnemyAI : MonoBehaviour
     public float fireTimer;
     public bool isFiring;
 
+    private GameObject[] allTargets;
+    private GameObject[] walls;
+    private GameObject[] defaultTargets;
+    private GameObject target;
+
+    private NavMeshPath path;
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -43,15 +51,24 @@ public class RangedEnemyAI : MonoBehaviour
     }
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
+        weaponHolder = GameObject.FindWithTag("weaponcontrol");
+        wc = weaponHolder.GetComponent<WeaponController>();
+        Wall = getClosestWall();
+        treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Wall = getClosestWall();
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
-        distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
+
         distanceToWall = Vector3.Distance(Wall.transform.position, this.transform.position);
+
+        if(!treasureDes)
+            distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
 
         if(distanceToPlayer <= playerRange) 
             playerInRange = true;
@@ -146,9 +163,13 @@ public class RangedEnemyAI : MonoBehaviour
         var enemyHealCompoent = GetComponent<Health>();
         if(other.tag == "Weapon" && wc.isAttacking)
         {
-            enemyHealCompoent.TakeDamage(1);
-            Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
-            isElim(enemyHealCompoent.currentHealth);
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(1);
+                // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
 
         }
 
@@ -174,6 +195,33 @@ public class RangedEnemyAI : MonoBehaviour
             yield return new WaitForSeconds(fireTimer);
             isFiring = false;
 
+    }
+
+    public GameObject getClosestWall()
+    {
+
+        walls = GameObject.FindGameObjectsWithTag("Wall");
+        float closest = 0;
+        for(int i = 0; i < walls.Length; i++)
+        {
+            float dist = Vector3.Distance(walls[i].transform.position, this.transform.position);
+            if(closest == 0)
+            {
+                closest = dist;
+            }
+            else if(dist < closest)
+            {
+                closest = dist;
+                target = walls[i];
+            }
+        }
+        return target;
+
+    }
+    //2 seconds of invincibility
+    void Reset()
+    {
+        invincibleFrames = System.DateTime.Now.AddSeconds(1);
     }
 
 }
