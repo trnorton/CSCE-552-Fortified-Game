@@ -13,7 +13,7 @@ public class doorInteract : MonoBehaviour
 
     private bool isOpen;
     private float doorActionRate = 0.0f;
-    private float doorActionTime = 0.25f;
+    private float doorActionTime = 0.001f;
     // Start is called before the first frame update
     void Start()
     {
