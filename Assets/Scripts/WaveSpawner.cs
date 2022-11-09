@@ -17,7 +17,7 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
-        Debug.Log(enemiesLeft.Length);
+        
         if((enemiesLeft.Length-1) == 0)
         {
             StopCoroutine(SpawnGameObject());

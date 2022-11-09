@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 1983473148194278071}
   - component: {fileID: 1983473148194278070}
   - component: {fileID: 1983473148194278069}
-  - component: {fileID: 1983473148194278068}
   - component: {fileID: 1983473148194278057}
   - component: {fileID: 1983473148194278058}
   - component: {fileID: 707167272127757893}
+  - component: {fileID: 5731647938250306611}
   m_Layer: 0
-  m_Name: NorthEnemyMelee 1
+  m_Name: EnemyMelee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,48 +103,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1983473148194278068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983473148194278065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb642d53d1671824fb639d251f56cde9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemyDmgEffect: {fileID: 5899714678659762444, guid: 6a9fef403a6162d4b816765fa9c3d74b, type: 3}
-  weaponHolder: {fileID: 0}
-  wc: {fileID: 0}
-  agent: {fileID: 1983473148194278057}
-  treasure: {fileID: 0}
-  isTreasure:
-    serializedVersion: 2
-    m_Bits: 64
-  isPlayer:
-    serializedVersion: 2
-    m_Bits: 128
-  isWall:
-    serializedVersion: 2
-    m_Bits: 512
-  Wall: {fileID: 0}
-  playerRange: 10
-  wallAttackRange: 7
-  attackRange: 7
-  playerInRange: 0
-  playerInAttackRange: 0
-  treasureInAttackRange: 0
-  wallInFront: 0
-  distanceToPlayer: 0
-  distanceToTreasure: 0
-  distanceToWall: 0
-  treasureDes: 0
-  wallDes: 0
-  enemyMoneyValue: 5
-  timeBetweenAttacks: 1
 --- !u!195 &1983473148194278057
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -197,6 +155,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 2
+--- !u!114 &5731647938250306611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983473148194278065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb642d53d1671824fb639d251f56cde9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
+  enemyDmgEffect: {fileID: 5899714678659762444, guid: 6a9fef403a6162d4b816765fa9c3d74b, type: 3}
+  weaponHolder: {fileID: 5297717869134896694, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
+  wc: {fileID: 0}
+  agent: {fileID: 1983473148194278057}
+  isTreasure:
+    serializedVersion: 2
+    m_Bits: 64
+  isPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  isWall:
+    serializedVersion: 2
+    m_Bits: 512
+  Wall: {fileID: 0}
+  playerRange: 10
+  attackRange: 5
+  playerInRange: 0
+  playerInAttackRange: 0
+  treasureInAttackRange: 0
+  wallInFront: 0
+  distanceToPlayer: 0
+  distanceToTreasure: 0
+  distanceToWall: 0
+  treasureDes: 0
+  wallDes: 0
+  enemyMoneyValue: 5
+  timeBetweenAttacks: 1
 --- !u!1 &1983473148886474349
 GameObject:
   m_ObjectHideFlags: 0

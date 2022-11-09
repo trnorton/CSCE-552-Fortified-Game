@@ -3,44 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SouthMeleeAI : MonoBehaviour
+public class MeleeEnemyAI : MonoBehaviour
 {
     public GameObject player;
     public GameObject enemyDmgEffect;
     public GameObject weaponHolder;
     public WeaponController wc;
     public NavMeshAgent agent;
-    public GameObject treasure;
+    private GameObject treasure;
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
     public float playerRange;
     public float attackRange;
-    public float wallAttackRange;
-    public bool playerInRange;
-    public bool playerInAttackRange;
-    public bool treasureInAttackRange;
-    public bool wallInFront;
-    public float distanceToPlayer;
-    public float distanceToTreasure;
-    public float distanceToWall;
-    public bool treasureDes;
-    public bool wallDes;
+    private bool playerInRange;
+    private bool playerInAttackRange;
+    private bool treasureInAttackRange;
+    private bool wallInFront;
+    private float distanceToPlayer;
+    private float distanceToTreasure;
+    private float distanceToWall;
+    private bool treasureDes;
+    private bool wallDes;
 
     public int enemyMoneyValue;
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
+    private bool alreadyAttacked;
+
+    private GameObject[] allTargets;
+    private GameObject[] walls;
+    private GameObject[] defaultTargets;
+    private GameObject target;
+
+    private NavMeshPath path;
 
     void Start()
     {
         treasureDes = false;
         wallDes = false;
+       
     }
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
         weaponHolder = GameObject.FindWithTag("weaponcontrol");
         wc = weaponHolder.GetComponent<WeaponController>();
-        Wall = GameObject.FindWithTag("SouthWall");
+        Wall = getClosestWall();
         treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
     }
@@ -48,8 +55,13 @@ public class SouthMeleeAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Wall = getClosestWall();
+
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+        
+        if(!treasureDes)
         distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
+        
         distanceToWall = Vector3.Distance(Wall.transform.position, this.transform.position);
 
         if(distanceToPlayer <= playerRange) 
@@ -67,16 +79,17 @@ public class SouthMeleeAI : MonoBehaviour
         else
             treasureInAttackRange = false;
         
-        if(distanceToWall <= wallAttackRange && Wall.activeSelf)
+        if(distanceToWall <= attackRange && Wall.activeSelf)
             wallInFront = true;
         else
             wallInFront = false;
 
         if(playerInRange && !playerInAttackRange && !wallInFront) ChasePlayer();
         if(playerInRange && playerInAttackRange && !treasureInAttackRange && !wallInFront) AttackPlayer();
-        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront) ChaseTreasure();
+        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront && !treasureDes) ChaseTreasure();
         if(treasureInAttackRange && !wallInFront) AttackTreasure();
         if(wallInFront) AttackWall();
+        
         
 
     }
@@ -101,6 +114,10 @@ public class SouthMeleeAI : MonoBehaviour
             var treasureHealthComponent = treasure.GetComponent<Health>();
             if(treasureHealthComponent != null)
             {
+                if(treasureHealthComponent.currentHealth == 1)
+                agent.isStopped = false;
+                treasureDes = true;
+
                 treasureHealthComponent.TakeDamage(1);
             }
             if(treasureHealthComponent.currentHealth == 0)
@@ -114,12 +131,12 @@ public class SouthMeleeAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
-    //Atack Wall
+    //Attack Wall
     private void AttackWall()
     {
         agent.isStopped = true;
 
-        //transform.LookAt(Wall.transform);
+        
 
         if(!alreadyAttacked)
         {
@@ -127,14 +144,12 @@ public class SouthMeleeAI : MonoBehaviour
             var wallHealthComponent = Wall.GetComponent<Health>();
             if(wallHealthComponent != null)
             {
+                if(wallHealthComponent.currentHealth == 1)
+                agent.isStopped = false;
+
                 wallHealthComponent.TakeDamage(1);
             }
-            if(wallHealthComponent.currentHealth == 0)
-            {
-                Wall.SetActive(false);
-                wallDes = true;
-                agent.isStopped = false;
-            }
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -191,6 +206,28 @@ public class SouthMeleeAI : MonoBehaviour
             playermoney.AddMoney(enemyMoneyValue);
             Destroy(gameObject);
         }
+    }
+
+    public GameObject getClosestWall()
+    {
+
+        walls = GameObject.FindGameObjectsWithTag("Wall");
+        float closest = 0;
+        for(int i = 0; i < walls.Length; i++)
+        {
+            float dist = Vector3.Distance(walls[i].transform.position, this.transform.position);
+            if(closest == 0)
+            {
+                closest = dist;
+            }
+            else if(dist < closest)
+            {
+                closest = dist;
+                target = walls[i];
+            }
+        }
+        return target;
+
     }
 
 }
