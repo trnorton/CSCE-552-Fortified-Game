@@ -18,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
 
     public float playerHeight;
     public LayerMask ground;
+    public LayerMask Wall;
     bool grounded;
+    bool onWall;
     bool canSprint;
     public Transform orientation;
     float horizontalInput;
@@ -40,12 +42,13 @@ public class PlayerMovement : MonoBehaviour
     {
         //Ground Check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, ground);
+        onWall = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, Wall);
 
         MyInput();
         ControlSpeed();
 
         //Handle the Drag
-        if(grounded) 
+        if(grounded || onWall) 
         {
             rb.drag = groundDrag;
         }
@@ -74,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if(Input.GetKey(sprintKey) && canSprint && grounded)
+        if((Input.GetKey(sprintKey) && canSprint && grounded) || (Input.GetKey(sprintKey) && canSprint && onWall))
         {
             moveSpeed = 16;
         }
@@ -91,11 +94,11 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         //force
-        if(grounded)
+        if(grounded || onWall)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
-        else if(!grounded)
+        else if(!grounded && !onWall)
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }

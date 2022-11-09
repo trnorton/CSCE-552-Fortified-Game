@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class MeleeEnemyAI : MonoBehaviour
 {
     public GameObject player;
-    public GameObject enemyDmgEffect;
+    // public GameObject enemyDmgEffect;
     public GameObject weaponHolder;
     public WeaponController wc;
     public NavMeshAgent agent;
@@ -189,7 +189,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if(other.tag == "Weapon" && wc.isAttacking)
         {
             enemyHealCompoent.TakeDamage(1);
-            Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
             isElim(enemyHealCompoent.currentHealth);
 
         }
@@ -199,7 +199,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     public void isElim(int currHealth)
     {
-        Debug.Log(currHealth);
+        // Debug.Log(currHealth);
         if(currHealth == 0)
         {
             var playermoney = player.GetComponent<Money>();

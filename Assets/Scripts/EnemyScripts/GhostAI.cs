@@ -6,10 +6,11 @@ using UnityEngine.AI;
 public class GhostAI : MonoBehaviour
 {
     public GameObject player;
-    public GameObject enemyDmgEffect;
+    // public GameObject enemyDmgEffect;
     public WeaponController wc;
     public NavMeshAgent agent;
     public GameObject treasure;
+    public GameObject weaponHolder;
     public LayerMask isTreasure, isPlayer;
     public float playerRange;
     public float attackRange;
@@ -19,7 +20,6 @@ public class GhostAI : MonoBehaviour
     public float distanceToPlayer;
     public float distanceToTreasure;
     public bool treasureDes;
-    public bool wallDes;
 
     public int enemyMoneyValue;
     public float timeBetweenAttacks;
@@ -31,6 +31,10 @@ public class GhostAI : MonoBehaviour
     }
     private void Awake()
     {
+        player = GameObject.FindWithTag("Player");
+        weaponHolder = GameObject.FindWithTag("weaponcontrol");
+        wc = weaponHolder.GetComponent<WeaponController>();
+        treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -133,7 +137,7 @@ public class GhostAI : MonoBehaviour
         if(other.tag == "Weapon" && wc.isAttacking)
         {
             enemyHealCompoent.TakeDamage(1);
-            Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
             isElim(enemyHealCompoent.currentHealth);
 
         }
