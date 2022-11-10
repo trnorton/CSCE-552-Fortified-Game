@@ -192,9 +192,8 @@ public class RangedEnemyAI : MonoBehaviour
             isFiring = true;
             GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
-            isFiring = false;
             yield return new WaitForSeconds(fireTimer);
-
+            isFiring = false;
     }
 
     public GameObject getClosestWall()
