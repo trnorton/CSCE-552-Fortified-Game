@@ -9313,7 +9313,7 @@ PrefabInstance:
       objectReference: {fileID: 1781901471}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: fireSpeed
-      value: 1600
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: projectile
