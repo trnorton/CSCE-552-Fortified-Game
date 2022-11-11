@@ -52,8 +52,10 @@ public class WeaponController : MonoBehaviour
     {
         isAttacking = true;
         CanAttack = false;
-        fireSling();
+        Debug.Log("Shit4");
+        StartCoroutine(fireSling());
         StartCoroutine(resetAttackCD());
+        Debug.Log("Shit5");
     }
 
     IEnumerator resetAttackCD()
@@ -71,9 +73,12 @@ public class WeaponController : MonoBehaviour
     }
     IEnumerator fireSling()
     {
+        Debug.Log("Shit1");
         GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
         newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+        Debug.Log("Shit2");
         yield return new WaitForSeconds(AttackCooldown);
+        Debug.Log("Shit3");
     }
 
     void swapWeapons()
