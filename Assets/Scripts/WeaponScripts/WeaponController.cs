@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
-    public GameObject Bat; //add more weapons later
+    public GameObject Prim; //add more weapons later
     public GameObject Secondary;
     private bool isPrimActive = true;
     public bool CanAttack = true;
@@ -29,26 +29,26 @@ public class WeaponController : MonoBehaviour
         {
             if(CanAttack && isPrimActive)
             {
-                BatAttack();
+                PrimAttack();
             }
             else if(CanAttack && !isPrimActive)
             {
-                SlingAttack();
+                SecAttack();
             }
         }
     }
 
-    public void BatAttack()
+    public void PrimAttack()
     {
-        
         isAttacking = true;
         CanAttack = false;
-        Animator anim = Bat.GetComponent<Animator>();
+        Debug.Log(Prim.tag);
+        Animator anim = Prim.GetComponent<Animator>();
         anim.SetTrigger("Attack");
         StartCoroutine(resetAttackCD());
     }
 
-    public void SlingAttack()
+    public void SecAttack()
     {
         isAttacking = true;
         CanAttack = false;
@@ -60,7 +60,7 @@ public class WeaponController : MonoBehaviour
     {
         StartCoroutine(resetAttackBool());
         yield return new WaitForSeconds(AttackCooldown);
-        isAttacking = false; //!
+        isAttacking = false;
         CanAttack = true;
     }
 
@@ -83,13 +83,13 @@ public class WeaponController : MonoBehaviour
             if(isPrimActive)
             {
                 isPrimActive = !isPrimActive;
-                Bat.SetActive(isPrimActive);
+                Prim.SetActive(isPrimActive);
                 Secondary.SetActive(!isPrimActive);
             }
             else if(!isPrimActive)
             {
                 isPrimActive = !isPrimActive;
-                Bat.SetActive(isPrimActive);
+                Prim.SetActive(isPrimActive);
                 Secondary.SetActive(!isPrimActive);
             }
         }

@@ -7,6 +7,7 @@ public class OpenShop : MonoBehaviour
 
     public GameObject shopInterface;
     public GameObject shopIndicator;
+    public GameObject cam;
     public KeyCode openMenuKey = KeyCode.F;
     public KeyCode closeMenuKey = KeyCode.Escape;
 
@@ -18,10 +19,12 @@ public class OpenShop : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(Input.GetKey(closeMenuKey)){
             shopInterface.SetActive(false);
+            Cursor.visible = false;
+            //cam.GetComponent<PlayerCamera>().toggleShop();
         }
     }
 
@@ -32,8 +35,9 @@ void OnTriggerExit(Collider other){
     shopIndicator.SetActive(false);
 }
     void OnTriggerStay(Collider other){
-        //shopIndicator.SetActive(false);
         if(Input.GetKey(openMenuKey)){
+            Cursor.visible = true;
+            //cam.GetComponent<PlayerCamera>().toggleShop();
             shopInterface.SetActive(true);
             shopIndicator.SetActive(false);    
         }
