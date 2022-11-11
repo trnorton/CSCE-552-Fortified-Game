@@ -23,7 +23,8 @@ public class Money : MonoBehaviour
         money += value;
 
     }
-    public void SubMoney(int value){
+    public void SubMoney(int value)
+    {
         money -= value;
     }
     public int MoneyToInt()
