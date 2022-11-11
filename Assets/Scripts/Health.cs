@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
+    public GameObject prefab;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,9 @@ public class Health : MonoBehaviour
 
         if(currentHealth == 0 && this.gameObject.tag == "Wall")
         {
-            this.gameObject.SetActive(false);
+            Instantiate(prefab, this.transform.position, this.transform.rotation);
+            
+            Destroy(this.gameObject);
         }
         else if(currentHealth == 0 && this.gameObject.tag == "Player")
         {

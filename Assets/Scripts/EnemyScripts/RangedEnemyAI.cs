@@ -133,12 +133,11 @@ public class RangedEnemyAI : MonoBehaviour
         transform.LookAt(Wall.transform);
         if(!isFiring)
         {
+            if(wallHealthComponent.currentHealth == 1)
+            {
+                agent.isStopped = false;
+            }
             StartCoroutine(fire());
-        }
-        if(wallHealthComponent.currentHealth == 0)
-        {
-            Wall.SetActive(false);
-            agent.isStopped = false;
         }
     }
     //Attack Player

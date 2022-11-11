@@ -413,6 +413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!65 &32437078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -486,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &41847875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,6 +513,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.21873844, y: 0.01980582, z: 0.023450062}
   m_Center: {x: -0.0013959885, y: 0.00009710292, z: 0.0017202077}
+--- !u!208 &41847879
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41847872}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.109000005, y: 0.010000001, z: 0.012}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.001, y: 0, z: 0.002}
+  m_TimeToStationary: 0.5
 --- !u!1 &70260074
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,6 +634,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -837,6 +859,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -1075,6 +1101,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &222389017
@@ -1127,6 +1157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!65 &222389020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1278,6 +1309,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &253800919 stripped
@@ -1304,6 +1339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &253800922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1477,6 +1513,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &271352659
@@ -1636,6 +1676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!65 &305186213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1825,6 +1866,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &354424314 stripped
@@ -1851,6 +1896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &354424317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1938,6 +1984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!1 &357147118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,6 +2162,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &375307012
@@ -2161,6 +2212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!4 &375307015
 Transform:
   m_ObjectHideFlags: 0
@@ -2229,6 +2281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!65 &381755592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2376,6 +2429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &402406866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2425,6 +2479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &403843717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2888,6 +2943,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &532433578
@@ -3098,6 +3157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 3
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!65 &632912272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3208,6 +3268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &668225334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3510,6 +3571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &737731490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,6 +3677,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &767479778 stripped
@@ -3641,6 +3707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &767479781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3912,6 +3979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &907786503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3968,6 +4036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!65 &910396122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4060,6 +4129,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -4157,6 +4230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &939589423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4324,6 +4398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &994651590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4385,6 +4460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!65 &1070477011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4458,6 +4534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1106003590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4507,6 +4584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1140458049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4556,6 +4634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1166354278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4721,6 +4800,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!4 &1219790847 stripped
@@ -4752,6 +4835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1221519845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4801,6 +4885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1239330014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4900,6 +4985,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -5072,6 +5161,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1001 &1297867678
@@ -5148,6 +5241,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -5548,6 +5645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1421522304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5834,6 +5932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 0}
 --- !u!65 &1460936550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6019,6 +6118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1473276183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6223,6 +6323,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -7095,6 +7199,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &1728586120
@@ -7189,6 +7297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1744116725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7430,6 +7539,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1001 &1866340609
@@ -7663,6 +7776,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!1 &1914754524
@@ -7879,6 +7996,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1943696471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8077,6 +8195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &1947913096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8220,6 +8339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &2000760139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8337,6 +8457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
+  prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
 --- !u!114 &2048198298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8565,6 +8686,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
 --- !u!4 &2135495431 stripped
@@ -8646,6 +8771,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_TagString
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}

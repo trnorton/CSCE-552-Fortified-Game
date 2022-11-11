@@ -35,6 +35,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private GameObject target;
 
     private NavMeshPath path;
+    private float elapsed;
 
     void Start()
     {
@@ -43,18 +44,41 @@ public class MeleeEnemyAI : MonoBehaviour
     }
     private void Awake()
     {
+        elapsed = 0.0f;
         player = GameObject.FindWithTag("Player");
         weaponHolder = GameObject.FindWithTag("weaponcontrol");
         wc = weaponHolder.GetComponent<WeaponController>();
         Wall = getClosestWall();
         treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Wall = getClosestWall();
+
+        //Get Path every second
+        /*elapsed += Time.deltaTime;
+        if (elapsed > 1.0f)
+        {
+            elapsed -= 1.0f;
+            if(NavMesh.CalculatePath(transform.position, treasure.transform.position, NavMesh.AllAreas, path))
+            {
+                //agent.SetPath(path);
+            }
+            
+
+        }
+        //Drawing the nav path
+        for (int i = 0; i < path.corners.Length - 1; i++)
+        {
+            Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+        }
+        */
+
+
 
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
         
