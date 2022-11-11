@@ -209,7 +209,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
-        if(other.tag == "Weapon" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking)
+        if(other.tag == "Bat" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking)
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
@@ -219,26 +219,18 @@ public class MeleeEnemyAI : MonoBehaviour
                 Reset();
             }
         }
-
-        /*
-        if(other.tag == "Projectile")
+        else if(other.tag == "Sword" && wc.isAttacking)
         {
-            Debug.Log("HIT!");
             if(invincibleFrames <= System.DateTime.Now)
             {
-                enemyHealCompoent.TakeDamage(1);
-                // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+                enemyHealCompoent.TakeDamage(1.5f);
                 isElim(enemyHealCompoent.currentHealth);
                 Reset();
             }
         }
-        */
-        
-
-
     }
 
-    public void isElim(int currHealth) 
+    public void isElim(float currHealth) 
     {
         // Debug.Log(currHealth);
         if(currHealth == 0)

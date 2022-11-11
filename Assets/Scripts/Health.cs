@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public GameObject prefab;
 
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
      
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
 
@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-    public int HealthtoInt()
+    public float HealthtoInt()
     {
         return currentHealth;
     }

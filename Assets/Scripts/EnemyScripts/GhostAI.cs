@@ -134,18 +134,24 @@ public class GhostAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
-        if(other.tag == "Weapon" && wc.isAttacking)
+        if(other.tag == "Bat" && wc.isAttacking)
         {
             enemyHealCompoent.TakeDamage(1);
             // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
             isElim(enemyHealCompoent.currentHealth);
 
         }
+        else if(other.tag == "Sword" && wc.isAttacking)
+        {
+            enemyHealCompoent.TakeDamage(1.5f);
+            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+            isElim(enemyHealCompoent.currentHealth);
+        }
 
 
     }
 
-    public void isElim(int currHealth)
+    public void isElim(float currHealth)
     {
         Debug.Log(currHealth);
         if(currHealth == 0)

@@ -16,6 +16,8 @@ TagManager:
   - Treasure
   - destroyedWall
   - PlayerProjectile
+  - Bat
+  - Sword
   layers:
   - Default
   - TransparentFX
