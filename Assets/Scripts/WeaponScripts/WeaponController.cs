@@ -52,7 +52,7 @@ public class WeaponController : MonoBehaviour
     {
         isAttacking = true;
         CanAttack = false;
-        fireSling();
+        StartCoroutine(fireSling());
         StartCoroutine(resetAttackCD());
     }
 
