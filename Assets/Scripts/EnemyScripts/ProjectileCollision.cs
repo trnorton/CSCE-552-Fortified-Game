@@ -28,7 +28,7 @@ public class ProjectileCollision : MonoBehaviour
         }
         if(col.gameObject.tag == "Enemy")
         {
-            projectileDie();
+            //projectileDie();
         }
 
         if(col.gameObject.layer == 8)

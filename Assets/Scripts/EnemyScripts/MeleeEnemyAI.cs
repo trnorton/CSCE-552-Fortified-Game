@@ -209,7 +209,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
-        if(other.tag == "Weapon" && wc.isAttacking)
+        if(other.tag == "Weapon" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking)
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
@@ -220,10 +220,25 @@ public class MeleeEnemyAI : MonoBehaviour
             }
         }
 
+        /*
+        if(other.tag == "Projectile")
+        {
+            Debug.Log("HIT!");
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(1);
+                // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
+        }
+        */
+        
+
 
     }
 
-    public void isElim(int currHealth)
+    public void isElim(int currHealth) 
     {
         // Debug.Log(currHealth);
         if(currHealth == 0)

@@ -15,6 +15,7 @@ TagManager:
   - WestWall
   - Treasure
   - destroyedWall
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
