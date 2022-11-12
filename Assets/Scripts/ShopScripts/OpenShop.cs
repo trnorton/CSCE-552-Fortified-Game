@@ -22,6 +22,7 @@ public class OpenShop : MonoBehaviour
     void FixedUpdate()
     {
         if(Input.GetKey(closeMenuKey)){
+            Cursor.lockState = CursorLockMode.Locked;
             shopInterface.SetActive(false);
             Cursor.visible = false;
             //cam.GetComponent<PlayerCamera>().toggleShop();
@@ -36,6 +37,7 @@ void OnTriggerExit(Collider other){
 }
     void OnTriggerStay(Collider other){
         if(Input.GetKey(openMenuKey)){
+            Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             //cam.GetComponent<PlayerCamera>().toggleShop();
             shopInterface.SetActive(true);

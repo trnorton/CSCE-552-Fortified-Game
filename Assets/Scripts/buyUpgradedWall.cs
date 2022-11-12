@@ -7,7 +7,6 @@ public class buyUpgradedWall : MonoBehaviour
     public GameObject player;
     public GameObject stoneWallPrefab;
     public int StoneWallCost;
-    
     private int money;
     private GameObject[] walls;
     private int wallLevel;
