@@ -28,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2216760057634012109}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 111.75113, y: 2.9, z: -16.3}
   m_LocalScale: {x: 30.01123, y: 33, z: 330}
   m_ConstrainProportionsScale: 0
@@ -101,6 +101,8 @@ MonoBehaviour:
   maxHealth: 10
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 6376767050564704846, guid: ff348e60c7b222747a438f74b2cca2f7, type: 3}
+  destructionLevel: 0
 --- !u!65 &2209242813856712842
 BoxCollider:
   m_ObjectHideFlags: 0
