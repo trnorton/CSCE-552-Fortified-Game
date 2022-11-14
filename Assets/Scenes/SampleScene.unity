@@ -414,6 +414,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!65 &32437078
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -488,6 +490,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  destructionLevel: 0
 --- !u!114 &41847875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.98699
+      value: 51.83
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1158,6 +1162,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!65 &222389020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1340,6 +1346,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &253800922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1812,6 +1820,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!65 &305186213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1917,8 +1927,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335164568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 244.28, y: 2.15, z: 234}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 244.48, y: 2.38, z: 234}
+  m_LocalScale: {x: 1.125, y: 1.125, z: 1.125}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 357113007}
@@ -2032,6 +2042,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &354424317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2120,6 +2132,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!1 &357147118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2362,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!4 &375307015
 Transform:
   m_ObjectHideFlags: 0
@@ -2417,6 +2433,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!65 &381755592
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2565,6 +2583,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &402406866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,6 +2635,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  destructionLevel: 0
 --- !u!114 &403843717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3368,6 +3390,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 3
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!65 &632912272
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3479,6 +3503,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  destructionLevel: 0
 --- !u!114 &668225334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,6 +3808,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &737731490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3918,6 +3946,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &767479781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4190,6 +4220,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &907786503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4247,6 +4279,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!65 &910396122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4278,7 +4312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalScale.x
-      value: 32.08609
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalScale.y
@@ -4290,7 +4324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 57.75
+      value: 58.42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4441,6 +4475,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &939589423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4682,6 +4718,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &994651590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4744,6 +4782,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 919132149155446097, guid: 66887b73f04046c4298edb16816b8734, type: 3}
+  destructionLevel: 0
 --- !u!65 &1070477011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4818,6 +4858,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1106003590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4916,6 +4958,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1140458049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4966,6 +5010,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1166354278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5167,6 +5213,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1221519845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5217,6 +5265,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1239330014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6111,6 +6161,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1421522304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6399,6 +6451,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!65 &1460936550
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6585,6 +6639,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1473276183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6639,7 +6695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b4dec2c0827da43897e6359a54e32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 50
 --- !u!1001 &1529558533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6735,7 +6791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 44.47699
+      value: 45.37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7893,6 +7949,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1744116725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8815,6 +8873,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &1943696471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9014,6 +9074,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  destructionLevel: 0
 --- !u!114 &1947913096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9173,6 +9235,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &2000760139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9291,6 +9355,8 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destructionLevel: 0
 --- !u!114 &2048198298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9543,7 +9609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalScale.x
-      value: 33.087
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalScale.y
@@ -9563,7 +9629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.83
+      value: -5.03
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
       propertyPath: m_LocalRotation.w

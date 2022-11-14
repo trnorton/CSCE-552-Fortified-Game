@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public GameObject prefab;
+    public GameObject damagedprefab;
+    public int destructionLevel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +24,12 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-
-        if(currentHealth == 0 && this.gameObject.tag == "Wall")
+        if(currentHealth <= maxHealth/2 && this.gameObject.tag == "Wall" && destructionLevel == 0)
+        {
+            Instantiate(damagedprefab, this.transform.position, this.transform.rotation);
+            Destroy(this.gameObject);
+        }
+        if(currentHealth == 0 && this.gameObject.tag == "Wall" && destructionLevel == 1)
         {
             Instantiate(prefab, this.transform.position, this.transform.rotation);
             
