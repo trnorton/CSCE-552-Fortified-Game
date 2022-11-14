@@ -55,4 +55,8 @@ public class buyUpgradedWall : MonoBehaviour
             Destroy(walls[i]);
         }
     }
+    public int getWallLevel()
+    {
+        return wallLevel;
+    }
 }
