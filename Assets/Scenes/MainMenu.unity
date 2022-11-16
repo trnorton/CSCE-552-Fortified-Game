@@ -1533,7 +1533,6 @@ GameObject:
   - component: {fileID: 357147119}
   - component: {fileID: 357147122}
   - component: {fileID: 357147121}
-  - component: {fileID: 357147120}
   m_Layer: 9
   m_Name: doorInteract
   m_TagString: Untagged
@@ -1556,22 +1555,6 @@ Transform:
   m_Father: {fileID: 375307015}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0.254, z: 0}
---- !u!114 &357147120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357147118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a64cecf2c6f014fa26f94b210cf72b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 1991025316}
-  doorIndicator: {fileID: 0}
-  openKey: 102
-  defaultRotationAngle: -90
 --- !u!65 &357147121
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2235,7 +2218,6 @@ GameObject:
   - component: {fileID: 532433579}
   - component: {fileID: 532433581}
   - component: {fileID: 532433580}
-  - component: {fileID: 532433582}
   m_Layer: 9
   m_Name: doorInteract
   m_TagString: Untagged
@@ -2279,22 +2261,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532433578}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &532433582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532433578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a64cecf2c6f014fa26f94b210cf72b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 199078631}
-  doorIndicator: {fileID: 0}
-  openKey: 102
-  defaultRotationAngle: 90
 --- !u!1 &606129751
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,7 +5032,6 @@ GameObject:
   - component: {fileID: 1421958639}
   - component: {fileID: 1421958638}
   - component: {fileID: 1421958637}
-  - component: {fileID: 1421958640}
   m_Layer: 0
   m_Name: Shop hitbox
   m_TagString: Untagged
@@ -5152,23 +5117,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421958635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1421958640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1421958635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eda8a970f1c3224b9e384de708cdb19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopInterface: {fileID: 0}
-  shopIndicator: {fileID: 0}
-  cam: {fileID: 0}
-  openMenuKey: 102
-  closeMenuKey: 27
 --- !u!1 &1460936547
 GameObject:
   m_ObjectHideFlags: 0
