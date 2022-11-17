@@ -3156,7 +3156,7 @@ Transform:
   m_Children:
   - {fileID: 709167989}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &399010252
 GameObject:
@@ -4430,7 +4430,7 @@ Transform:
   m_Children:
   - {fileID: 1433535523}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &675434716
 GameObject:
@@ -7349,6 +7349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PauseUI: {fileID: 738318194}
+  WeaponShopHUD: {fileID: 1996895988}
 --- !u!1001 &1410254543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10081,7 +10082,7 @@ Transform:
   m_Children:
   - {fileID: 1114024151}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1821907853
 GameObject:
@@ -12098,6 +12099,10 @@ PrefabInstance:
       propertyPath: Prim
       value: 
       objectReference: {fileID: 570650131}
+    - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
+      propertyPath: PauseUI
+      value: 
+      objectReference: {fileID: 738318194}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: Primary
       value: 

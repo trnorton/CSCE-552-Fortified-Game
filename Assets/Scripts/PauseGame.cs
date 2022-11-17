@@ -7,6 +7,7 @@ public class PauseGame : MonoBehaviour
 {
     //public MusicController MC;
     public GameObject PauseUI;
+    public GameObject WeaponShopHUD;
     private bool paused = false;
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class PauseGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.Escape) && !paused)
+      if (Input.GetKeyDown(KeyCode.Escape) && !paused && !WeaponShopHUD.activeSelf)
       {
           Time.timeScale = 0;
           Cursor.lockState = CursorLockMode.None;

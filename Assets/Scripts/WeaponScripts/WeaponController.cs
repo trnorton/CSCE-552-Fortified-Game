@@ -16,6 +16,8 @@ public class WeaponController : MonoBehaviour
     public Transform firePoint;
     public float fireSpeed;
 
+    public GameObject PauseUI;
+
 
     void Start()
     {
@@ -31,7 +33,7 @@ public class WeaponController : MonoBehaviour
             {
                 PrimAttack();
             }
-            else if(CanAttack && !isPrimActive)
+            else if(CanAttack && !isPrimActive && !PauseUI.activeSelf)
             {
                 SecAttack();
             }
