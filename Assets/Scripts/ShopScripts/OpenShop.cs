@@ -9,7 +9,7 @@ public class OpenShop : MonoBehaviour
     public GameObject shopIndicator;
     public GameObject cam;
     public KeyCode openMenuKey = KeyCode.F;
-    public KeyCode closeMenuKey = KeyCode.Escape;
+    public KeyCode closeMenuKey = KeyCode.F;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ void OnTriggerExit(Collider other){
             Cursor.visible = true;
             //cam.GetComponent<PlayerCamera>().toggleShop();
             shopInterface.SetActive(true);
-            shopIndicator.SetActive(false);    
+            shopIndicator.SetActive(false);
         }
     }
 }
