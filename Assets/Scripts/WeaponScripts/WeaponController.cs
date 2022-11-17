@@ -6,10 +6,17 @@ public class WeaponController : MonoBehaviour
 {
     public GameObject Prim; //add more weapons later
     public GameObject Secondary;
+
+    public GameObject WeaponPlaceholder;
+    public GameObject Bat;
+    public GameObject Sword;
+    public GameObject SlingShot;
+
     private bool isPrimActive = true;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
     public bool isAttacking = false;
+    public bool noSecondary = true;
 
     //For Slingshot
     public GameObject projectile;
@@ -21,6 +28,12 @@ public class WeaponController : MonoBehaviour
 
     void Start()
     {
+        GameObject[] weaponCollenction = new GameObject[]{Bat,Sword,SlingShot};
+        foreach(GameObject g in weaponCollenction){
+            g.SetActive(false);
+        }
+        Prim = Bat;
+        Secondary = WeaponPlaceholder;
         Secondary.SetActive(false);
     }
 
@@ -52,10 +65,12 @@ public class WeaponController : MonoBehaviour
 
     public void SecAttack()
     {
-        isAttacking = true;
-        CanAttack = false;
-        StartCoroutine(fireSling());
-        StartCoroutine(resetAttackCD());
+        if(!noSecondary){
+            isAttacking = true;
+            CanAttack = false;
+            StartCoroutine(fireSling());
+            StartCoroutine(resetAttackCD());
+        }
     }
 
     IEnumerator resetAttackCD()
