@@ -9,6 +9,7 @@ public class ProjectileCollision : MonoBehaviour
     void Start()
     {
         StartCoroutine(Timer());
+        Physics.IgnoreLayerCollision(13,12);
     }
     void OnCollisionEnter(Collision col)
     {

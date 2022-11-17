@@ -209,7 +209,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
-        if(other.tag == "Bat" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking)
+        if(other.tag == "Bat" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking || other.tag == "TurretProjectile")
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
