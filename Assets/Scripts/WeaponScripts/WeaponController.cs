@@ -30,7 +30,6 @@ public class WeaponController : MonoBehaviour
         GameObject Bat = getWeaponByTag("Bat");
         GameObject Hands = getWeaponByTag("PH");
         Bat.SetActive(true);
-        Hands.SetActive(true);
         Prim = Bat;
         Secondary = Hands;
     }

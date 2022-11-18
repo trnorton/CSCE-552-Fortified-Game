@@ -8,10 +8,13 @@ public class Shop : MonoBehaviour
     public GameObject weaponCont;
     WeaponController WeapCont;
     private int money;
+    public AudioSource audio_0;
+    public AudioSource audio_1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -35,8 +38,8 @@ public class Shop : MonoBehaviour
                 WeapCont.upgradePrim("Sword");
                 GameObject newPrim = WeapCont.getPrim();
             }
-            
             playercash.SubMoney(10);
+            audio_0.Play();
         } else {
             Debug.Log("Not enough (get a job)");
         }
@@ -58,6 +61,7 @@ public class Shop : MonoBehaviour
                 GameObject newSec = WeapCont.getSec();
             }
             playercash.SubMoney(10);
+            audio_0.Play();
         } else {
             Debug.Log("Not enough (get a job)");
         }
