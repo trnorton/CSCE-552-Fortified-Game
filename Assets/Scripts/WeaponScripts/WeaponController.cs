@@ -7,11 +7,7 @@ public class WeaponController : MonoBehaviour
     public GameObject Prim; //add more weapons later
     public GameObject Secondary;
 
-    public GameObject WeaponPlaceholder;
-    public GameObject Bat;
-    public GameObject Sword;
-    public GameObject SlingShot;
-
+    public GameObject[] Weapons;
     private bool isPrimActive = true;
     public bool CanAttack = true;
     public float AttackCooldown = 1.0f;
@@ -28,13 +24,15 @@ public class WeaponController : MonoBehaviour
 
     void Start()
     {
-        GameObject[] weaponCollenction = new GameObject[]{Bat,Sword,SlingShot};
-        foreach(GameObject g in weaponCollenction){
+        foreach(GameObject g in Weapons){
             g.SetActive(false);
         }
+        GameObject Bat = getWeaponByTag("Bat");
+        GameObject Hands = getWeaponByTag("PH");
+        Bat.SetActive(true);
+        Hands.SetActive(true);
         Prim = Bat;
-        Secondary = WeaponPlaceholder;
-        Secondary.SetActive(false);
+        Secondary = Hands;
     }
 
     void Update()
@@ -65,7 +63,7 @@ public class WeaponController : MonoBehaviour
 
     public void SecAttack()
     {
-        if(!noSecondary){
+        if(Secondary.tag == "Slingshot"){
             isAttacking = true;
             CanAttack = false;
             StartCoroutine(fireSling());
@@ -110,5 +108,29 @@ public class WeaponController : MonoBehaviour
                 Secondary.SetActive(!isPrimActive);
             }
         }
+    }
+
+    public GameObject getWeaponByTag(string str){
+        foreach(GameObject g in Weapons){
+            if(g.tag == str){
+                return g;
+            }
+        }
+        return null;
+    }
+
+    public GameObject getPrim(){
+        return Prim;
+    }
+    public GameObject getSec(){
+        return Secondary;
+    }
+
+    public void upgradePrim(string taggy){
+        Prim = getWeaponByTag(taggy);
+    }
+
+    public void upgradeSec(string taggy){
+        Secondary =  getWeaponByTag(taggy);
     }
 }

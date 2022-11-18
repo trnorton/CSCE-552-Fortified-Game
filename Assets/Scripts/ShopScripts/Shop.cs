@@ -6,6 +6,7 @@ public class Shop : MonoBehaviour
 {
     public GameObject player;
     public GameObject weaponCont;
+    WeaponController WeapCont;
     private int money;
     // Start is called before the first frame update
     void Start()
@@ -19,23 +20,46 @@ public class Shop : MonoBehaviour
         
     }
 
-    public void buySlingShoy(){
+    public void buySword(){
+        WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
         if(money >= 10){
-            //todo
+            GameObject currPrim = WeapCont.getPrim();
+            if(currPrim.activeSelf == true){
+                currPrim.SetActive(false);
+                WeapCont.upgradePrim("Sword");
+                GameObject newPrim = WeapCont.getPrim();
+                newPrim.SetActive(true);
+            } else {
+                WeapCont.upgradePrim("Sword");
+                GameObject newPrim = WeapCont.getPrim();
+            }
+            
+            playercash.SubMoney(10);
         } else {
-            Debug.Log("kick rocks you broke ass hoe");
+            Debug.Log("Not enough (get a job)");
         }
     }
 
-    public void buySword(){
+        public void buySlingShot(){
+        WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
         if(money >= 10){
-            //todo
+            GameObject currSec = WeapCont.getSec();
+            if(currSec.activeSelf == true){
+                currSec.SetActive(false);
+                WeapCont.upgradeSec("Slingshot");
+                GameObject newSec = WeapCont.getSec();
+                newSec.SetActive(true);
+            } else {
+                WeapCont.upgradeSec("Slingshot");
+                GameObject newSec = WeapCont.getSec();
+            }
+            playercash.SubMoney(10);
         } else {
-            Debug.Log("kick rocks you broke ass hoe");
+            Debug.Log("Not enough (get a job)");
         }
     }
 }
