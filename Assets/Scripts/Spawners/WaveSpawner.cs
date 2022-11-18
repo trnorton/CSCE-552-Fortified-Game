@@ -7,20 +7,33 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform[] spawnObjectMeleeRanged;
     public Transform spawnObjectGhost;
+    public bool inRound;
     public int spawnTotal = 3;
     public float timeBetweenSpawns;
     private int roundNumber = 1;
+    public GameObject roundIndicator;
 
     void Start()
     {
-
+        //inRound = false;
+        roundIndicator.SetActive(true);
     }
 
     void Update()
     {
         GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if(enemiesLeft.Length <= 0){
+            //inRound = false;
+            roundIndicator.SetActive(true);
+        } else {
+            //roundIndicator.SetActive(false);
+            //inRound = true;
+        }
+
         Debug.Log("ROUND: " + roundNumber);
         Debug.Log("REM ENEMIES: " + enemiesLeft.Length);
+        Debug.Log("In Round: " + inRound);
         // Debug.Log(spawnObject.name);
         if((enemiesLeft.Length) == 0 && roundNumber != 3 && roundNumber != 5)
         {
@@ -79,5 +92,9 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         roundNumber++;
+    }
+
+    public bool isPlaying(){
+        return inRound;
     }
 }

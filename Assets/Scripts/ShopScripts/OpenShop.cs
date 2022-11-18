@@ -14,8 +14,10 @@ public class OpenShop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         shopInterface.SetActive(false);
         shopIndicator.SetActive(false);
+        
     }
 
     // Update is called once per frame
