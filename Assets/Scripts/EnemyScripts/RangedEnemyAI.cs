@@ -171,11 +171,11 @@ public class RangedEnemyAI : MonoBehaviour
             }
 
         }
-        else if(other.tag == "Sword" && wc.isAttacking)
+        if(other.tag == "Sword" && wc.isAttacking)
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
-                enemyHealCompoent.TakeDamage(1.5f);
+                enemyHealCompoent.TakeDamage(2);
                 isElim(enemyHealCompoent.currentHealth);
                 Reset();
             }

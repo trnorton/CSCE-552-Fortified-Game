@@ -27,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
             //inRound = false;
             roundIndicator.SetActive(true);
         } else {
-            //roundIndicator.SetActive(false);
+            roundIndicator.SetActive(false);
             //inRound = true;
         }
 
