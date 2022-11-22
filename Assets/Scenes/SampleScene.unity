@@ -920,7 +920,6 @@ GameObject:
   - component: {fileID: 104227346}
   - component: {fileID: 104227345}
   - component: {fileID: 104227348}
-  - component: {fileID: 104227349}
   m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
@@ -1022,26 +1021,6 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: a80d69c89fd533e4f9d900f68b58f67e, type: 2}
---- !u!95 &104227349
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 104227344}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb00d2c774ca2c94b86e04d088052bdc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &150970838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,7 +1045,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150970838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 82.2, y: 1.76, z: -126}
+  m_LocalPosition: {x: 82.2, y: 1, z: -126}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4342,7 +4321,7 @@ MonoBehaviour:
   - {fileID: 286321925}
   - {fileID: 359187870}
   spawnObjectMeleeRanged:
-  - {fileID: 3127506978096138201, guid: 2999aa85f552ac045ab14666c33b41b1, type: 3}
+  - {fileID: 1983473148194278066, guid: 11fd23fff4b3db5499d2e7b4ae99aaec, type: 3}
   - {fileID: 3891055585774575596, guid: 015f9ee0966e5174485b2c34aefb8fb8, type: 3}
   spawnObjectGhost: {fileID: 7094795369701766934, guid: 2b8d6c0208d2b774eb7ae46034963371, type: 3}
   inRound: 0
@@ -10853,11 +10832,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
   m_RootOrder: 11
-=======
-  m_RootOrder: 8
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897123012
 GameObject:
@@ -11928,11 +11903,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
   m_RootOrder: 9
-=======
-  m_RootOrder: 5
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030999713
 GameObject:
@@ -12517,7 +12488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2466471945982101797, guid: 22bc23396c4b81248a989eedf7a2c0a5, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2466471945982101797, guid: 22bc23396c4b81248a989eedf7a2c0a5, type: 3}
       propertyPath: m_AnchorMax.x
