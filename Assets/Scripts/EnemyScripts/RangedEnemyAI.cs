@@ -32,6 +32,7 @@ public class RangedEnemyAI : MonoBehaviour
     public float fireSpeed;
     public float fireTimer;
     public bool isFiring;
+    private Animator ObjectAnimator;
 
     private GameObject[] allTargets;
     private GameObject[] walls;
@@ -48,6 +49,7 @@ public class RangedEnemyAI : MonoBehaviour
         treasureDes = false;
         wallDes = false;
         isFiring = false;
+        //ObjectAnimator = this.GetComponent<Animator>();
     }
     private void Awake()
     {
@@ -62,6 +64,7 @@ public class RangedEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        firePoint = this.transform;
         Wall = getClosestWall();
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
 
@@ -101,6 +104,7 @@ public class RangedEnemyAI : MonoBehaviour
     //Enemy goes after treasure
     private void ChaseTreasure()
     {
+        //ObjectAnimator.SetBool("IsAttacking", false);
         agent.isStopped = false;
         agent.SetDestination(treasure.transform.position);
     }
@@ -114,6 +118,7 @@ public class RangedEnemyAI : MonoBehaviour
     {
         var treasureHealthComponent = treasure.GetComponent<Health>();
         agent.isStopped = true;
+        //ObjectAnimator.SetBool("IsAttacking", true);
         transform.LookAt(treasure.transform);
         if(!isFiring)
         {
@@ -121,6 +126,7 @@ public class RangedEnemyAI : MonoBehaviour
         }
         if(treasureHealthComponent.currentHealth == 0)
         {
+            //ObjectAnimator.SetBool("IsAttacking", false);
             treasure.SetActive(false);
             agent.isStopped = false;
         }
@@ -130,11 +136,13 @@ public class RangedEnemyAI : MonoBehaviour
     {
         var wallHealthComponent = Wall.GetComponent<Health>();
         agent.isStopped = true;
+        //ObjectAnimator.SetBool("IsAttacking", true);
         transform.LookAt(Wall.transform);
         if(!isFiring)
         {
             if(wallHealthComponent.currentHealth == 1)
             {
+                //ObjectAnimator.SetBool("IsAttacking", false);
                 agent.isStopped = false;
             }
             StartCoroutine(fire());
@@ -145,6 +153,7 @@ public class RangedEnemyAI : MonoBehaviour
     {
         var playerHealthComponent = player.GetComponent<Health>();
         agent.isStopped = true;
+        //ObjectAnimator.SetBool("IsAttacking", true);
         transform.LookAt(player.transform);
         if(!isFiring)
         {
@@ -152,6 +161,7 @@ public class RangedEnemyAI : MonoBehaviour
         }
         if(playerHealthComponent.currentHealth == 0)
         {
+            //ObjectAnimator.SetBool("IsAttacking", false);
             player.SetActive(false);
             agent.isStopped = false;
         }
