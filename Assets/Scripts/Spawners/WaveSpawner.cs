@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -65,9 +66,10 @@ public class WaveSpawner : MonoBehaviour
         {
             //Load Some Mid-round UI here
             StopCoroutine(SpawnGameObjectMelee());
+            SceneManager.LoadScene("WinScene");
         }
         //Boss round would come after this
-       
+
     }
     IEnumerator SpawnGameObjectMelee()
     {
