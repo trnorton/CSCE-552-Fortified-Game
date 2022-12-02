@@ -41,7 +41,7 @@ public class MeleeEnemyAI : MonoBehaviour
     void Start()
     {
         treasureDes = false;
-        //ObjectAnimator = this.GetComponent<Animator>();
+        ObjectAnimator = this.GetComponent<Animator>();
        
     }
     private void Awake()
@@ -122,7 +122,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private void ChaseTreasure()
     {
         agent.isStopped = false;
-        //ObjectAnimator.SetBool("IsAttacking", false);
+        ObjectAnimator.SetBool("IsAttacking", false);
         agent.SetDestination(treasure.transform.position);
     }
     //Enemy goes after player
@@ -137,7 +137,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if(!alreadyAttacked)
         {
             //Animation would go here
-            //ObjectAnimator.SetBool("IsAttacking", true);
+            ObjectAnimator.SetBool("IsAttacking", true);
 
             var treasureHealthComponent = treasure.GetComponent<Health>();
             if(treasureHealthComponent != null)
@@ -146,7 +146,7 @@ public class MeleeEnemyAI : MonoBehaviour
                 {
                     agent.isStopped = false;
                     treasureDes = true;
-                    //ObjectAnimator.SetBool("IsAttacking", false);
+                    ObjectAnimator.SetBool("IsAttacking", false);
                 }
 
                 treasureHealthComponent.TakeDamage(1);
@@ -172,7 +172,7 @@ public class MeleeEnemyAI : MonoBehaviour
         if(!alreadyAttacked)
         {
             //Animation would go here
-            //ObjectAnimator.SetBool("IsAttacking", true);
+            ObjectAnimator.SetBool("IsAttacking", true);
 
             var wallHealthComponent = Wall.GetComponent<Health>();
             if(wallHealthComponent != null)
@@ -180,7 +180,7 @@ public class MeleeEnemyAI : MonoBehaviour
                 if(wallHealthComponent.currentHealth == 1)
                 {
                     agent.isStopped = false;
-                    //ObjectAnimator.SetBool("IsAttacking", false);
+                    ObjectAnimator.SetBool("IsAttacking", false);
                 }
 
                 wallHealthComponent.TakeDamage(1);
@@ -194,12 +194,14 @@ public class MeleeEnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         agent.isStopped = true;
-        transform.LookAt(player.transform);
+        Vector3 lookPos = player.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
 
         if(!alreadyAttacked)
         {
             //Animation would go here
-            //ObjectAnimator.SetBool("IsAttacking", true);
+            ObjectAnimator.SetBool("IsAttacking", true);
 
 
             var playerHealthComponent = player.GetComponent<Health>();
