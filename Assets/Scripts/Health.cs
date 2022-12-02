@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-     
+
     }
 
     public void TakeDamage(float amount)
@@ -32,16 +33,18 @@ public class Health : MonoBehaviour
         if(currentHealth == 0 && this.gameObject.tag == "Wall" && destructionLevel == 1)
         {
             Instantiate(prefab, this.transform.position, this.transform.rotation);
-            
+
             Destroy(this.gameObject);
         }
         else if(currentHealth == 0 && this.gameObject.tag == "Player")
         {
             Debug.Log("You lose!!");
+            SceneManager.LoadScene("GameOverScene");
         }
         else if(currentHealth == 0 && this.gameObject.tag == "Treasure")
         {
             this.gameObject.SetActive(false);
+            SceneManager.LoadScene("GameOverScene");
         }
     }
     public float HealthtoInt()
