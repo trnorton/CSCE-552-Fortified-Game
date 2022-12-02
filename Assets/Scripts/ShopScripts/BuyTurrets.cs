@@ -8,22 +8,23 @@ public class BuyTurrets : MonoBehaviour
     public int turretCost;
     private int money;
     private GameObject[] turrets;
+    public GameObject turretManager;
 
     void Start()
     {
-        turrets = GameObject.FindGameObjectsWithTag("Turret");
-        disableTurrets();
+        turretManager = GameObject.FindWithTag("TurretManager");
         player = GameObject.FindWithTag("Player");
     }
     public void onButtonPress()
     {
+        var manager = turretManager.GetComponent<TurretHandler>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
 
         if(money >= turretCost)
         {
             playercash.SubMoney(turretCost);
-            deployTurrets();
+            manager.deployTurrets();
         }
         else
         {
@@ -31,19 +32,4 @@ public class BuyTurrets : MonoBehaviour
         }
     }
 
-    void deployTurrets()
-    {
-        foreach(GameObject t in turrets)
-        {
-            t.SetActive(true);
-        }
-    }
-
-    void disableTurrets()
-    {
-        foreach(GameObject t in turrets)
-        {
-            t.SetActive(false);
-        }
-    }
 }

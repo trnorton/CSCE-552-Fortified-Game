@@ -194,7 +194,9 @@ public class MeleeEnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         agent.isStopped = true;
-        transform.LookAt(player.transform);
+        Vector3 lookPos = player.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
 
         if(!alreadyAttacked)
         {

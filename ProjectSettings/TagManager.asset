@@ -22,6 +22,7 @@ TagManager:
   - Turret
   - PH
   - Slingshot
+  - TurretManager
   layers:
   - Default
   - TransparentFX

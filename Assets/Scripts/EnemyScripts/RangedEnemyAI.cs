@@ -137,7 +137,9 @@ public class RangedEnemyAI : MonoBehaviour
         var wallHealthComponent = Wall.GetComponent<Health>();
         agent.isStopped = true;
         ObjectAnimator.SetBool("IsAttacking", true);
-        transform.LookAt(Wall.transform);
+        Vector3 lookPos = Wall.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
         if(!isFiring)
         {
             if(wallHealthComponent.currentHealth == 1)
@@ -154,7 +156,9 @@ public class RangedEnemyAI : MonoBehaviour
         var playerHealthComponent = player.GetComponent<Health>();
         agent.isStopped = true;
         ObjectAnimator.SetBool("IsAttacking", true);
-        transform.LookAt(player.transform);
+        Vector3 lookPos = player.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
         if(!isFiring)
         {
             StartCoroutine(fire());
