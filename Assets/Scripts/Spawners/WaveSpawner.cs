@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenSpawns;
     private int roundNumber = 1;
     public GameObject roundIndicator;
+    public TextMeshProUGUI roundText;
 
     void Start()
     {
@@ -42,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
             if(Input.GetKey(KeyCode.Tab))
             {
                 StartCoroutine(SpawnGameObjectMelee());
+                roundText.text = "Round " + roundNumber;
             }
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 3)
@@ -51,6 +54,7 @@ public class WaveSpawner : MonoBehaviour
             if(Input.GetKey(KeyCode.Tab))
             {
                 StartCoroutine(SpawnGameObjectGhost());
+                roundText.text = "Round " + roundNumber;
             }
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 4)
@@ -60,6 +64,7 @@ public class WaveSpawner : MonoBehaviour
             if(Input.GetKey(KeyCode.Tab))
             {
                 StartCoroutine(SpawnGameObjectGhost());
+                roundText.text = "Round " + roundNumber;
             }
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 5)
