@@ -51,5 +51,13 @@ public class Health : MonoBehaviour
     {
         return currentHealth;
     }
+    public float MaxHealthtoInt()
+    {
+      return maxHealth;
+    }
+    public void HealToMax()
+    {
+      currentHealth = maxHealth;
+    }
 
 }
