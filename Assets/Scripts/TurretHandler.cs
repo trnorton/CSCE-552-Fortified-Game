@@ -28,4 +28,14 @@ public class TurretHandler : MonoBehaviour
             t.SetActive(true);
         }
     }
+
+    public bool isTurretsActive(){
+      foreach(GameObject t in turrets)
+      {
+          if(t.activeSelf == false){
+            return false;
+          }
+      }
+      return true;
+    }
 }

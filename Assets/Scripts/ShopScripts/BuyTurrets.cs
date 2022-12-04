@@ -21,7 +21,7 @@ public class BuyTurrets : MonoBehaviour
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
 
-        if(money >= turretCost)
+        if(money >= turretCost && manager.isTurretsActive() == false)
         {
             playercash.SubMoney(turretCost);
             manager.deployTurrets();
