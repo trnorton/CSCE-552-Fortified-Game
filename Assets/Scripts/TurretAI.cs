@@ -53,6 +53,7 @@ public class TurretAI : MonoBehaviour
             Vector3 lookPos = target.transform.position;
             lookPos.y = transform.position.y;
             transform.LookAt(lookPos);
+            transform.localRotation *= Quaternion.Euler(0, 180, 0);
 
             if(!isFiring)
             {
@@ -86,7 +87,7 @@ public class TurretAI : MonoBehaviour
     {
         isFiring = true;
         GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+        newProjectile.GetComponent<Rigidbody>().AddForce((newProjectile.transform.forward *-1) * fireSpeed);
         yield return new WaitForSeconds(fireTimer);
         isFiring = false;
     }
