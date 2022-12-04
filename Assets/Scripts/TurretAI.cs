@@ -34,7 +34,7 @@ public class TurretAI : MonoBehaviour
         areEnemies = GameObject.FindGameObjectsWithTag("Enemy");
         if(areEnemies.Length != 0)
         {
-            Debug.Log("POS: " + this.transform.position);
+            // Debug.Log("POS: " + this.transform.position);
             target = getClosestEnemy();
             if(target != null)
             {
@@ -50,7 +50,10 @@ public class TurretAI : MonoBehaviour
     {
         if(target != null)
         {
-            transform.LookAt(target.transform);
+            Vector3 lookPos = target.transform.position;
+            lookPos.y = transform.position.y;
+            transform.LookAt(lookPos);
+
             if(!isFiring)
             {
                 StartCoroutine(fire());

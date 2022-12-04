@@ -20,6 +20,7 @@ public class GhostAI : MonoBehaviour
     public float distanceToPlayer;
     public float distanceToTreasure;
     public bool treasureDes;
+    System.DateTime invincibleFrames = System.DateTime.Now;
 
     public int enemyMoneyValue;
     public float timeBetweenAttacks;
@@ -134,18 +135,24 @@ public class GhostAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
-        if(other.tag == "Bat" && wc.isAttacking)
+        if(other.tag == "Bat" && wc.isAttacking || other.tag == "PlayerProjectile" && wc.isAttacking || other.tag == "TurretProjectile")
         {
-            enemyHealCompoent.TakeDamage(1);
-            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
-            isElim(enemyHealCompoent.currentHealth);
-
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(1);
+                // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
         }
-        else if(other.tag == "Sword" && wc.isAttacking)
+        if(other.tag == "Sword" && wc.isAttacking)
         {
-            enemyHealCompoent.TakeDamage(1.5f);
-            // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
-            isElim(enemyHealCompoent.currentHealth);
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(2);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
         }
 
 
@@ -160,6 +167,11 @@ public class GhostAI : MonoBehaviour
             playermoney.AddMoney(enemyMoneyValue);
             Destroy(gameObject);
         }
+    }
+
+    void Reset()
+    {
+        invincibleFrames = System.DateTime.Now.AddSeconds(1);
     }
 
 }

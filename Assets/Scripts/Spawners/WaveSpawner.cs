@@ -50,7 +50,7 @@ public class WaveSpawner : MonoBehaviour
         if((enemiesLeft.Length) == 0 && roundNumber == 3)
         {
             //Load Some Mid-round UI here
-            StopCoroutine(SpawnGameObjectMelee());
+            // StopCoroutine(SpawnGameObjectMelee());
             if(Input.GetKey(KeyCode.Tab))
             {
                 StartCoroutine(SpawnGameObjectGhost());
@@ -60,17 +60,17 @@ public class WaveSpawner : MonoBehaviour
         if((enemiesLeft.Length) == 0 && roundNumber == 4)
         {
             //Load Some Mid-round UI here
-            StopCoroutine(SpawnGameObjectGhost());
+            // StopCoroutine(SpawnGameObjectGhost());
             if(Input.GetKey(KeyCode.Tab))
             {
-                StartCoroutine(SpawnGameObjectGhost());
+                StartCoroutine(SpawnGameObjectMelee());
                 roundText.text = "Round " + roundNumber;
             }
         }
-        if((enemiesLeft.Length) == 0 && roundNumber == 5)
+        if((enemiesLeft.Length) == 0 && roundNumber > 4)
         {
             //Load Some Mid-round UI here
-            StopCoroutine(SpawnGameObjectMelee());
+            // StopCoroutine(SpawnGameObjectMelee());
             SceneManager.LoadScene("WinScene");
         }
         //Boss round would come after this

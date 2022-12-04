@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemyDmgEffect: {fileID: 5899714678659762444, guid: 6a9fef403a6162d4b816765fa9c3d74b, type: 3}
   wc: {fileID: 0}
   agent: {fileID: 7349733519298760955}
   treasure: {fileID: 0}
+  weaponHolder: {fileID: 0}
   isTreasure:
     serializedVersion: 2
     m_Bits: 0
@@ -171,8 +171,7 @@ MonoBehaviour:
   distanceToPlayer: 0
   distanceToTreasure: 0
   treasureDes: 0
-  wallDes: 0
-  enemyMoneyValue: 0
+  enemyMoneyValue: 5
   timeBetweenAttacks: 1
 --- !u!114 &7349733519298760932
 MonoBehaviour:
@@ -188,6 +187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 1
   currentHealth: 0
+  prefab: {fileID: 0}
+  damagedprefab: {fileID: 0}
+  destructionLevel: 0
 --- !u!1 &7583523424641265068
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +201,7 @@ GameObject:
   - component: {fileID: 7094795369701766934}
   m_Layer: 10
   m_Name: ghost
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
