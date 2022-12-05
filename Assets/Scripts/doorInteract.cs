@@ -26,7 +26,26 @@ public class doorInteract : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(doorIndicator.activeInHierarchy == true)
+        {
+            if(Input.GetKeyDown(openKey))
+            {
+            
+                if(isOpen == false && Time.time > doorActionRate)
+                {
+                    door.transform.Rotate(0, door.transform.localRotation.y + defaultRotationAngle, 0);
+                    isOpen = true;
+                    doorActionRate = Time.time + doorActionTime;
+                }   
+                else if(isOpen == true && Time.time > doorActionRate)
+                {
+                    door.transform.Rotate(0, -defaultRotationAngle, 0);
+                    isOpen = false;
+                    doorActionRate = Time.time + doorActionTime;
+                
+                }
+            }
+        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -38,22 +57,6 @@ public class doorInteract : MonoBehaviour
     }
     void OnTriggerStay(Collider other)
     {
-        if(Input.GetKeyDown(openKey))
-        {
-            
-            if(isOpen == false && Time.time > doorActionRate)
-            {
-                door.transform.Rotate(0, door.transform.localRotation.y + defaultRotationAngle, 0);
-                isOpen = true;
-                doorActionRate = Time.time + doorActionTime;
-            }
-            else if(isOpen == true && Time.time > doorActionRate)
-            {
-                door.transform.Rotate(0, -defaultRotationAngle, 0);
-                isOpen = false;
-                doorActionRate = Time.time + doorActionTime;
-                
-            }
-        }
+        
     }
 }
