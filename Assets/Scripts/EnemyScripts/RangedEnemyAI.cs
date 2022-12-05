@@ -41,7 +41,7 @@ public class RangedEnemyAI : MonoBehaviour
 
     private NavMeshPath path;
 
-    public float timeBetweenAttacks;
+    
     bool alreadyAttacked;
 
     void Start()
@@ -120,8 +120,10 @@ public class RangedEnemyAI : MonoBehaviour
         agent.isStopped = true;
         ObjectAnimator.SetBool("IsAttacking", true);
         transform.LookAt(treasure.transform);
+        firePoint.LookAt(treasure.transform);
         if(!isFiring)
         {
+            
             StartCoroutine(fire());
         }
         if(treasureHealthComponent.currentHealth == 0)
@@ -140,6 +142,7 @@ public class RangedEnemyAI : MonoBehaviour
         Vector3 lookPos = Wall.transform.position;
         lookPos.y = transform.position.y;
         transform.LookAt(lookPos);
+        firePoint.LookAt(Wall.transform);
         if(!isFiring)
         {
             if(wallHealthComponent.currentHealth == 1)
@@ -148,6 +151,7 @@ public class RangedEnemyAI : MonoBehaviour
                 agent.isStopped = false;
                 wallDes = true;
             }
+            
             StartCoroutine(fire());
         }
     }
@@ -159,9 +163,11 @@ public class RangedEnemyAI : MonoBehaviour
         ObjectAnimator.SetBool("IsAttacking", true);
         Vector3 lookPos = player.transform.position;
         lookPos.y = transform.position.y;
+        firePoint.LookAt(player.transform);
         transform.LookAt(lookPos);
         if(!isFiring)
         {
+            
             StartCoroutine(fire());
         }
         if(playerHealthComponent.currentHealth == 0)
@@ -211,9 +217,11 @@ public class RangedEnemyAI : MonoBehaviour
     IEnumerator fire()
     {
             isFiring = true;
+            yield return new WaitForSeconds(fireTimer);
             GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
-            yield return new WaitForSeconds(fireTimer);
+            //Trying to match my animation to the shooting of projectile
+            yield return new WaitForSeconds(0.25f);
             isFiring = false;
     }
 
