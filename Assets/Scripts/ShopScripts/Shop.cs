@@ -20,14 +20,14 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void buySword(){
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10){
+        if(money >= 10 && WeapCont.getWeaponByTag("Sword") != WeapCont.getPrim()){
             GameObject currPrim = WeapCont.getPrim();
             if(currPrim.activeSelf == true){
                 currPrim.SetActive(false);
@@ -49,7 +49,7 @@ public class Shop : MonoBehaviour
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10){
+        if(money >= 10 && WeapCont.getWeaponByTag("Slingshot") != WeapCont.getSec()){
             GameObject currSec = WeapCont.getSec();
             if(currSec.activeSelf == true){
                 currSec.SetActive(false);
