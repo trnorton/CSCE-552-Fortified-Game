@@ -5,7 +5,7 @@ using UnityEngine;
 public class ProjectileCollision : MonoBehaviour
 {
     public float deathTimer;
-
+    
     void Start()
     {
         StartCoroutine(Timer());
@@ -13,18 +13,21 @@ public class ProjectileCollision : MonoBehaviour
     }
     void OnCollisionEnter(Collision col)
     {
- 
+        var HealthComponent = col.gameObject.GetComponent<Health>();
         if(col.gameObject.tag == "Wall")
         {
+            HealthComponent.TakeDamage(1);
             projectileDie();
         }
         if(col.gameObject.tag == "Player")
         {
+            HealthComponent.TakeDamage(1);
             projectileDie();
         }
 
         if(col.gameObject.tag == "Treasure")
         {
+            HealthComponent.TakeDamage(1);
             projectileDie();
         }
         if(col.gameObject.tag == "Enemy")

@@ -146,6 +146,7 @@ public class RangedEnemyAI : MonoBehaviour
             {
                 ObjectAnimator.SetBool("IsAttacking", false);
                 agent.isStopped = false;
+                wallDes = true;
             }
             StartCoroutine(fire());
         }
