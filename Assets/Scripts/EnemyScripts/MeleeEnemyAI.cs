@@ -37,6 +37,7 @@ public class MeleeEnemyAI : MonoBehaviour
 
     private NavMeshPath path;
     private float elapsed;
+    public AudioSource meleeSound;
 
     void Start()
     {
@@ -138,7 +139,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             //Animation would go here
             ObjectAnimator.SetBool("IsAttacking", true);
-
+            meleeSound.Play();
             var treasureHealthComponent = treasure.GetComponent<Health>();
             if(treasureHealthComponent != null)
             {
