@@ -208,13 +208,10 @@ public class MeleeEnemyAI : MonoBehaviour
             var playerHealthComponent = player.GetComponent<Health>();
             if(playerHealthComponent != null)
             {
+                if(distanceToPlayer <= attackRange)
                 playerHealthComponent.TakeDamage(1);
             }
-            if(playerHealthComponent.currentHealth == 0)
-            {
-                player.SetActive(false);
-                agent.isStopped = false;
-            }
+        
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }

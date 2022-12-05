@@ -486,7 +486,7 @@ RectTransform:
   m_Children:
   - {fileID: 738318195}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6376,7 +6376,7 @@ MonoBehaviour:
   maxHealth: 3
   currentHealth: 0
   prefab: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
-  damagedprefab: {fileID: 919132149155446097, guid: 66887b73f04046c4298edb16816b8734, type: 3}
+  damagedprefab: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
   destructionLevel: 0
 --- !u!65 &1070477011
 BoxCollider:
@@ -13367,7 +13367,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3921359675903797424, guid: f5435e0eaf12f43258d4d639926d61fc, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3921359675903797424, guid: f5435e0eaf12f43258d4d639926d61fc, type: 3}
       propertyPath: m_LocalPosition.x
