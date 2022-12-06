@@ -9,6 +9,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform[] spawnObjectMeleeRanged;
     public Transform spawnObjectGhost;
+    public Transform spawnObjectBoss;
     public bool inRound;
     public int spawnTotal = 3;
     public float timeBetweenSpawns;
@@ -67,7 +68,17 @@ public class WaveSpawner : MonoBehaviour
                 roundText.text = "Round " + roundNumber;
             }
         }
-        if((enemiesLeft.Length) == 0 && roundNumber > 4)
+        if((enemiesLeft.Length) == 0 && roundNumber == 5)
+        {
+            //Load Some Mid-round UI here
+            // StopCoroutine(SpawnGameObjectGhost());
+            if(Input.GetKey(KeyCode.Tab))
+            {
+                StartCoroutine(SpawnGameObjectBoss());
+                roundText.text = "Round " + roundNumber;
+            }
+        }
+        if((enemiesLeft.Length) == 0 && roundNumber > 5)
         {
             //Load Some Mid-round UI here
             // StopCoroutine(SpawnGameObjectMelee());
@@ -96,6 +107,21 @@ public class WaveSpawner : MonoBehaviour
         {
             Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Instantiate(spawnObjectGhost, randomSpawn.position, randomSpawn.rotation);
+            yield return new WaitForSeconds(timeBetweenSpawns);
+        }
+        roundNumber++;
+    }
+
+    IEnumerator SpawnGameObjectBoss()
+    {
+        Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(spawnObjectBoss, randomSpawn.position, randomSpawn.rotation);
+        spawnTotal = spawnTotal + (roundNumber*2);
+        for(var i = 0; i < spawnTotal; i++)
+        {
+            randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Transform randomEnemy = spawnObjectMeleeRanged[Random.Range(0, spawnObjectMeleeRanged.Length)];
+            Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         roundNumber++;
