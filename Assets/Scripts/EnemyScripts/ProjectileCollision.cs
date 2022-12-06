@@ -16,7 +16,7 @@ public class ProjectileCollision : MonoBehaviour
         var HealthComponent = col.gameObject.GetComponent<Health>();
         if(col.gameObject.tag == "Wall")
         {
-            HealthComponent.TakeDamage(1);
+            
             projectileDie();
         }
         if(col.gameObject.tag == "Player")

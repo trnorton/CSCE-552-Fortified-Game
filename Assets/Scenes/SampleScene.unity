@@ -305,6 +305,11 @@ Transform:
   m_Father: {fileID: 1897123013}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &9689425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1586471712368020117, guid: 22bc23396c4b81248a989eedf7a2c0a5, type: 3}
+  m_PrefabInstance: {fileID: 2466471946233905117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &17579698
 GameObject:
   m_ObjectHideFlags: 0
@@ -12028,7 +12033,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1521776067}
   stoneWallPrefab: {fileID: 2216760057634012109, guid: 35f071205345fbb49bb90b4539fc2c1c, type: 3}
+  metalWallPrefab: {fileID: 8784120803150834379, guid: 5d7a76732dda6934a967fe805cbedeb1, type: 3}
+  UpgradeButton: {fileID: 9689425}
+  RepairButton: {fileID: 1112364846}
   StoneWallCost: 50
+  MetalWallCost: 100
 --- !u!114 &1996895994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12043,8 +12052,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1521776067}
   ShopHUD: {fileID: 1996895988}
+  metalWallPrefab: {fileID: 8784120803150834379, guid: 5d7a76732dda6934a967fe805cbedeb1, type: 3}
   stoneWallPrefab: {fileID: 2216760057634012109, guid: 35f071205345fbb49bb90b4539fc2c1c, type: 3}
   woodenWallPrefab: {fileID: 7601901034353766766, guid: a01abcf3e6718ca4fbd5c0098dc14c45, type: 3}
+  RepairButton: {fileID: 0}
   repairCost: 20
 --- !u!114 &1996895999
 MonoBehaviour:
@@ -13257,7 +13268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2935104900869156405, guid: 22bc23396c4b81248a989eedf7a2c0a5, type: 3}
       propertyPath: m_text
-      value: Upgrade Walls $50
+      value: Upgrade Walls
       objectReference: {fileID: 0}
     - target: {fileID: 2935104900869156405, guid: 22bc23396c4b81248a989eedf7a2c0a5, type: 3}
       propertyPath: m_fontSize
