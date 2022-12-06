@@ -28,4 +28,9 @@ public class MainMenuButtons : MonoBehaviour
         //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit(0);
     }
+    
+    public void OnClickAbout()
+    {
+        SceneManager.LoadScene("AboutMenu");
+    }
 }
