@@ -88,16 +88,17 @@ public class RangedEnemyAI : MonoBehaviour
         else
             treasureInAttackRange = false;
         
-        if(distanceToWall <= attackRange && wallDes == false)
+        if(distanceToWall <= attackRange)
             wallInFront = true;
         else
             wallInFront = false;
 
-        if(playerInRange && !playerInAttackRange && !wallInFront) ChasePlayer();
-        if(playerInRange && playerInAttackRange && !treasureInAttackRange && !wallInFront) AttackPlayer();
-        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront) ChaseTreasure();
+        if(playerInRange && !playerInAttackRange) ChasePlayer();
+        if(playerInRange && playerInAttackRange && !treasureInAttackRange) AttackPlayer();
+        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange) ChaseTreasure();
         if(treasureInAttackRange && !wallInFront) AttackTreasure();
-        if(wallInFront) AttackWall();
+        if(wallInFront && !wallDes) AttackWall();
+        
         
 
     }
@@ -122,16 +123,10 @@ public class RangedEnemyAI : MonoBehaviour
         transform.LookAt(treasure.transform);
         firePoint.LookAt(treasure.transform);
         if(!isFiring)
-        {
-            
+        { 
             StartCoroutine(fire());
         }
-        if(treasureHealthComponent.currentHealth == 0)
-        {
-            ObjectAnimator.SetBool("IsAttacking", false);
-            treasure.SetActive(false);
-            agent.isStopped = false;
-        }
+       
     }
     //Atack Wall
     private void AttackWall()
@@ -145,12 +140,6 @@ public class RangedEnemyAI : MonoBehaviour
         firePoint.LookAt(Wall.transform);
         if(!isFiring)
         {
-            if(wallHealthComponent.currentHealth == 1)
-            {
-                ObjectAnimator.SetBool("IsAttacking", false);
-                agent.isStopped = false;
-                wallDes = true;
-            }
             
             StartCoroutine(fire());
         }
@@ -158,7 +147,7 @@ public class RangedEnemyAI : MonoBehaviour
     //Attack Player
     private void AttackPlayer()
     {
-        var playerHealthComponent = player.GetComponent<Health>();
+        
         agent.isStopped = true;
         ObjectAnimator.SetBool("IsAttacking", true);
         Vector3 lookPos = player.transform.position;
@@ -167,15 +156,10 @@ public class RangedEnemyAI : MonoBehaviour
         transform.LookAt(lookPos);
         if(!isFiring)
         {
-            
             StartCoroutine(fire());
         }
-        if(playerHealthComponent.currentHealth == 0)
-        {
-            ObjectAnimator.SetBool("IsAttacking", false);
-            player.SetActive(false);
-            agent.isStopped = false;
-        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -220,6 +204,17 @@ public class RangedEnemyAI : MonoBehaviour
             yield return new WaitForSeconds(fireTimer);
             GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+            
+            //Adding this snip of code here to beat a bug where they thought wall was already broken
+            var wallHealthComponent = Wall.GetComponent<Health>();
+            if(wallHealthComponent.currentHealth == 1)
+            {
+                ObjectAnimator.SetBool("IsAttacking", false);
+                agent.isStopped = false;
+                wallDes = true;
+                agent.SetDestination(treasure.transform.position);
+            }
+
             //Trying to match my animation to the shooting of projectile
             yield return new WaitForSeconds(0.25f);
             isFiring = false;

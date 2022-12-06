@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 2104414194446099466}
   - component: {fileID: 3070252192589999023}
   - component: {fileID: 972581066703380325}
-  - component: {fileID: 2598972465955209869}
-  - component: {fileID: 7627593756520467988}
   - component: {fileID: -1171488412223395278}
   m_Layer: 9
   m_Name: woodwallDestroyedPrefab
@@ -87,32 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2598972465955209869
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621209158828146352}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04639349, y: 0.13665017, z: 0.020551816}
-  m_Center: {x: -0.08779853, y: -0.0069128964, z: 0.00025419626}
---- !u!65 &7627593756520467988
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1621209158828146352}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.049935184, y: 0.16020304, z: 0.020551816}
-  m_Center: {x: 0.08777185, y: -0.018689454, z: 0.00025419623}
 --- !u!114 &-1171488412223395278
 MonoBehaviour:
   m_ObjectHideFlags: 0
