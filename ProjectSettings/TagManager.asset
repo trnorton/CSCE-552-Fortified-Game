@@ -23,6 +23,8 @@ TagManager:
   - PH
   - Slingshot
   - TurretManager
+  - Spawner
+  - Shop
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ public class buyUpgradedWall : MonoBehaviour
     public int MetalWallCost;
     private int money;
     private GameObject[] walls;
-    private int wallLevel;
+    public int wallLevel;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +75,7 @@ public class buyUpgradedWall : MonoBehaviour
         }
     }
 
-    void upgradeWoodWalls()
+    public void upgradeWoodWalls()
     {
         walls = GameObject.FindGameObjectsWithTag("Wall");
          for(int i = 0; i < walls.Length; i++)
@@ -84,7 +84,7 @@ public class buyUpgradedWall : MonoBehaviour
             Destroy(walls[i]);
         }
     }
-    void upgradeStoneWalls()
+    public void upgradeStoneWalls()
     {
         walls = GameObject.FindGameObjectsWithTag("Wall");
         for(int i = 0; i < walls.Length; i++)

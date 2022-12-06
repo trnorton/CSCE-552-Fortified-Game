@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public bool inRound;
     public int spawnTotal = 3;
     public float timeBetweenSpawns;
-    private int roundNumber = 1;
+    public int roundNumber = 1;
     public GameObject roundIndicator;
     public TextMeshProUGUI roundText;
 

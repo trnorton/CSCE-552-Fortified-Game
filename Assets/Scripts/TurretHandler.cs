@@ -38,4 +38,11 @@ public class TurretHandler : MonoBehaviour
       }
       return true;
     }
+
+    public int boolToInt(){
+        if(isTurretsActive())
+            return 1;
+        else
+            return 0;
+    }
 }
