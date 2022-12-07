@@ -13,7 +13,7 @@ public class WaveSpawner : MonoBehaviour
     public bool inRound;
     public int spawnTotal = 3;
     public float timeBetweenSpawns;
-    public int roundNumber = 1;
+    public int roundNumber;
     public GameObject roundIndicator;
     public TextMeshProUGUI roundText;
 
@@ -35,9 +35,9 @@ public class WaveSpawner : MonoBehaviour
             //inRound = true;
         }
 
-        Debug.Log("ROUND: " + roundNumber);
-        Debug.Log("REM ENEMIES: " + enemiesLeft.Length);
-        Debug.Log("In Round: " + inRound);
+        // Debug.Log("ROUND: " + roundNumber);
+        // Debug.Log("REM ENEMIES: " + enemiesLeft.Length);
+        // Debug.Log("In Round: " + inRound);
         // Debug.Log(spawnObject.name);
         if((enemiesLeft.Length) == 0 && roundNumber != 3 && roundNumber != 5)
         {
@@ -125,6 +125,11 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
         roundNumber++;
+    }
+
+    public void setRound(int num)
+    {
+        roundNumber = num;
     }
 
     public bool isPlaying(){

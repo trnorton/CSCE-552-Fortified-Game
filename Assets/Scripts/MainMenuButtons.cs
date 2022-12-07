@@ -37,4 +37,10 @@ public class MainMenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene("HowToPlay");
     }
+    public void OnClickLoad()
+    {
+      Cursor.lockState = CursorLockMode.Locked;
+      Cursor.visible = false;
+        SceneManager.LoadScene("LoadedSave");
+    }
 }

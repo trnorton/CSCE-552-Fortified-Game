@@ -6,25 +6,30 @@ using UnityEngine.SceneManagement;
 public class LoadController : MonoBehaviour
 {
     public GameObject player;
-    WeaponController weaponcontrol;
+    public GameObject weaponcontrol;
     public GameObject waveSpawner;
     public GameObject treasure;
     buyUpgradedWall wallControl;
     TurretHandler turretController;
 
-    void Start()
+    void awake()
     {
         player = GameObject.FindWithTag("Player");
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
-        weaponcontrol = FindObjectOfType<WeaponController>();
+        // weaponcontrol = GameObject.FindWithTag("weaponcontrol");
         wallControl = FindObjectOfType<buyUpgradedWall>();
         turretController = FindObjectOfType<TurretHandler>();
     }
-
+    void Start()
+    {
+        Load();
+    }
     public void Load()
     {
-        SceneManager.LoadScene("SampleScene");
+        Debug.Log("Load Save");
+        Debug.Log("PRIMARY: " + PlayerPrefs.GetString("PrimaryWeaponSaved").ToString());
+        Debug.Log("SECONDARY: " + PlayerPrefs.GetString("SecondaryWeaponSaved").ToString());
 
         //Load in all of our saved data
 
@@ -45,25 +50,37 @@ public class LoadController : MonoBehaviour
         var playerMoneyComponent = player.GetComponent<Money>();
         if(PlayerPrefs.HasKey("PlayerMoneySaved"))
         {
-            playerMoneyComponent.AddMoney(PlayerPrefs.GetInt("PlayerMoneySaved"));
+            playerMoneyComponent.money = PlayerPrefs.GetInt("PlayerMoneySaved");
         }
 
         //Weapons
+        var weaponControlComponent = weaponcontrol.GetComponent<WeaponController>();
         if(PlayerPrefs.HasKey("PrimaryWeaponSaved"))
         {
-            weaponcontrol.upgradePrim(PlayerPrefs.GetString("PrimaryWeaponSaved"));
+            if(PlayerPrefs.GetString("PrimaryWeaponSaved").ToString() == "sword2 (UnityEngine.GameObject)" && weaponControlComponent.getWeaponByTag("Sword"))
+            {
+                GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
+                Bat.SetActive(false);
+                GameObject Sword = weaponControlComponent.getWeaponByTag("Sword");
+                Debug.Log("Made it");
+                weaponControlComponent.Prim = Sword;
+            }
         }
-
         if(PlayerPrefs.HasKey("SecondaryWeaponSaved"))
         {
-            weaponcontrol.upgradeSec(PlayerPrefs.GetString("SecondaryWeaponSaved"));
+            if(PlayerPrefs.GetString("SecondaryWeaponSaved").ToString() == "slingshot (UnityEngine.GameObject)")
+            {
+                Debug.Log("Made it 2");
+                GameObject Slingshot = weaponControlComponent.getWeaponByTag("Slingshot");
+                weaponControlComponent.Secondary = Slingshot;
+            }
         }
 
         //Round Num
         var waveSpawnerComponent = waveSpawner.GetComponent<WaveSpawner>();
         if(PlayerPrefs.HasKey("RoundNumberSaved"))
         {
-            waveSpawnerComponent.roundNumber = PlayerPrefs.GetInt("RoundNumberSaved");
+            waveSpawnerComponent.setRound(PlayerPrefs.GetInt("RoundNumberSaved"));
         }
 
         //Wall Level
@@ -89,3 +106,4 @@ public class LoadController : MonoBehaviour
         }
     }
 }
+

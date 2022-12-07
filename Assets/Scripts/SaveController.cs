@@ -8,7 +8,7 @@ public class SaveController : MonoBehaviour
     WeaponController weaponcontrol;
     public GameObject waveSpawner;
     public GameObject treasure;
-    buyUpgradedWall wallControl;
+    public GameObject wallControl;
     TurretHandler turretController;
 
     void Start()
@@ -17,12 +17,13 @@ public class SaveController : MonoBehaviour
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
         weaponcontrol = FindObjectOfType<WeaponController>();
-        wallControl = FindObjectOfType<buyUpgradedWall>();
+        wallControl = GameObject.FindWithTag("Shop");
         turretController = FindObjectOfType<TurretHandler>();
     }
 
-    public void Save()
+    public void OnClickSave()
     {
+        Debug.Log("Game Saved");
         //Save Player's HP
         var playerHealthComponent = player.GetComponent<Health>();
         PlayerPrefs.SetFloat("PlayerHealthSaved", playerHealthComponent.currentHealth);
@@ -44,10 +45,13 @@ public class SaveController : MonoBehaviour
         PlayerPrefs.SetInt("RoundNumberSaved", waveSpawnerComponent.roundNumber);
 
         //Save Wall Level
-        PlayerPrefs.SetInt("WallLevelSaved", wallControl.wallLevel);
+        // var wallControlComponent = wallControl.GetComponent<BuyUpgradedWall>();
+        // PlayerPrefs.SetInt("WallLevelSaved", wallControlComponent.getWallLevel());
 
         //Save Turret Activity
         PlayerPrefs.SetInt("TurretActiveSaved", turretController.boolToInt());
+
+        PlayerPrefs.Save();
     }
 
 }

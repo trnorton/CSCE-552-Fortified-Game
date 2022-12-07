@@ -10,6 +10,9 @@ EditorBuildSettings:
     guid: c3a281f6289c34312ace2333d0b94a63
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
+    guid: 1ad7ea3bf9a8ccb4a9aeb6ff168247ad
+  - enabled: 1
+    path: Assets/Scenes/LoadedSave.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/WinScene.unity

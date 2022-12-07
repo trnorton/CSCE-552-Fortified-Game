@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -627,7 +627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165.00002, y: -166}
+  m_AnchoredPosition: {x: -165.00002, y: -202}
   m_SizeDelta: {x: 582.224, y: 133.439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &582533306
@@ -1335,7 +1335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165.00002, y: -96}
+  m_AnchoredPosition: {x: -165.00002, y: -113}
   m_SizeDelta: {x: 582.224, y: 133.439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1217150675
@@ -1358,7 +1358,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Brandon Carter -
+  m_text: Brandon Carter - Designed model for the cannons. Wrote scripts for the
+    ai of the melee enemies, ranged enemies, cannons, and ghosts. Wrote the scripts
+    for the enemy spawners and handling rounds. Wrote scripts for loading and saving
+    game data. Helped fixed bugs in the game.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

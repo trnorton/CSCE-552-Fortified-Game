@@ -29,9 +29,9 @@ public class WeaponController : MonoBehaviour
         }
         GameObject Bat = getWeaponByTag("Bat");
         GameObject Hands = getWeaponByTag("PH");
-        Bat.SetActive(true);
-        Prim = Bat;
-        Secondary = Hands;
+        // Bat.SetActive(true);
+        // Prim = Bat;
+        // Secondary = Hands;
     }
 
     void Update()
@@ -126,10 +126,12 @@ public class WeaponController : MonoBehaviour
     }
 
     public void upgradePrim(string taggy){
-        Prim = getWeaponByTag(taggy);
+        if(getWeaponByTag(taggy))
+            Prim = getWeaponByTag(taggy);
     }
 
     public void upgradeSec(string taggy){
-        Secondary =  getWeaponByTag(taggy);
+        if(getWeaponByTag(taggy))
+            Secondary =  getWeaponByTag(taggy);
     }
 }
