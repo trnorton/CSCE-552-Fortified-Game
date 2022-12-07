@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class LoadController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject stoneWallPrefab;
+    public GameObject metalWallPrefab;
     public GameObject weaponcontrol;
     public GameObject waveSpawner;
     public GameObject treasure;
-    buyUpgradedWall wallControl;
+    public GameObject[] wallControl;
     TurretHandler turretController;
 
     void awake()
@@ -18,7 +20,6 @@ public class LoadController : MonoBehaviour
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
         // weaponcontrol = GameObject.FindWithTag("weaponcontrol");
-        wallControl = FindObjectOfType<buyUpgradedWall>();
         turretController = FindObjectOfType<TurretHandler>();
     }
     void Start()
@@ -74,6 +75,11 @@ public class LoadController : MonoBehaviour
                 GameObject Slingshot = weaponControlComponent.getWeaponByTag("Slingshot");
                 weaponControlComponent.Secondary = Slingshot;
             }
+            else
+            {
+                GameObject Hands = weaponControlComponent.getWeaponByTag("PH");
+                weaponControlComponent.Secondary = Hands;
+            }
         }
 
         //Round Num
@@ -84,15 +90,24 @@ public class LoadController : MonoBehaviour
         }
 
         //Wall Level
+        wallControl = GameObject.FindGameObjectsWithTag("Wall");
         if(PlayerPrefs.HasKey("WallLevelSaved"))
         {
             if(PlayerPrefs.GetInt("WallLevelSaved") == 1)
             {
-                wallControl.upgradeWoodWalls();
+                for(int i = 0; i < wallControl.Length; i++)
+                {
+                    Instantiate(stoneWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                    Destroy(wallControl[i]);
+                }
             }
             if(PlayerPrefs.GetInt("WallLevelSaved") == 2)
             {
-                wallControl.upgradeStoneWalls();
+                for(int i = 0; i < wallControl.Length; i++)
+                {
+                    Instantiate(metalWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                    Destroy(wallControl[i]);
+                }
             }
         }
 

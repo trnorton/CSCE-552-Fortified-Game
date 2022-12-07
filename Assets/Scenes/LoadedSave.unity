@@ -526,7 +526,8 @@ MonoBehaviour:
   player: {fileID: 0}
   waveSpawner: {fileID: 0}
   treasure: {fileID: 0}
-  wallControl: {fileID: 0}
+  wallControl:
+  - {fileID: 0}
 --- !u!1 &32437075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -5082,7 +5083,8 @@ MonoBehaviour:
   player: {fileID: 0}
   waveSpawner: {fileID: 0}
   treasure: {fileID: 0}
-  wallControl: {fileID: 0}
+  wallControl:
+  - {fileID: 0}
 --- !u!114 &674150417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7579,9 +7581,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1521776067}
+  stoneWallPrefab: {fileID: 2216760057634012109, guid: 35f071205345fbb49bb90b4539fc2c1c, type: 3}
+  metalWallPrefab: {fileID: 8784120803150834379, guid: 5d7a76732dda6934a967fe805cbedeb1, type: 3}
   weaponcontrol: {fileID: 2066906129}
   waveSpawner: {fileID: 613909178}
   treasure: {fileID: 8164078559934549052}
+  wallControl: []
 --- !u!4 &1236613595
 Transform:
   m_ObjectHideFlags: 0

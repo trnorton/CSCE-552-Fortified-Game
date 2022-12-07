@@ -8,7 +8,7 @@ public class SaveController : MonoBehaviour
     WeaponController weaponcontrol;
     public GameObject waveSpawner;
     public GameObject treasure;
-    public GameObject wallControl;
+    public GameObject[] wallControl;
     TurretHandler turretController;
 
     void Start()
@@ -17,7 +17,6 @@ public class SaveController : MonoBehaviour
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
         weaponcontrol = FindObjectOfType<WeaponController>();
-        wallControl = GameObject.FindWithTag("Shop");
         turretController = FindObjectOfType<TurretHandler>();
     }
 
@@ -45,8 +44,14 @@ public class SaveController : MonoBehaviour
         PlayerPrefs.SetInt("RoundNumberSaved", waveSpawnerComponent.roundNumber);
 
         //Save Wall Level
-        // var wallControlComponent = wallControl.GetComponent<BuyUpgradedWall>();
-        // PlayerPrefs.SetInt("WallLevelSaved", wallControlComponent.getWallLevel());
+        wallControl = GameObject.FindGameObjectsWithTag("Wall");
+        var wallControlComponent = wallControl[0].GetComponent<Health>();
+        if((wallControlComponent.maxHealth == 3 && wallControlComponent.destructionLevel == 0) || (wallControlComponent.maxHealth == 1 && wallControlComponent.destructionLevel == 1))
+            PlayerPrefs.SetInt("WallLevelSaved", 0);
+        if((wallControlComponent.maxHealth == 10 && wallControlComponent.destructionLevel == 0) || (wallControlComponent.maxHealth == 5 && wallControlComponent.destructionLevel == 1))
+            PlayerPrefs.SetInt("WallLevelSaved", 1);
+        if((wallControlComponent.maxHealth == 20 && wallControlComponent.destructionLevel == 0) || (wallControlComponent.maxHealth == 10 && wallControlComponent.destructionLevel == 1))
+            PlayerPrefs.SetInt("WallLevelSaved", 2);
 
         //Save Turret Activity
         PlayerPrefs.SetInt("TurretActiveSaved", turretController.boolToInt());

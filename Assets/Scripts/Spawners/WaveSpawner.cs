@@ -34,7 +34,6 @@ public class WaveSpawner : MonoBehaviour
             roundIndicator.SetActive(false);
             //inRound = true;
         }
-
         // Debug.Log("ROUND: " + roundNumber);
         // Debug.Log("REM ENEMIES: " + enemiesLeft.Length);
         // Debug.Log("In Round: " + inRound);
