@@ -33,4 +33,8 @@ public class MainMenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene("AboutMenu");
     }
+    public void OnClickHowTo()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
 }
