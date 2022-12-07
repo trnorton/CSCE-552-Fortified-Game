@@ -11,6 +11,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public WeaponController wc;
     public NavMeshAgent agent;
     private GameObject treasure;
+    public GameObject waveSpawner;
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
     public float playerRange;
@@ -50,6 +51,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         elapsed = 0.0f;
         player = GameObject.FindWithTag("Player");
+        waveSpawner = GameObject.FindWithTag("Spawner");
         weaponHolder = GameObject.FindWithTag("weaponcontrol");
         wc = weaponHolder.GetComponent<WeaponController>();
         Wall = getClosestWall();
@@ -251,10 +253,12 @@ public class MeleeEnemyAI : MonoBehaviour
     public void isElim(float currHealth)
     {
         // Debug.Log(currHealth);
+        var deathCounter = waveSpawner.GetComponent<WaveSpawner>();
         if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
+            deathCounter.elimCount++;
             Destroy(gameObject, 0.25f);
         }
     }

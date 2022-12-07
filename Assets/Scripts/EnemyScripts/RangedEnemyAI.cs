@@ -13,6 +13,7 @@ public class RangedEnemyAI : MonoBehaviour
     public GameObject treasure;
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
+    public GameObject waveSpawner;
     public float playerRange;
     public float attackRange;
     public GameObject projectile;
@@ -55,6 +56,7 @@ public class RangedEnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        waveSpawner = GameObject.FindWithTag("Spawner");
         weaponHolder = GameObject.FindWithTag("weaponcontrol");
         wc = weaponHolder.GetComponent<WeaponController>();
         Wall = getClosestWall();
@@ -191,11 +193,13 @@ public class RangedEnemyAI : MonoBehaviour
 
     public void isElim(float currHealth)
     {
-        Debug.Log(currHealth);
+        // Debug.Log(currHealth);
+        var deathCounter = waveSpawner.GetComponent<WaveSpawner>(); 
         if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
+            deathCounter.elimCount++;
             Destroy(gameObject, 0.25f);
         }
     }

@@ -12,10 +12,12 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnObjectBoss;
     public bool inRound;
     public int spawnTotal = 3;
+    public int elimCount = 0;
     public float timeBetweenSpawns;
     public int roundNumber;
     public GameObject roundIndicator;
     public TextMeshProUGUI roundText;
+    public bool check;
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         GameObject[] enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesDefeated();
 
         if(enemiesLeft.Length <= 0){
             //inRound = false;
@@ -40,6 +43,7 @@ public class WaveSpawner : MonoBehaviour
         // Debug.Log(spawnObject.name);
         if((enemiesLeft.Length) == 0 && roundNumber != 3 && roundNumber != 5)
         {
+            elimCount = 0;
             //Load Some Mid-round UI here
             if(Input.GetKey(KeyCode.Tab))
             {
@@ -49,6 +53,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 3)
         {
+            elimCount = 0;
             //Load Some Mid-round UI here
             // StopCoroutine(SpawnGameObjectMelee());
             if(Input.GetKey(KeyCode.Tab))
@@ -59,6 +64,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 4)
         {
+            elimCount = 0;
             //Load Some Mid-round UI here
             // StopCoroutine(SpawnGameObjectGhost());
             if(Input.GetKey(KeyCode.Tab))
@@ -69,6 +75,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if((enemiesLeft.Length) == 0 && roundNumber == 5)
         {
+            elimCount = 0;
             //Load Some Mid-round UI here
             // StopCoroutine(SpawnGameObjectGhost());
             if(Input.GetKey(KeyCode.Tab))
@@ -79,6 +86,7 @@ public class WaveSpawner : MonoBehaviour
         }
         if((enemiesLeft.Length) == 0 && roundNumber > 5)
         {
+            elimCount = 0;
             //Load Some Mid-round UI here
             // StopCoroutine(SpawnGameObjectMelee());
             SceneManager.LoadScene("WinScene");
@@ -96,7 +104,6 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        roundNumber++;
     }
 
     IEnumerator SpawnGameObjectGhost()
@@ -108,7 +115,6 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(spawnObjectGhost, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        roundNumber++;
     }
 
     IEnumerator SpawnGameObjectBoss()
@@ -123,7 +129,6 @@ public class WaveSpawner : MonoBehaviour
             Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
-        roundNumber++;
     }
 
     public void setRound(int num)
@@ -133,5 +138,18 @@ public class WaveSpawner : MonoBehaviour
 
     public bool isPlaying(){
         return inRound;
+    }
+
+    public void enemiesDefeated()
+    {
+        if(check == false && elimCount == spawnTotal)
+            if(check == true)
+                check = false;
+            else
+            {
+                roundNumber++;
+                check = true;
+            }
+
     }
 }
