@@ -38,6 +38,7 @@ public class MeleeEnemyAI : MonoBehaviour
     private NavMeshPath path;
     private float elapsed;
     public AudioSource meleeSound;
+    public AudioSource DamageSound;
 
     void Start()
     {
@@ -139,7 +140,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             //Animation would go here
             ObjectAnimator.SetBool("IsAttacking", true);
-            meleeSound.Play();
+            meleeSound.Play(0);
             var treasureHealthComponent = treasure.GetComponent<Health>();
             if(treasureHealthComponent != null)
             {
@@ -174,7 +175,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             //Animation would go here
             ObjectAnimator.SetBool("IsAttacking", true);
-
+            meleeSound.Play(0);
             var wallHealthComponent = Wall.GetComponent<Health>();
             if(wallHealthComponent != null)
             {
@@ -203,7 +204,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             //Animation would go here
             ObjectAnimator.SetBool("IsAttacking", true);
-
+            meleeSound.Play(0);
 
             var playerHealthComponent = player.GetComponent<Health>();
             if(playerHealthComponent != null)
@@ -229,6 +230,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
+                DamageSound.Play(0);
                 enemyHealCompoent.TakeDamage(1);
                 // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
                 isElim(enemyHealCompoent.currentHealth);
