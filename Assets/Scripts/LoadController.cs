@@ -6,13 +6,20 @@ using UnityEngine.SceneManagement;
 public class LoadController : MonoBehaviour
 {
     public GameObject player;
-    public GameObject stoneWallPrefab;
-    public GameObject metalWallPrefab;
+    public GameObject woodWall;
+    public GameObject damagedWoodWall;
+    public GameObject destroyedWoodWall;
+    public GameObject stoneWall;
+    public GameObject damagedStoneWall;
+    public GameObject destroyedStoneWall;
+    public GameObject metalWall;
+    public GameObject damagedMetalWall;
+    public GameObject destroyedMetalWall;
     public GameObject weaponcontrol;
     public GameObject waveSpawner;
     public GameObject treasure;
     public GameObject[] wallControl;
-    TurretHandler turretController;
+    public GameObject turretController;
 
     void awake()
     {
@@ -20,7 +27,7 @@ public class LoadController : MonoBehaviour
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
         // weaponcontrol = GameObject.FindWithTag("weaponcontrol");
-        turretController = FindObjectOfType<TurretHandler>();
+        // turretController = GameObject.FindWithTag("TurretManager");
     }
     void Start()
     {
@@ -66,6 +73,11 @@ public class LoadController : MonoBehaviour
                 Debug.Log("Made it");
                 weaponControlComponent.Prim = Sword;
             }
+            else
+            {
+                GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
+                weaponControlComponent.Prim = Bat;
+            }
         }
         if(PlayerPrefs.HasKey("SecondaryWeaponSaved"))
         {
@@ -91,34 +103,78 @@ public class LoadController : MonoBehaviour
 
         //Wall Level
         wallControl = GameObject.FindGameObjectsWithTag("Wall");
-        if(PlayerPrefs.HasKey("WallLevelSaved"))
+        for(int i = 0; i < wallControl.Length; i++)
         {
-            if(PlayerPrefs.GetInt("WallLevelSaved") == 1)
-            {
-                for(int i = 0; i < wallControl.Length; i++)
-                {
-                    Instantiate(stoneWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
-                    Destroy(wallControl[i]);
-                }
+            string wallType = PlayerPrefs.GetString("Wall[" + i + "]save");
+            Debug.Log(wallType);
+            if(wallType == woodWall.name+"(Clone)") {
+                Instantiate(woodWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
             }
-            if(PlayerPrefs.GetInt("WallLevelSaved") == 2)
-            {
-                for(int i = 0; i < wallControl.Length; i++)
-                {
-                    Instantiate(metalWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
-                    Destroy(wallControl[i]);
-                }
+            if(wallType == damagedWoodWall.name+"(Clone)") {
+                Instantiate(damagedWoodWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
             }
+            if(wallType == destroyedWoodWall.name+"(Clone)") {
+                Instantiate(destroyedWoodWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == stoneWall.name+"(Clone)") {
+                Instantiate(stoneWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == damagedStoneWall.name+"(Clone)") {
+                Instantiate(damagedStoneWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == destroyedStoneWall.name+"(Clone)") {
+                Instantiate(destroyedStoneWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == metalWall.name+"(Clone)") {
+                Instantiate(metalWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == damagedMetalWall.name+"(Clone)") {
+                Instantiate(damagedMetalWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+            if(wallType == destroyedMetalWall.name+"(Clone)") {
+                Instantiate(destroyedMetalWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
+                Destroy(wallControl[i]);
+            }
+
         }
 
+        // if(PlayerPrefs.HasKey("WallLevelSaved"))
+        // {
+        //     if(PlayerPrefs.GetInt("WallLevelSaved") == 1)
+        //     {
+        //         for(int i = 0; i < wallControl.Length; i++)
+        //         {
+        //             Instantiate(stoneWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
+        //             Destroy(wallControl[i]);
+        //         }
+        //     }
+        //     if(PlayerPrefs.GetInt("WallLevelSaved") == 2)
+        //     {
+        //         for(int i = 0; i < wallControl.Length; i++)
+        //         {
+        //             Instantiate(metalWallPrefab, wallControl[i].transform.position, wallControl[i].transform.rotation);
+        //             Destroy(wallControl[i]);
+        //         }
+        //     }
+        // }
+
         //Turrets
-        if(PlayerPrefs.HasKey("TurretActiveSaved"))
-        {
-            if(PlayerPrefs.GetInt("TurretActiveSaved") == 1)
-            {
-                turretController.deployTurrets();
-            }
-        }
+        // var turretComponent = turretController.GetComponent<TurretHandler>();
+        // if(PlayerPrefs.HasKey("TurretActiveSaved"))
+        // {
+        //     if(PlayerPrefs.GetInt("TurretActiveSaved") == 1)
+        //     {
+        //         turretComponent.deployTurrets();
+        //     }
+        // }
     }
 }
 

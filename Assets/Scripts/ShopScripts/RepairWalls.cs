@@ -57,7 +57,8 @@ public class RepairWalls : MonoBehaviour
         {
             if(money >= repairCost && GameObject.FindGameObjectsWithTag("destroyedWall").Length != 0)
             {
-                repairwallaudio.Play(0);
+                if(repairwallaudio)
+                    repairwallaudio.Play(0);
                 playercash.SubMoney(repairCost);
                 repairWoodWalls();
 
@@ -73,7 +74,8 @@ public class RepairWalls : MonoBehaviour
             
             if(money >= repairCost)
             {
-                repairwallaudio.Play(0);
+                if(repairwallaudio)
+                    repairwallaudio.Play(0);
                 playercash.SubMoney(repairCost);
                 repairStoneWalls();
                 
@@ -88,7 +90,8 @@ public class RepairWalls : MonoBehaviour
         {
             if(money >= repairCost)
             {
-                repairwallaudio.Play(0);
+                if(repairwallaudio)
+                    repairwallaudio.Play(0);
                 playercash.SubMoney(repairCost);
                 repairMetalWalls();
 

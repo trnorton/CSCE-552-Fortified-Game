@@ -528,6 +528,15 @@ MonoBehaviour:
   treasure: {fileID: 0}
   wallControl:
   - {fileID: 0}
+  woodWall: {fileID: 0}
+  damagedWoodWall: {fileID: 0}
+  destroyedWoodWall: {fileID: 0}
+  stoneWall: {fileID: 0}
+  damagedStoneWall: {fileID: 0}
+  destroyedStoneWall: {fileID: 0}
+  metalWall: {fileID: 0}
+  damagedMetalWall: {fileID: 0}
+  destroyedMetalWall: {fileID: 0}
 --- !u!1 &32437075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0177841356edf4a4ca5e6b9194528a15, type: 3}
@@ -5085,6 +5094,15 @@ MonoBehaviour:
   treasure: {fileID: 0}
   wallControl:
   - {fileID: 0}
+  woodWall: {fileID: 0}
+  damagedWoodWall: {fileID: 0}
+  destroyedWoodWall: {fileID: 0}
+  stoneWall: {fileID: 0}
+  damagedStoneWall: {fileID: 0}
+  destroyedStoneWall: {fileID: 0}
+  metalWall: {fileID: 0}
+  damagedMetalWall: {fileID: 0}
+  destroyedMetalWall: {fileID: 0}
 --- !u!114 &674150417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7581,12 +7599,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1521776067}
-  stoneWallPrefab: {fileID: 2216760057634012109, guid: 35f071205345fbb49bb90b4539fc2c1c, type: 3}
-  metalWallPrefab: {fileID: 8784120803150834379, guid: 5d7a76732dda6934a967fe805cbedeb1, type: 3}
+  woodWall: {fileID: 7601901034353766766, guid: a01abcf3e6718ca4fbd5c0098dc14c45, type: 3}
+  damagedWoodWall: {fileID: 3984837254996614755, guid: ea652f62c4aba5c4f973c2564324d0ba, type: 3}
+  destroyedWoodWall: {fileID: 1621209158828146352, guid: df7d3392d8884ce4fbfda63781138820, type: 3}
+  stoneWall: {fileID: 2216760057634012109, guid: 35f071205345fbb49bb90b4539fc2c1c, type: 3}
+  damagedStoneWall: {fileID: 6376767050564704846, guid: ff348e60c7b222747a438f74b2cca2f7, type: 3}
+  destroyedStoneWall: {fileID: 6140666870449627442, guid: 2b8496701d65378409994263cf31e2d4, type: 3}
+  metalWall: {fileID: 8784120803150834379, guid: 5d7a76732dda6934a967fe805cbedeb1, type: 3}
+  damagedMetalWall: {fileID: 1869194530134098536, guid: a7dca482c8c42274ea85dacff39b4a44, type: 3}
+  destroyedMetalWall: {fileID: 2162402392879560868, guid: da50b85c41fa7b140828e610d68d813a, type: 3}
   weaponcontrol: {fileID: 2066906129}
   waveSpawner: {fileID: 613909178}
   treasure: {fileID: 8164078559934549052}
   wallControl: []
+  turretController: {fileID: 0}
 --- !u!4 &1236613595
 Transform:
   m_ObjectHideFlags: 0
@@ -9048,7 +9074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475737601}
-  - component: {fileID: 1475737600}
+  - component: {fileID: 1475737602}
   m_Layer: 0
   m_Name: TurretManager
   m_TagString: TurretManager
@@ -9056,18 +9082,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1475737600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475737599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcde3b93d5ba1a4489cc42c6be9573bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1475737601
 Transform:
   m_ObjectHideFlags: 0
@@ -9083,6 +9097,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1475737602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475737599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095810f572e5e04489c973c1321bc455, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477669625
 GameObject:
   m_ObjectHideFlags: 0
@@ -10757,7 +10783,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 68.19, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1712750441
@@ -13031,7 +13057,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25.07, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2102818309

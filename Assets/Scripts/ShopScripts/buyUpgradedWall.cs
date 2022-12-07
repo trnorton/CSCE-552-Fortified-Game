@@ -17,12 +17,20 @@ public class buyUpgradedWall : MonoBehaviour
     public int MetalWallCost;
     private int money;
     private GameObject[] walls;
+    private GameObject[] loadWalls;
     public int wallLevel;
     public AudioSource upgradewallaudio;
     // Start is called before the first frame update
     void Start()
     {
-        wallLevel = 0;
+        loadWalls = GameObject.FindGameObjectsWithTag("Wall");
+        string wallName = loadWalls[0].ToString();
+        if(wallName == "woodwall(Clone)" || wallName == "woodwallDamaged(Clone)" || wallName == "woodwallDestroyed(Clone)")
+            wallLevel = 0;
+        if(wallName == "stonewall(Clone)" || wallName == "stonewallDamaged(Clone)" || wallName == "stonewallDestroyed(Clone)")
+            wallLevel = 1;
+        if(wallName == "metalWall(Clone)" || wallName == "metalWallDamaged(Clone)" || wallName == "metalWallDestroyed(Clone)")
+            wallLevel = 2;
         RepairButtonText = RepairButton.GetComponentInChildren<TextMeshProUGUI>();
         RepairButtonText.text = "Repair Walls $20";
         UpgradeButtonText = UpgradeButton.GetComponentInChildren<TextMeshProUGUI>();
@@ -47,7 +55,8 @@ public class buyUpgradedWall : MonoBehaviour
         {
             if(money >= StoneWallCost)
             {
-                upgradewallaudio.Play(0);
+                if(upgradewallaudio)
+                    upgradewallaudio.Play(0);
                 playercash.SubMoney(StoneWallCost);
                 upgradeWoodWalls();
                 wallLevel++;
@@ -64,7 +73,8 @@ public class buyUpgradedWall : MonoBehaviour
         {
             if(money >= MetalWallCost)
             {
-                upgradewallaudio.Play(0);
+                if(upgradewallaudio)
+                    upgradewallaudio.Play(0);
                 playercash.SubMoney(MetalWallCost);
                 upgradeStoneWalls();
                 wallLevel++;
