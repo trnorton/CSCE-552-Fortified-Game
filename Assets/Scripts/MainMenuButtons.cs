@@ -39,8 +39,9 @@ public class MainMenuButtons : MonoBehaviour
     }
     public void OnClickLoad()
     {
-      Cursor.lockState = CursorLockMode.Locked;
-      Cursor.visible = false;
+      if(PlayerPrefs.HasKey("PlayerHealthSaved"))
+      {
         SceneManager.LoadScene("LoadedSave");
+      }
     }
 }

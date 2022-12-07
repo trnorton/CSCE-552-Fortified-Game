@@ -9322,7 +9322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b4dec2c0827da43897e6359a54e32c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 200
+  money: 0
 --- !u!1001 &1529558533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12393,6 +12393,7 @@ MonoBehaviour:
   StoneWallCost: 50
   MetalWallCost: 100
   wallLevel: 0
+  upgradewallaudio: {fileID: 0}
 --- !u!114 &1996895994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12412,6 +12413,7 @@ MonoBehaviour:
   woodenWallPrefab: {fileID: 7601901034353766766, guid: a01abcf3e6718ca4fbd5c0098dc14c45, type: 3}
   RepairButton: {fileID: 0}
   repairCost: 20
+  repairwallaudio: {fileID: 0}
 --- !u!114 &1996895999
 MonoBehaviour:
   m_ObjectHideFlags: 0
