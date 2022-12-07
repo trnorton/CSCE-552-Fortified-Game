@@ -21,6 +21,7 @@ public class MainMenuButtons : MonoBehaviour
     {
       Cursor.lockState = CursorLockMode.Locked;
       Cursor.visible = false;
+      PlayerPrefs.DeleteAll();
         SceneManager.LoadScene("SampleScene");
     }
     public void OnClickQuit()
