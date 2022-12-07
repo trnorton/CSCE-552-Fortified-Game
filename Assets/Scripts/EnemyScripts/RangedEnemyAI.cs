@@ -40,7 +40,8 @@ public class RangedEnemyAI : MonoBehaviour
     private GameObject target;
 
     private NavMeshPath path;
-
+    public AudioSource damageSound;
+    public AudioSource shootSound;
     
     bool alreadyAttacked;
 
@@ -170,6 +171,7 @@ public class RangedEnemyAI : MonoBehaviour
             if(invincibleFrames <= System.DateTime.Now)
             {
                 enemyHealCompoent.TakeDamage(1);
+                damageSound.Play(0);
                 // Instantiate(enemyDmgEffect, transform.position, Quaternion.identity);
                 isElim(enemyHealCompoent.currentHealth);
                 Reset();
@@ -194,7 +196,7 @@ public class RangedEnemyAI : MonoBehaviour
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.25f);
         }
     }
 
@@ -203,6 +205,7 @@ public class RangedEnemyAI : MonoBehaviour
             isFiring = true;
             yield return new WaitForSeconds(fireTimer);
             GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+            shootSound.Play(0);
             newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
             
             //Adding this snip of code here to beat a bug where they thought wall was already broken
