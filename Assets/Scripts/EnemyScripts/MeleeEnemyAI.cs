@@ -255,7 +255,7 @@ public class MeleeEnemyAI : MonoBehaviour
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
-            Destroy(gameObject);
+            Destroy(gameObject, 0.25f);
         }
     }
 
