@@ -44,7 +44,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         treasureDes = false;
         ObjectAnimator = this.GetComponent<Animator>();
-       
+
     }
     private void Awake()
     {
@@ -55,7 +55,7 @@ public class MeleeEnemyAI : MonoBehaviour
         Wall = getClosestWall();
         treasure = GameObject.FindWithTag("Treasure");
         agent = GetComponent<NavMeshAgent>();
-        
+
     }
 
     // Update is called once per frame
@@ -72,7 +72,7 @@ public class MeleeEnemyAI : MonoBehaviour
             {
                 //agent.SetPath(path);
             }
-            
+
 
         }
         //Drawing the nav path
@@ -85,13 +85,13 @@ public class MeleeEnemyAI : MonoBehaviour
 
 
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
-        
+
         if(!treasureDes)
         distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
-        
+
         distanceToWall = Vector3.Distance(Wall.transform.position, this.transform.position);
 
-        if(distanceToPlayer <= playerRange) 
+        if(distanceToPlayer <= playerRange)
             playerInRange = true;
         else
             playerInRange = false;
@@ -105,7 +105,7 @@ public class MeleeEnemyAI : MonoBehaviour
             treasureInAttackRange = true;
         else
             treasureInAttackRange = false;
-        
+
         if(distanceToWall <= attackRange && Wall.activeSelf)
             wallInFront = true;
         else
@@ -116,8 +116,8 @@ public class MeleeEnemyAI : MonoBehaviour
         if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront && !treasureDes) ChaseTreasure();
         if(treasureInAttackRange && !wallInFront) AttackTreasure();
         if(wallInFront) AttackWall();
-        
-        
+
+
 
     }
     //Enemy goes after treasure
@@ -169,7 +169,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         agent.isStopped = true;
 
-        
+
 
         if(!alreadyAttacked)
         {
@@ -212,7 +212,7 @@ public class MeleeEnemyAI : MonoBehaviour
                 if(distanceToPlayer <= attackRange)
                 playerHealthComponent.TakeDamage(1);
             }
-        
+
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -222,7 +222,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
@@ -248,10 +248,10 @@ public class MeleeEnemyAI : MonoBehaviour
         }
     }
 
-    public void isElim(float currHealth) 
+    public void isElim(float currHealth)
     {
         // Debug.Log(currHealth);
-        if(currHealth == 0)
+        if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);

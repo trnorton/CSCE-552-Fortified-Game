@@ -47,7 +47,7 @@ public class GhostAI : MonoBehaviour
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
         distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
 
-        if(distanceToPlayer <= playerRange) 
+        if(distanceToPlayer <= playerRange)
             playerInRange = true;
         else
             playerInRange = false;
@@ -66,7 +66,7 @@ public class GhostAI : MonoBehaviour
         if(playerInRange && playerInAttackRange && !treasureInAttackRange) AttackPlayer();
         if(!playerInRange && !playerInAttackRange && !treasureInAttackRange) ChaseTreasure();
         if(treasureInAttackRange) AttackTreasure();
-        
+
 
     }
     //Enemy goes after treasure
@@ -131,7 +131,7 @@ public class GhostAI : MonoBehaviour
     {
         alreadyAttacked = false;
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         var enemyHealCompoent = GetComponent<Health>();
@@ -161,7 +161,7 @@ public class GhostAI : MonoBehaviour
     public void isElim(float currHealth)
     {
         Debug.Log(currHealth);
-        if(currHealth == 0)
+        if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);

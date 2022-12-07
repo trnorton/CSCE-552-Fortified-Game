@@ -42,7 +42,7 @@ public class RangedEnemyAI : MonoBehaviour
     private NavMeshPath path;
     public AudioSource damageSound;
     public AudioSource shootSound;
-    
+
     bool alreadyAttacked;
 
     void Start()
@@ -65,7 +65,7 @@ public class RangedEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         Wall = getClosestWall();
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
 
@@ -74,7 +74,7 @@ public class RangedEnemyAI : MonoBehaviour
         if(!treasureDes)
             distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
 
-        if(distanceToPlayer <= playerRange) 
+        if(distanceToPlayer <= playerRange)
             playerInRange = true;
         else
             playerInRange = false;
@@ -88,7 +88,7 @@ public class RangedEnemyAI : MonoBehaviour
             treasureInAttackRange = true;
         else
             treasureInAttackRange = false;
-        
+
         if(distanceToWall <= attackRange)
             wallInFront = true;
         else
@@ -99,8 +99,8 @@ public class RangedEnemyAI : MonoBehaviour
         if(!playerInRange && !playerInAttackRange && !treasureInAttackRange) ChaseTreasure();
         if(treasureInAttackRange && !wallInFront) AttackTreasure();
         if(wallInFront && !wallDes) AttackWall();
-        
-        
+
+
 
     }
     //Enemy goes after treasure
@@ -124,10 +124,10 @@ public class RangedEnemyAI : MonoBehaviour
         transform.LookAt(treasure.transform);
         firePoint.LookAt(treasure.transform);
         if(!isFiring)
-        { 
+        {
             StartCoroutine(fire());
         }
-       
+
     }
     //Atack Wall
     private void AttackWall()
@@ -141,14 +141,14 @@ public class RangedEnemyAI : MonoBehaviour
         firePoint.LookAt(Wall.transform);
         if(!isFiring)
         {
-            
+
             StartCoroutine(fire());
         }
     }
     //Attack Player
     private void AttackPlayer()
     {
-        
+
         agent.isStopped = true;
         ObjectAnimator.SetBool("IsAttacking", true);
         Vector3 lookPos = player.transform.position;
@@ -160,7 +160,7 @@ public class RangedEnemyAI : MonoBehaviour
             StartCoroutine(fire());
         }
 
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -192,7 +192,7 @@ public class RangedEnemyAI : MonoBehaviour
     public void isElim(float currHealth)
     {
         Debug.Log(currHealth);
-        if(currHealth == 0)
+        if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
@@ -207,7 +207,7 @@ public class RangedEnemyAI : MonoBehaviour
             GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
             shootSound.Play(0);
             newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
-            
+
             //Adding this snip of code here to beat a bug where they thought wall was already broken
             var wallHealthComponent = Wall.GetComponent<Health>();
             if(wallHealthComponent.currentHealth == 1)
@@ -251,6 +251,3 @@ public class RangedEnemyAI : MonoBehaviour
     }
 
 }
-
-
-
