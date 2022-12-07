@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5111,7 +5111,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Use WASD to move and Space to Jump
+  m_text: 'Use WASD to move
+
+    Space to Jump
 
     Hold Shift to Sprint
 
@@ -5120,7 +5122,10 @@ MonoBehaviour:
 
     Interact with F
 
-    Press ESC to pause
+    Press ESC to pause/resume game
+
+    Use
+    the mouse to select mennu options
 
 '
   m_isRightToLeft: 0
