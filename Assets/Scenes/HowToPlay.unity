@@ -5120,12 +5120,14 @@ MonoBehaviour:
     Left
     Click to Attack
 
+    Scroll to switch between weapons
+
     Interact with F
 
-    Press ESC to pause/resume game
+    Press
+    ESC to pause/resume game
 
-    Use
-    the mouse to select mennu options
+    Use the mouse to select mennu options
 
 '
   m_isRightToLeft: 0
