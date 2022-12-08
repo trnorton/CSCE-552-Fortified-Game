@@ -9,7 +9,7 @@ public class FriendlyInteract : MonoBehaviour
     public GameObject warriorInterface;
     public KeyCode interactKey = KeyCode.F;
     public KeyCode closeInteractMenu = KeyCode.X;
-    private bool warriorIndicatorpresent = false;
+    
     
     
    
@@ -20,19 +20,20 @@ public class FriendlyInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        warriorIndicator = GameObject.Find("PressF");
+        
         warriorInterface = GameObject.Find("warriorInterface");
-        warriorIndicator.SetActive(false);
+        warriorIndicator = GameObject.Find("PressFWarriors");
         warriorInterface.SetActive(false);
+        warriorIndicator.SetActive(false);
         player = GameObject.FindGameObjectWithTag("Player");
-        warriorIndicatorpresent = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         FriendlyDistance();
-        if(warriorIndicator.activeInHierarchy == true && Input.GetKeyDown(interactKey) && warriorIndicatorpresent == true)
+        if(warriorIndicator.activeInHierarchy == true && Input.GetKeyDown(interactKey))
         {   
             
             warriorInterface.SetActive(true);
@@ -56,12 +57,12 @@ public class FriendlyInteract : MonoBehaviour
             if(distanceFromPlayer < 2.0f)
             {
                 warriorIndicator.SetActive(true);
-                warriorIndicatorpresent = true;
+                
             }
             else
             {
                 warriorIndicator.SetActive(false);
-                warriorIndicatorpresent = false;
+                
             }
         }
 
