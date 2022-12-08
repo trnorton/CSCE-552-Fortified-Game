@@ -9,6 +9,8 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform[] spawnObjectMeleeRanged;
     public Transform spawnObjectGhost;
+    
+    
     public Transform spawnObjectBoss;
     public bool inRound;
     public int spawnTotal = 3;
@@ -23,6 +25,8 @@ public class WaveSpawner : MonoBehaviour
     {
         //inRound = false;
         roundIndicator.SetActive(true);
+        
+        
     }
 
     void Update()
@@ -118,7 +122,7 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }
-
+    
     IEnumerator SpawnGameObjectBoss()
     {
         check = false;
