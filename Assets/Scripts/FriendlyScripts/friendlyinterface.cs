@@ -8,11 +8,16 @@ public class friendlyinterface : MonoBehaviour
     private GameObject friendly;
     private GameObject target;
     private GameObject[] friendlies;
-    public GameObject insidePosition;
-    public GameObject northPosition;
-    public GameObject southPosition;
-    public GameObject westPosition;
-    public GameObject eastPosition;
+    private Transform randominsidePosition;
+    public Transform[] insidePositions;
+    private Transform northPosition;
+    public Transform[] northPositions;
+    private Transform southPosition;
+    public Transform[] southPositions;
+    private Transform eastPosition;
+    public Transform[] eastPositions;
+    private Transform westPosition;
+    public Transform[] westPositions;
     private GameObject player;
     public TextMeshProUGUI friendlyHealthText;
     
@@ -32,29 +37,35 @@ public class friendlyinterface : MonoBehaviour
     public void OnClickStay()
     {
         friendly = getClosestFriendly();
-        friendly.GetComponent<FriendlyAi>().Go(insidePosition.transform.position);
+        randominsidePosition = insidePositions[Random.Range(0, insidePositions.Length)];
+        
+        friendly.GetComponent<FriendlyAi>().Go(randominsidePosition.transform.position);
         
 
     }
     public void OnClickNorth()
     {
         friendly = getClosestFriendly();
+        northPosition = northPositions[Random.Range(0, northPositions.Length)];
         friendly.GetComponent<FriendlyAi>().Go(northPosition.transform.position);
         
     }
     public void OnClickSouth()
     {
         friendly = getClosestFriendly();
+        southPosition = southPositions[Random.Range(0, southPositions.Length)];
         friendly.GetComponent<FriendlyAi>().Go(southPosition.transform.position);
     }
     public void OnClickWest()
     {
         friendly = getClosestFriendly();
+        westPosition = westPositions[Random.Range(0, westPositions.Length)];
         friendly.GetComponent<FriendlyAi>().Go(westPosition.transform.position);
     }
     public void OnClickEast()
     {
         friendly = getClosestFriendly();
+        eastPosition = eastPositions[Random.Range(0, eastPositions.Length)];
         friendly.GetComponent<FriendlyAi>().Go(eastPosition.transform.position);
     }
     public void OnClickHalt()

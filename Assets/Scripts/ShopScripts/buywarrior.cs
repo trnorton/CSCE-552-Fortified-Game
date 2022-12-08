@@ -10,7 +10,8 @@ public class buywarrior : MonoBehaviour
     private int money;
     private GameObject[] warriors;
     public GameObject warriorprefab;
-    public GameObject spawn;
+    private Transform spawn;
+    public Transform[] spawnpositions;
     private int warriorcount;
     public TextMeshProUGUI buyWarriorText;
     public int maxWarriors;
@@ -30,7 +31,7 @@ public class buywarrior : MonoBehaviour
         if(money >= warriorcost && warriorcount < maxWarriors)
         {
             playercash.SubMoney(warriorcost);
-            
+            spawn = spawnpositions[Random.Range(0, spawnpositions.Length)];
             Instantiate(warriorprefab, spawn.transform.position, spawn.transform.rotation);
             
             warriorcount++;
