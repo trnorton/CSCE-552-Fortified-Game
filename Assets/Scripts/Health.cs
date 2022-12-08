@@ -46,6 +46,10 @@ public class Health : MonoBehaviour
             this.gameObject.SetActive(false);
             SceneManager.LoadScene("GameOverScene");
         }
+        else if(currentHealth == 0 && this.gameObject.tag == "Friendly")
+        {
+            Destroy(this.gameObject);
+        }
     }
     public float HealthtoInt()
     {

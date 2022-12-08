@@ -36,15 +36,21 @@ public class MeleeEnemyAI : MonoBehaviour
     private GameObject[] defaultTargets;
     private GameObject target;
 
+    private GameObject[] friendlies;
+    private GameObject targetFriendly;
+
     private NavMeshPath path;
     private float elapsed;
     public AudioSource meleeSound;
     public AudioSource DamageSound;
 
+    public bool beingAttacked;
+
     void Start()
     {
         treasureDes = false;
         ObjectAnimator = this.GetComponent<Animator>();
+        beingAttacked = false;
 
     }
     private void Awake()
@@ -112,13 +118,19 @@ public class MeleeEnemyAI : MonoBehaviour
             wallInFront = true;
         else
             wallInFront = false;
-
-        if(playerInRange && !playerInAttackRange && !wallInFront) ChasePlayer();
-        if(playerInRange && playerInAttackRange && !treasureInAttackRange && !wallInFront) AttackPlayer();
-        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront && !treasureDes) ChaseTreasure();
-        if(treasureInAttackRange && !wallInFront) AttackTreasure();
-        if(wallInFront) AttackWall();
-
+        
+        if(beingAttacked)
+        {
+           underAttack();
+        }
+        else
+        {
+            if(playerInRange && !playerInAttackRange && !wallInFront) ChasePlayer();
+            if(playerInRange && playerInAttackRange && !treasureInAttackRange && !wallInFront) AttackPlayer();
+            if(!playerInRange && !playerInAttackRange && !treasureInAttackRange && !wallInFront && !treasureDes) ChaseTreasure();
+            if(treasureInAttackRange && !wallInFront) AttackTreasure();
+            if(wallInFront) AttackWall();
+        }
 
 
     }
@@ -170,8 +182,9 @@ public class MeleeEnemyAI : MonoBehaviour
     private void AttackWall()
     {
         agent.isStopped = true;
-
-
+        Vector3 lookPos = Wall.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
 
         if(!alreadyAttacked)
         {
@@ -267,6 +280,7 @@ public class MeleeEnemyAI : MonoBehaviour
     {
 
         walls = GameObject.FindGameObjectsWithTag("Wall");
+        target = null;
         float closest = 0;
         for(int i = 0; i < walls.Length; i++)
         {
@@ -283,6 +297,57 @@ public class MeleeEnemyAI : MonoBehaviour
         }
         return target;
 
+    }
+    public void underAttack()
+    {
+        
+        agent.isStopped = true;
+        targetFriendly = getClosestFriendly();
+        if(targetFriendly == null)
+        {
+            beingAttacked = false;
+            return;
+        }
+        Vector3 lookPos = targetFriendly.transform.position;
+        lookPos.y = transform.position.y;
+        transform.LookAt(lookPos);
+
+        if(!alreadyAttacked)
+        {
+            //Animation would go here
+            ObjectAnimator.SetBool("IsAttacking", true);
+            meleeSound.Play(0);
+
+            var friendlyHealth = targetFriendly.GetComponent<Health>();
+            if(friendlyHealth != null)
+            {
+                friendlyHealth.TakeDamage(1);
+            }
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+    public GameObject getClosestFriendly()
+    {
+        friendlies = GameObject.FindGameObjectsWithTag("Friendly");
+        float closest = 0;
+        target = null;
+        for(int i = 0; i < friendlies.Length; i++)
+        {
+            float dist = Vector3.Distance(friendlies[i].transform.position, this.transform.position);
+            if(closest == 0)
+            {
+                closest = dist;
+                target = friendlies[i];
+            }
+            else if(dist < closest)
+            {
+                closest = dist;
+                target = friendlies[i];
+            }
+        }
+        return target;
     }
     //2 seconds of invincibility
     void Reset()

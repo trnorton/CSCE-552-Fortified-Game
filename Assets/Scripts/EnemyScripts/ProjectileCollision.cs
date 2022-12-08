@@ -39,6 +39,12 @@ public class ProjectileCollision : MonoBehaviour
         {
             projectileDie();
         }
+        if(col.gameObject.tag == "Friendly")
+        {
+            
+            HealthComponent.TakeDamage(1);
+            projectileDie();
+        }
     }
     IEnumerator Timer()
     {

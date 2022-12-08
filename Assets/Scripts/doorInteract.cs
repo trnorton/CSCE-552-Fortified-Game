@@ -14,6 +14,7 @@ public class doorInteract : MonoBehaviour
     private bool isOpen;
     private float doorActionRate = 0.0f;
     private float doorActionTime = 0.001f;
+    private bool doorIndicatorpresent;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class doorInteract : MonoBehaviour
         isOpen = false;
         startRotationAngle = new Vector3(door.transform.localRotation.x, door.transform.localRotation.y, door.transform.localRotation.z);
         doorIndicator.SetActive(false);
+       
     }
 
     // Update is called once per frame
@@ -49,11 +51,14 @@ public class doorInteract : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
+        if(other.GetComponent<Collider>().tag == "Player")
         doorIndicator.SetActive(true);
+        
     }
     void OnTriggerExit(Collider other)
     {
         doorIndicator.SetActive(false);
+        
     }
     void OnTriggerStay(Collider other)
     {

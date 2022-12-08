@@ -25,6 +25,8 @@ TagManager:
   - TurretManager
   - Spawner
   - Shop
+  - Friendly
+  - friendlyIdle
   layers:
   - Default
   - TransparentFX
@@ -40,7 +42,7 @@ TagManager:
   - destroyedWall
   - TurretProjectile
   - Turret
-  - 
+  - Friendly
   - 
   - 
   - 

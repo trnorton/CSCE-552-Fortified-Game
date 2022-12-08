@@ -43,8 +43,13 @@ public class RangedEnemyAI : MonoBehaviour
     private NavMeshPath path;
     public AudioSource damageSound;
     public AudioSource shootSound;
+    public bool beingAttacked;
 
     bool alreadyAttacked;
+
+    private GameObject[] friendlies;
+    private GameObject targetFriendly;
+    private float distanceToFriendly;
 
     void Start()
     {
@@ -52,6 +57,8 @@ public class RangedEnemyAI : MonoBehaviour
         wallDes = false;
         isFiring = false;
         ObjectAnimator = this.GetComponent<Animator>();
+        beingAttacked = false;
+        
     }
     private void Awake()
     {
@@ -67,12 +74,17 @@ public class RangedEnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distanceToFriendly = 100.0f;
+        targetFriendly = getClosestFriendly();
 
         Wall = getClosestWall();
         distanceToPlayer = Vector3.Distance(player.transform.position, this.transform.position);
 
         distanceToWall = Vector3.Distance(Wall.transform.position, this.transform.position);
-
+        if(targetFriendly != null)
+        {
+            distanceToFriendly = Vector3.Distance(targetFriendly.transform.position, this.transform.position);
+        }
         if(!treasureDes)
             distanceToTreasure = Vector3.Distance(treasure.transform.position, this.transform.position);
 
@@ -95,15 +107,28 @@ public class RangedEnemyAI : MonoBehaviour
             wallInFront = true;
         else
             wallInFront = false;
+        
+        if(beingAttacked)
+        {
+            underAttack();
+        }
+        else
+        {
+            if(distanceToFriendly < 20)
+            {
+                AttackFriendly();
+            }
+            else
+            {
+                if(playerInRange && !playerInAttackRange) ChasePlayer();
+                if(playerInRange && playerInAttackRange && !treasureInAttackRange) AttackPlayer();
+                if(!playerInRange && !playerInAttackRange && !treasureInAttackRange) ChaseTreasure();
+                if(treasureInAttackRange && !wallInFront) AttackTreasure();
+                if(wallInFront && !wallDes) AttackWall();
+            }
+        }
 
-        if(playerInRange && !playerInAttackRange) ChasePlayer();
-        if(playerInRange && playerInAttackRange && !treasureInAttackRange) AttackPlayer();
-        if(!playerInRange && !playerInAttackRange && !treasureInAttackRange) ChaseTreasure();
-        if(treasureInAttackRange && !wallInFront) AttackTreasure();
-        if(wallInFront && !wallDes) AttackWall();
-
-
-
+        
     }
     //Enemy goes after treasure
     private void ChaseTreasure()
@@ -163,6 +188,19 @@ public class RangedEnemyAI : MonoBehaviour
         }
 
 
+    }
+    private void AttackFriendly()
+    {
+        agent.isStopped = true;
+        ObjectAnimator.SetBool("IsAttacking", true);
+        Vector3 lookPos = targetFriendly.transform.position;
+        lookPos.y = transform.position.y+1;
+        firePoint.LookAt(targetFriendly.transform);
+        transform.LookAt(lookPos);
+        if(!isFiring)
+        {
+            StartCoroutine(fire());
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -226,7 +264,47 @@ public class RangedEnemyAI : MonoBehaviour
             yield return new WaitForSeconds(0.25f);
             isFiring = false;
     }
-
+    public void underAttack()
+    {
+        targetFriendly = getClosestFriendly();
+        if(targetFriendly == null)
+        {
+            beingAttacked = false;
+            return;
+        }
+        var friendlyHealthComponent = targetFriendly.GetComponent<Health>();
+        agent.isStopped = true;
+        ObjectAnimator.SetBool("IsAttacking", true);
+        Vector3 lookPos = targetFriendly.transform.position;
+        lookPos.y = transform.position.y+1;
+        transform.LookAt(lookPos);
+        firePoint.LookAt(targetFriendly.transform);
+        if(!isFiring)
+        {
+            StartCoroutine(fire());
+        }
+    }
+    public GameObject getClosestFriendly()
+    {
+        friendlies = GameObject.FindGameObjectsWithTag("Friendly");
+        float closest = 0;
+        target = null;
+        for(int i = 0; i < friendlies.Length; i++)
+        {
+            float dist = Vector3.Distance(friendlies[i].transform.position, this.transform.position);
+            if(closest == 0)
+            {
+                closest = dist;
+                target = friendlies[i];
+            }
+            else if(dist < closest)
+            {
+                closest = dist;
+                target = friendlies[i];
+            }
+        }
+        return target;
+    }
     public GameObject getClosestWall()
     {
 
