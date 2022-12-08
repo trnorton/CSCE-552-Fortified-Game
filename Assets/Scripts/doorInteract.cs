@@ -51,9 +51,7 @@ public class doorInteract : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Collider>().tag == "Player")
         doorIndicator.SetActive(true);
-        
     }
     void OnTriggerExit(Collider other)
     {
