@@ -20,7 +20,8 @@ public class SaveController : MonoBehaviour
     public GameObject metalWall;
     public GameObject damagedMetalWall;
     public GameObject destroyedMetalWall;
-
+    private GameObject[] FriendliesControl;
+    private int numFriends;
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -81,6 +82,10 @@ public class SaveController : MonoBehaviour
             var turretComponent = turretController.GetComponent<TurretHandler>();
             PlayerPrefs.SetInt("TurretActiveSaved", turretComponent.boolToInt());
         }
+        
+        FriendliesControl = FindGameObjectsWithTags(new string[]{"Friendly"});
+        numFriends = FriendliesControl.Length;
+        PlayerPrefs.SetInt("NumberFriendsSaved", numFriends);
 
         PlayerPrefs.Save();
     }

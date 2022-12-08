@@ -15877,7 +15877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1521776067}
-  warriorcost: 0
+  warriorcost: 50
   warriorprefab: {fileID: 6522879679651671782, guid: 385b84c563f36e74aa05cf839e0ffaee, type: 3}
   spawnpositions:
   - {fileID: 407484354}

@@ -20,6 +20,10 @@ public class LoadController : MonoBehaviour
     public GameObject treasure;
     public GameObject[] wallControl;
     public GameObject turretController;
+    public Transform[] spawnPoints;
+    private Transform spawn;
+    public GameObject warriorPrefab;
+
 
     void awake()
     {
@@ -99,6 +103,17 @@ public class LoadController : MonoBehaviour
         if(PlayerPrefs.HasKey("RoundNumberSaved"))
         {
             waveSpawnerComponent.setRound(PlayerPrefs.GetInt("RoundNumberSaved"));
+        }
+
+        //Number of warriors
+        if(PlayerPrefs.HasKey("NumberFriendsSaved"))
+        {
+            
+            for(int i = 0; i < PlayerPrefs.GetInt("NumberFriendsSaved");i++)
+            {
+                spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Instantiate(warriorPrefab, spawn.transform.position, spawn.transform.rotation);
+            }
         }
 
         //Wall Level
