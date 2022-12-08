@@ -57,16 +57,18 @@ public class FriendlyAi : MonoBehaviour
         if(closestEnemy != null)
         {
             distanceToEnemy= Vector3.Distance(closestEnemy.transform.position, this.transform.position);
+            var ghostscript = closestEnemy.GetComponent<GhostAI>();
+            if(ghostscript != null)
+            {
+                distanceToEnemy = 1000;
+            }
         }
         else
         {
             distanceToEnemy = 1000;
         }
-        var ghostscript = closestEnemy.GetComponent<GhostAI>();
-        if(ghostscript != null)
-        {
-            distanceToEnemy = 1000;
-        }
+
+        
         //Get Path every second
         elapsed += Time.deltaTime;
         if (elapsed > 1.0f)
