@@ -38,6 +38,8 @@ public class FriendlyAi : MonoBehaviour
       ObjectAnimator = GetComponent<Animator>();
       ObjectAnimator.SetInteger("Action", 0);
       Physics.IgnoreLayerCollision(9, 14);
+      Physics.IgnoreLayerCollision(9,15);
+     
       
       idleLocation = this.transform.position;
       
