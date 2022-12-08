@@ -62,7 +62,11 @@ public class FriendlyAi : MonoBehaviour
         {
             distanceToEnemy = 1000;
         }
-
+        var ghostscript = closestEnemy.GetComponent<GhostAI>();
+        if(ghostscript != null)
+        {
+            distanceToEnemy = 1000;
+        }
         //Get Path every second
         elapsed += Time.deltaTime;
         if (elapsed > 1.0f)
@@ -92,8 +96,17 @@ public class FriendlyAi : MonoBehaviour
             var script = closestEnemy.GetComponent<MeleeEnemyAI>();
             if(script == null)
             {
+                
                 var rangedscript = closestEnemy.GetComponent<RangedEnemyAI>();
-                rangedscript.beingAttacked = true;
+                if(rangedscript == null)
+                {
+                    var ghostscript1 = closestEnemy.GetComponent<GhostAI>();
+                    
+                }
+                else
+                {
+                    rangedscript.beingAttacked = true;
+                }
             }
             else
             {
