@@ -121,8 +121,8 @@ public class LoadController : MonoBehaviour
             {
                 Debug.Log(PlayerPrefs.GetFloat("Warrior" +i +" HP"));
                 var warriorHealth = warrior[i].GetComponent<Health>();
-                warriorHealth.currentHealth = PlayerPrefs.GetFloat("Warrior" +i +" HP");
-                Debug.Log(warriorHealth.currentHealth);
+                warriorHealth.maxHealth = PlayerPrefs.GetFloat("Warrior" +i +" HP");
+                Debug.Log(warriorHealth.maxHealth);
             }
         }
 
