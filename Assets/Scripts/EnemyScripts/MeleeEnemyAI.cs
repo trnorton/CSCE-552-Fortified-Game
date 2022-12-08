@@ -11,7 +11,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public WeaponController wc;
     public NavMeshAgent agent;
     private GameObject treasure;
-    
+
     public GameObject waveSpawner;
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
@@ -52,6 +52,17 @@ public class MeleeEnemyAI : MonoBehaviour
         treasureDes = false;
         ObjectAnimator = this.GetComponent<Animator>();
         beingAttacked = false;
+        if(gameObject.tag == "Boss") {
+          Collider thisCollider = GetComponent<Collider>();
+          GameObject eastWalkway = GameObject.FindWithTag("East Walkway");
+          GameObject westWalkway = GameObject.FindWithTag("West Walkway");
+          GameObject northWalkway = GameObject.FindWithTag("North Walkway");
+          GameObject southWalkway = GameObject.FindWithTag("South Walkway");
+          Physics.IgnoreCollision(thisCollider, eastWalkway.GetComponent<Collider>());
+          Physics.IgnoreCollision(thisCollider, westWalkway.GetComponent<Collider>());
+          Physics.IgnoreCollision(thisCollider, northWalkway.GetComponent<Collider>());
+          Physics.IgnoreCollision(thisCollider, southWalkway.GetComponent<Collider>());
+        }
 
     }
     private void Awake()
@@ -119,7 +130,7 @@ public class MeleeEnemyAI : MonoBehaviour
             wallInFront = true;
         else
             wallInFront = false;
-        
+
         if(beingAttacked)
         {
            underAttack();
@@ -301,7 +312,7 @@ public class MeleeEnemyAI : MonoBehaviour
     }
     public void underAttack()
     {
-        
+
         agent.isStopped = true;
         targetFriendly = getClosestFriendly();
         if(targetFriendly == null)

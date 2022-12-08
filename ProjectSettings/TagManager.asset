@@ -27,6 +27,11 @@ TagManager:
   - Shop
   - Friendly
   - friendlyIdle
+  - Boss
+  - East Walkway
+  - West Walkway
+  - North Walkway
+  - South Walkway
   layers:
   - Default
   - TransparentFX

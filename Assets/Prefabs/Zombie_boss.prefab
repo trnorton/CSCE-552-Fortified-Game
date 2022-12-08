@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 3213203630644503386}
   m_Layer: 0
   m_Name: Zombie_boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -932,6 +932,7 @@ MonoBehaviour:
   timeBetweenAttacks: 1
   meleeSound: {fileID: -5459472258589775585}
   DamageSound: {fileID: 3213203630644503386}
+  beingAttacked: 0
 --- !u!114 &-4593749265286496551
 MonoBehaviour:
   m_ObjectHideFlags: 0
