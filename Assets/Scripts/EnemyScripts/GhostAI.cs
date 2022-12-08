@@ -11,6 +11,7 @@ public class GhostAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject treasure;
     public GameObject weaponHolder;
+    public GameObject waveSpawner;
     public LayerMask isTreasure, isPlayer;
     public float playerRange;
     public float attackRange;
@@ -33,6 +34,7 @@ public class GhostAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.FindWithTag("Player");
+        waveSpawner = GameObject.FindWithTag("Spawner");
         weaponHolder = GameObject.FindWithTag("weaponcontrol");
         wc = weaponHolder.GetComponent<WeaponController>();
         treasure = GameObject.FindWithTag("Treasure");
@@ -161,10 +163,12 @@ public class GhostAI : MonoBehaviour
     public void isElim(float currHealth)
     {
         Debug.Log(currHealth);
+        var deathCounter = waveSpawner.GetComponent<WaveSpawner>();
         if(currHealth <= 0)
         {
             var playermoney = player.GetComponent<Money>();
             playermoney.AddMoney(enemyMoneyValue);
+            deathCounter.elimCount++;
             Destroy(gameObject);
         }
     }

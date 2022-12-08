@@ -96,6 +96,7 @@ public class WaveSpawner : MonoBehaviour
     }
     IEnumerator SpawnGameObjectMelee()
     {
+        check = false;
         spawnTotal = spawnTotal + (roundNumber*2);
         for(var i = 0; i < spawnTotal; i++)
         {
@@ -108,6 +109,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnGameObjectGhost()
     {
+        check = false;
         spawnTotal = spawnTotal + (roundNumber*2);
         for(var i = 0; i < spawnTotal; i++)
         {
@@ -119,6 +121,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnGameObjectBoss()
     {
+        check = false;
         Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
         Instantiate(spawnObjectBoss, randomSpawn.position, randomSpawn.rotation);
         spawnTotal = spawnTotal + (roundNumber*2);
@@ -143,6 +146,8 @@ public class WaveSpawner : MonoBehaviour
     public void enemiesDefeated()
     {
         if(check == false && elimCount == spawnTotal)
+        {
+            Debug.Log("YO");
             if(check == true)
                 check = false;
             else
@@ -150,6 +155,7 @@ public class WaveSpawner : MonoBehaviour
                 roundNumber++;
                 check = true;
             }
+        }
 
     }
 }
