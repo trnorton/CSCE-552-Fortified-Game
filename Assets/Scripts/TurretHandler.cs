@@ -9,7 +9,17 @@ public class TurretHandler : MonoBehaviour
     void Start()
     {
         turrets = GameObject.FindGameObjectsWithTag("Turret");
-        disableTurrets();
+        if(PlayerPrefs.HasKey("TurretActiveSaved"))
+        {
+            if(PlayerPrefs.GetInt("TurretActiveSaved") == 1)
+                deployTurrets();
+            else
+                disableTurrets();
+        }
+        else
+        {
+            disableTurrets();
+        }
         // SetActive(false);
     }
 
