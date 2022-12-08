@@ -10,6 +10,7 @@ public class SaveController : MonoBehaviour
     public GameObject waveSpawner;
     public GameObject treasure;
     public GameObject[] wallControl;
+    public GameObject[] warrior;
     public GameObject turretController;
     public GameObject woodWall;
     public GameObject damagedWoodWall;
@@ -86,6 +87,12 @@ public class SaveController : MonoBehaviour
         FriendliesControl = FindGameObjectsWithTags(new string[]{"Friendly"});
         numFriends = FriendliesControl.Length;
         PlayerPrefs.SetInt("NumberFriendsSaved", numFriends);
+
+        for(int i = 0; i < numFriends; i++)
+        {
+            var warriorHealth = FriendliesControl[i].GetComponent<Health>();
+            PlayerPrefs.SetFloat("Warrior" +i +" HP", warriorHealth.currentHealth);
+        }
 
         PlayerPrefs.Save();
     }

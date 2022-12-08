@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject[] warrior;
     public GameObject woodWall;
     public GameObject damagedWoodWall;
     public GameObject destroyedWoodWall;
@@ -23,13 +24,14 @@ public class LoadController : MonoBehaviour
     public Transform[] spawnPoints;
     private Transform spawn;
     public GameObject warriorPrefab;
-
+    public Transform[] spawnpositions;
 
     void awake()
     {
         player = GameObject.FindWithTag("Player");
         treasure = GameObject.FindWithTag("Treasure");
         waveSpawner = GameObject.FindWithTag("Spawner");
+        // warrior = GameObject.FindGameObjectsWithTag("Friendly");
         // weaponcontrol = GameObject.FindWithTag("weaponcontrol");
         // turretController = GameObject.FindWithTag("TurretManager");
     }
@@ -114,6 +116,14 @@ public class LoadController : MonoBehaviour
                 spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
                 Instantiate(warriorPrefab, spawn.transform.position, spawn.transform.rotation);
             }
+            warrior = GameObject.FindGameObjectsWithTag("Friendly");
+            for(int i = 0; i < PlayerPrefs.GetInt("NumberFriendsSaved");i++)
+            {
+                Debug.Log(PlayerPrefs.GetFloat("Warrior" +i +" HP"));
+                var warriorHealth = warrior[i].GetComponent<Health>();
+                warriorHealth.currentHealth = PlayerPrefs.GetFloat("Warrior" +i +" HP");
+                Debug.Log(warriorHealth.currentHealth);
+            }
         }
 
         //Wall Level
@@ -121,7 +131,7 @@ public class LoadController : MonoBehaviour
         for(int i = 0; i < wallControl.Length; i++)
         {
             string wallType = PlayerPrefs.GetString("Wall[" + i + "]save");
-            Debug.Log(wallType);
+            // Debug.Log(wallType);
             if(wallType == woodWall.name+"(Clone)") {
                 Instantiate(woodWall, wallControl[i].transform.position, wallControl[i].transform.rotation);
                 Destroy(wallControl[i]);
@@ -160,6 +170,7 @@ public class LoadController : MonoBehaviour
             }
 
         }
+
 
         // if(PlayerPrefs.HasKey("WallLevelSaved"))
         // {
