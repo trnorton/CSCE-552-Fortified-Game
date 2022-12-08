@@ -945,8 +945,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e35859ed856404ea015db9015d0483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
-  currentHealth: 2
+  maxHealth: 10
+  currentHealth: 10
   prefab: {fileID: 0}
   damagedprefab: {fileID: 0}
   destructionLevel: 0
