@@ -11,6 +11,7 @@ public class MeleeEnemyAI : MonoBehaviour
     public WeaponController wc;
     public NavMeshAgent agent;
     private GameObject treasure;
+    
     public GameObject waveSpawner;
     public LayerMask isTreasure, isPlayer, isWall;
     public GameObject Wall;
