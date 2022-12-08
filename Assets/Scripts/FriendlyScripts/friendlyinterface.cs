@@ -57,6 +57,11 @@ public class friendlyinterface : MonoBehaviour
         friendly = getClosestFriendly();
         friendly.GetComponent<FriendlyAi>().Go(eastPosition.transform.position);
     }
+    public void OnClickHalt()
+    {
+        friendly = getClosestFriendly();
+        friendly.GetComponent<FriendlyAi>().StopMoving();
+    }
     public GameObject getClosestFriendly()
     {
         friendlies = GameObject.FindGameObjectsWithTag("Friendly");

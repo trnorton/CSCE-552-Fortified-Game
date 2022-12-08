@@ -152,6 +152,10 @@ public class FriendlyAi : MonoBehaviour
     {
         idleLocation = position;
     }
+    public void StopMoving()
+    {
+        idleLocation = transform.position;
+    }
     public GameObject getClosestEnemy()
     {
         target = null;
