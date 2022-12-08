@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.AI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class WaveSpawner : MonoBehaviour
     public GameObject roundIndicator;
     public TextMeshProUGUI roundText;
     public bool check;
+   
 
     void Start()
     {
@@ -107,6 +109,7 @@ public class WaveSpawner : MonoBehaviour
             Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Transform randomEnemy = spawnObjectMeleeRanged[Random.Range(0, spawnObjectMeleeRanged.Length)];
             Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
+            randomEnemy.GetComponent<NavMeshAgent>().Warp(randomSpawn.position);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }
