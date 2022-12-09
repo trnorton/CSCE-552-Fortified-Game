@@ -17531,7 +17531,7 @@ MonoBehaviour:
   - {fileID: 542941235}
   warriorcount: 0
   buyWarriorText: {fileID: 1513681953}
-  maxWarriors: 4
+  maxWarriors: 6
   bought: {fileID: 1996896028}
   notEnoughCash: {fileID: 1996896023}
 --- !u!82 &1996896023

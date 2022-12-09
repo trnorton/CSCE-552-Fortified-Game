@@ -26,7 +26,7 @@ public class buywarrior : MonoBehaviour
     }
     void Update()
     {
-        if(warriorcount < 4)
+        if(warriorcount < 6)
         {
             buyWarriorText.text = "Buy Warrior $50";
         
