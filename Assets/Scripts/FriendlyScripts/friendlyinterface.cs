@@ -73,12 +73,6 @@ public class friendlyinterface : MonoBehaviour
         friendly = getClosestFriendly();
         friendly.GetComponent<FriendlyAi>().StopMoving();
     }
-    public void OnClickHeal()
-    {
-        friendly = getClosestFriendly();
-        var friendhp = friendly.GetComponent<Health>();
-        friendhp.currentHealth = 5.0f;
-    }
     public GameObject getClosestFriendly()
     {
         friendlies = GameObject.FindGameObjectsWithTag("Friendly");
