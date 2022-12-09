@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 222389023}
   m_Layer: 9
   m_Name: NorthWallWalkway
-  m_TagString: Untagged
+  m_TagString: North Walkway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3027,7 +3027,7 @@ GameObject:
   - component: {fileID: 305186216}
   m_Layer: 9
   m_Name: SouthWallWalkway
-  m_TagString: Untagged
+  m_TagString: South Walkway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4325,7 +4325,7 @@ GameObject:
   - component: {fileID: 381755595}
   m_Layer: 9
   m_Name: WestWallWalkway
-  m_TagString: Untagged
+  m_TagString: West Walkway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6193,7 +6193,7 @@ MonoBehaviour:
   - {fileID: 8463063171266453681, guid: 8d6ac2d0ffba2dc48bc1e7ed3ca8def7, type: 3}
   - {fileID: 949384517712485941, guid: 02bd5383a88a11b41a53fe9678c78571, type: 3}
   spawnObjectGhost: {fileID: 7094795369701766934, guid: 2b8d6c0208d2b774eb7ae46034963371, type: 3}
-  spawnObjectBoss: {fileID: 0}
+  spawnObjectBoss: {fileID: 949384517712485941, guid: a442d260327725642a8159574d3439bb, type: 3}
   inRound: 0
   spawnTotal: 6
   elimCount: 0
@@ -11420,7 +11420,7 @@ GameObject:
   - component: {fileID: 1460936553}
   m_Layer: 9
   m_Name: EastWallWalkway
-  m_TagString: Untagged
+  m_TagString: East Walkway
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

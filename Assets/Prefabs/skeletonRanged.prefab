@@ -900,7 +900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9095309383163148811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 109.27919, y: -0.0000019073486, z: -32.986538}
+  m_LocalPosition: {x: 212.8, y: 0.083, z: -53.535717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1025,6 +1025,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   Wall: {fileID: 0}
+  waveSpawner: {fileID: 0}
   playerRange: 18
   attackRange: 15
   projectile: {fileID: 6176397532723996204, guid: 279684a5f68e680458b949b395344f9d, type: 3}
@@ -1044,6 +1045,7 @@ MonoBehaviour:
   isFiring: 0
   damageSound: {fileID: 3832144781499734631}
   shootSound: {fileID: 6311035031834445387}
+  beingAttacked: 0
 --- !u!82 &3832144781499734631
 AudioSource:
   m_ObjectHideFlags: 0

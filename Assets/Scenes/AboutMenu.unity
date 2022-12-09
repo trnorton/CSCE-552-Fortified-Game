@@ -766,7 +766,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: 58}
+  m_AnchoredPosition: {x: -165, y: 65}
   m_SizeDelta: {x: 582.224, y: 133.439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752733461
@@ -792,7 +792,8 @@ MonoBehaviour:
   m_text: 'Joshua Braun - Designed models and materials for all walls, skeleton enemies,
     and nature elements. Created animations for both skeleton types. Wrote all scripts
     for wall upgrading and destruction/repair. Designed and scripted health bars
-    and score tracker. Helped fix bugs throughout and optimize AI. '
+    and score tracker. Designed models, materials, and scripts for friendly AI. Helped
+    fix bugs throughout and optimize AI. '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -904,7 +905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165.00002, y: -25}
+  m_AnchoredPosition: {x: -165.00002, y: -30}
   m_SizeDelta: {x: 582.224, y: 133.439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893519921

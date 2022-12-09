@@ -27,7 +27,15 @@ TagManager:
   - Shop
   - Friendly
   - friendlyIdle
+<<<<<<< HEAD
   - LaserSword
+=======
+  - Boss
+  - East Walkway
+  - West Walkway
+  - North Walkway
+  - South Walkway
+>>>>>>> 384ec6780e4e4584a58ed5b967de72f2a8aa3c7e
   layers:
   - Default
   - TransparentFX

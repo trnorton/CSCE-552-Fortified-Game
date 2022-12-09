@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TurretHandler : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class TurretHandler : MonoBehaviour
     void Start()
     {
         turrets = GameObject.FindGameObjectsWithTag("Turret");
-        if(PlayerPrefs.HasKey("TurretActiveSaved"))
+
+        if(PlayerPrefs.HasKey("TurretActiveSaved") && SceneManager.GetActiveScene().name == "LoadedSave")
         {
             if(PlayerPrefs.GetInt("TurretActiveSaved") == 1)
                 deployTurrets();
