@@ -71,7 +71,7 @@ public class LoadController : MonoBehaviour
         var weaponControlComponent = weaponcontrol.GetComponent<WeaponController>();
         if(PlayerPrefs.HasKey("PrimaryWeaponSaved"))
         {
-            if(PlayerPrefs.GetString("PrimaryWeaponSaved").ToString() == "sword2 (UnityEngine.GameObject)" && weaponControlComponent.getWeaponByTag("Sword"))
+            if(PlayerPrefs.GetString("PrimaryWeaponSaved").ToString() == "sword (UnityEngine.GameObject)" && weaponControlComponent.getWeaponByTag("Sword"))
             {
                 GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
                 Bat.SetActive(false);
