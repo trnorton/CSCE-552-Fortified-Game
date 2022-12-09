@@ -88,4 +88,26 @@ public class Shop : MonoBehaviour
             Debug.Log("Not enough (get a job)");
         }
     }
+
+    public void buyBow(){
+        WeapCont = FindObjectOfType<WeaponController>();
+        var playercash = player.GetComponent<Money>();
+        money = playercash.MoneyToInt();
+        if(money >= 10 && WeapCont.getWeaponByTag("Bow") != WeapCont.getSec()){
+            GameObject currSec = WeapCont.getSec();
+            if(currSec.activeSelf == true){
+                currSec.SetActive(false);
+                WeapCont.upgradeSec("Bow");
+                GameObject newSec = WeapCont.getSec();
+                newSec.SetActive(true);
+            } else {
+                WeapCont.upgradeSec("Bow");
+                GameObject newSec = WeapCont.getSec();
+            }
+            playercash.SubMoney(10);
+            audio_0.Play();
+        } else {
+            Debug.Log("Not enough (get a job)");
+        }
+    }
 }

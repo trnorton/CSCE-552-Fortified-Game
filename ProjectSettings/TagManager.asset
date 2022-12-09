@@ -3,7 +3,33 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - Enemy
+  - Projectile
+  - Boss
+  - TurretProjectile
+  - Friendly
+  - destroyedWall
+  - Weapon
+  - weaponcontrol
+  - PlayerProjectile
+  - North Walkway
+  - South Walkway
+  - West Walkway
+  - PH
+  - Spawner
+  - NorthWall
+  - Turret
+  - East Walkway
+  - TurretManager
+  - Sword
+  - LaserSword
+  - Slingshot
+  - Treasure
+  - Shop
+  - Bat
+  - Bow
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class WeaponController : MonoBehaviour
 
     //For Slingshot
     public GameObject projectile;
+    public GameObject player_arrow;
     public Transform firePoint;
     public float fireSpeed;
 
@@ -67,8 +68,15 @@ public class WeaponController : MonoBehaviour
             CanAttack = false;
             Animator anim = Secondary.GetComponent<Animator>();
             anim.SetTrigger("Attack");
-
             StartCoroutine(fireSling());
+            StartCoroutine(resetAttackCD());
+        } 
+        else if(Secondary.tag == "Bow"){
+            isAttacking = true;
+            CanAttack = false;
+            //Animator anim = Secondary.GetComponent<Animator>();
+            //anim.SetTrigger("Attack");
+            StartCoroutine(fireBow());
             StartCoroutine(resetAttackCD());
         }
     }
@@ -90,6 +98,13 @@ public class WeaponController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75F);
         GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
+        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+        yield return new WaitForSeconds(AttackCooldown);
+    }
+    IEnumerator fireBow()
+    {
+        //yield return new WaitForSeconds(0.75F);
+        GameObject newProjectile = Instantiate(player_arrow, firePoint.position, firePoint.rotation);
         newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
         yield return new WaitForSeconds(AttackCooldown);
     }
