@@ -10,11 +10,15 @@ public class Health : MonoBehaviour
     public GameObject prefab;
     public GameObject damagedprefab;
     public int destructionLevel;
+    
+    //adding this to fix my warriorcount
+    private GameObject buyFriendly;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        buyFriendly = GameObject.Find("WeaponShopHUD");
         currentHealth = maxHealth;
     }
     void Update()
@@ -48,6 +52,7 @@ public class Health : MonoBehaviour
         }
         else if(currentHealth == 0 && this.gameObject.tag == "Friendly")
         {
+            buyFriendly.GetComponent<buywarrior>().warriorcount --;
             Destroy(this.gameObject);
         }
     }

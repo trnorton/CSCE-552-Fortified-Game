@@ -12,7 +12,7 @@ public class buywarrior : MonoBehaviour
     public GameObject warriorprefab;
     private Transform spawn;
     public Transform[] spawnpositions;
-    private int warriorcount;
+    public int warriorcount;
     public TextMeshProUGUI buyWarriorText;
     public int maxWarriors;
     
@@ -22,7 +22,14 @@ public class buywarrior : MonoBehaviour
         player = GameObject.FindWithTag("Player");
 
     }
-
+    void Update()
+    {
+        if(warriorcount < 4)
+        {
+            buyWarriorText.text = "Buy Warrior $50";
+        
+        }
+    }
     // Update is called once per frame
     public void onClickBuyWarriors()
     {
@@ -40,5 +47,6 @@ public class buywarrior : MonoBehaviour
         {
             buyWarriorText.text = "Max Warriors";
         }
+        
     }
 }
