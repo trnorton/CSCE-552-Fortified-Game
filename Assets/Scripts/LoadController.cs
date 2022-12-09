@@ -102,6 +102,12 @@ public class LoadController : MonoBehaviour
                 GameObject Slingshot = weaponControlComponent.getWeaponByTag("Slingshot");
                 weaponControlComponent.Secondary = Slingshot;
             }
+            else if(PlayerPrefs.GetString("SecondaryWeaponSaved").ToString() == "player_bow (UnityEngine.GameObject)")
+            {
+                Debug.Log("Made it 2");
+                GameObject Bow = weaponControlComponent.getWeaponByTag("Bow");
+                weaponControlComponent.Secondary = Bow;
+            }
             else
             {
                 GameObject Hands = weaponControlComponent.getWeaponByTag("PH");

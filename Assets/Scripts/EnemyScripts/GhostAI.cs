@@ -147,7 +147,7 @@ public class GhostAI : MonoBehaviour
                 Reset();
             }
         }
-        if(other.tag == "Sword" && wc.isAttacking)
+        if(other.tag == "Sword" && wc.isAttacking || other.tag == "Player_Arrow" && wc.isAttacking)
         {
             if(invincibleFrames <= System.DateTime.Now)
             {

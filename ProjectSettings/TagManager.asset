@@ -30,6 +30,7 @@ TagManager:
   - Shop
   - Bat
   - Bow
+  - Player_Arrow
   layers:
   - Default
   - TransparentFX

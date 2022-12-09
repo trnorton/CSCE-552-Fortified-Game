@@ -74,8 +74,8 @@ public class WeaponController : MonoBehaviour
         else if(Secondary.tag == "Bow"){
             isAttacking = true;
             CanAttack = false;
-            //Animator anim = Secondary.GetComponent<Animator>();
-            //anim.SetTrigger("Attack");
+            Animator anim = Secondary.GetComponent<Animator>();
+            anim.SetTrigger("Attack");
             StartCoroutine(fireBow());
             StartCoroutine(resetAttackCD());
         }

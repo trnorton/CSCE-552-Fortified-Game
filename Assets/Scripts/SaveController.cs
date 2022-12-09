@@ -51,6 +51,9 @@ public class SaveController : MonoBehaviour
         PlayerPrefs.SetString("PrimaryWeaponSaved", weaponcontrol.getPrim().ToString());
         PlayerPrefs.SetString("SecondaryWeaponSaved", weaponcontrol.getSec().ToString());
 
+        Debug.Log("Gameboject: " + weaponcontrol.getSec());
+        Debug.Log("tag: " + weaponcontrol.getSec().tag);
+
         //Save Current Round
         var waveSpawnerComponent = waveSpawner.GetComponent<WaveSpawner>();
         PlayerPrefs.SetInt("RoundNumberSaved", waveSpawnerComponent.roundNumber);
