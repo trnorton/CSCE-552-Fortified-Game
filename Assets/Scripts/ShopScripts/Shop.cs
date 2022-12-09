@@ -27,7 +27,7 @@ public class Shop : MonoBehaviour
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10 && WeapCont.getWeaponByTag("Sword") != WeapCont.getPrim()){
+        if(money >= 25 && WeapCont.getWeaponByTag("Sword") != WeapCont.getPrim()){
             GameObject currPrim = WeapCont.getPrim();
             if(currPrim.activeSelf == true){
                 currPrim.SetActive(false);
@@ -41,6 +41,7 @@ public class Shop : MonoBehaviour
             playercash.SubMoney(10);
             audio_0.Play();
         } else {
+            audio_1.Play();
             Debug.Log("Not enough (get a job)");
         }
     }
@@ -49,7 +50,7 @@ public class Shop : MonoBehaviour
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10 && WeapCont.getWeaponByTag("LaserSword") != WeapCont.getPrim()){
+        if(money >= 50 && WeapCont.getWeaponByTag("LaserSword") != WeapCont.getPrim()){
             GameObject currPrim = WeapCont.getPrim();
             if(currPrim.activeSelf == true){
                 currPrim.SetActive(false);
@@ -63,6 +64,7 @@ public class Shop : MonoBehaviour
             playercash.SubMoney(10);
             audio_0.Play();
         } else {
+            audio_1.Play();
             Debug.Log("Not enough (get a job)");
         }
     }
@@ -71,7 +73,7 @@ public class Shop : MonoBehaviour
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10 && WeapCont.getWeaponByTag("Slingshot") != WeapCont.getSec()){
+        if(money >= 50 && WeapCont.getWeaponByTag("Slingshot") != WeapCont.getSec()){
             GameObject currSec = WeapCont.getSec();
             if(currSec.activeSelf == true){
                 currSec.SetActive(false);
@@ -85,6 +87,7 @@ public class Shop : MonoBehaviour
             playercash.SubMoney(10);
             audio_0.Play();
         } else {
+            audio_1.Play();
             Debug.Log("Not enough (get a job)");
         }
     }
@@ -93,7 +96,7 @@ public class Shop : MonoBehaviour
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
         money = playercash.MoneyToInt();
-        if(money >= 10 && WeapCont.getWeaponByTag("Bow") != WeapCont.getSec()){
+        if(money >= 75 && WeapCont.getWeaponByTag("Bow") != WeapCont.getSec()){
             GameObject currSec = WeapCont.getSec();
             if(currSec.activeSelf == true){
                 currSec.SetActive(false);
@@ -107,6 +110,7 @@ public class Shop : MonoBehaviour
             playercash.SubMoney(10);
             audio_0.Play();
         } else {
+            audio_1.Play();
             Debug.Log("Not enough (get a job)");
         }
     }

@@ -20,6 +20,7 @@ public class buyUpgradedWall : MonoBehaviour
     private GameObject[] loadWalls;
     public int wallLevel;
     public AudioSource upgradewallaudio;
+    public AudioSource notEnoughCash;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +57,7 @@ public class buyUpgradedWall : MonoBehaviour
             if(money >= StoneWallCost)
             {
                 if(upgradewallaudio)
-                    upgradewallaudio.Play(0);
+                    upgradewallaudio.Play();
                 playercash.SubMoney(StoneWallCost);
                 upgradeWoodWalls();
                 wallLevel++;
@@ -66,6 +67,7 @@ public class buyUpgradedWall : MonoBehaviour
             }
             else
             {
+                notEnoughCash.Play();
                 Debug.Log("Not enough funds");
             }
         }
@@ -74,7 +76,7 @@ public class buyUpgradedWall : MonoBehaviour
             if(money >= MetalWallCost)
             {
                 if(upgradewallaudio)
-                    upgradewallaudio.Play(0);
+                    upgradewallaudio.Play();
                 playercash.SubMoney(MetalWallCost);
                 upgradeStoneWalls();
                 wallLevel++;
@@ -83,6 +85,7 @@ public class buyUpgradedWall : MonoBehaviour
             }
             else
             {
+                notEnoughCash.Play();
                 Debug.Log("Not enough funds");
             }
         }

@@ -9,6 +9,8 @@ public class BuyTurrets : MonoBehaviour
     private int money;
     private GameObject[] turrets;
     public GameObject turretManager;
+    public AudioSource Buy;
+    public AudioSource notEnoughCash;
 
     void Start()
     {
@@ -25,9 +27,11 @@ public class BuyTurrets : MonoBehaviour
         {
             playercash.SubMoney(turretCost);
             manager.deployTurrets();
+            Buy.Play();
         }
         else
         {
+            notEnoughCash.Play();
             Debug.Log("You are poor");
         }
     }
