@@ -156,6 +156,15 @@ public class GhostAI : MonoBehaviour
                 Reset();
             }
         }
+        if(other.tag == "LaserSword" && wc.isAttacking)
+        {
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(2);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
+        }
 
 
     }

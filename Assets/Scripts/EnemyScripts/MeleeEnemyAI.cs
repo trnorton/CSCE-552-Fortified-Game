@@ -262,6 +262,16 @@ public class MeleeEnemyAI : MonoBehaviour
                 Reset();
             }
         }
+
+        if(other.tag == "LaserSword" && wc.isAttacking)
+        {
+            if(invincibleFrames <= System.DateTime.Now)
+            {
+                enemyHealCompoent.TakeDamage(3);
+                isElim(enemyHealCompoent.currentHealth);
+                Reset();
+            }
+        }
     }
 
     public void isElim(float currHealth)

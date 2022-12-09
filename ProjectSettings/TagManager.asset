@@ -27,6 +27,7 @@ TagManager:
   - Shop
   - Friendly
   - friendlyIdle
+  - LaserSword
   layers:
   - Default
   - TransparentFX

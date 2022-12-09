@@ -45,6 +45,28 @@ public class Shop : MonoBehaviour
         }
     }
 
+    public void buyLaserSword(){
+        WeapCont = FindObjectOfType<WeaponController>();
+        var playercash = player.GetComponent<Money>();
+        money = playercash.MoneyToInt();
+        if(money >= 10 && WeapCont.getWeaponByTag("LaserSword") != WeapCont.getPrim()){
+            GameObject currPrim = WeapCont.getPrim();
+            if(currPrim.activeSelf == true){
+                currPrim.SetActive(false);
+                WeapCont.upgradePrim("LaserSword");
+                GameObject newPrim = WeapCont.getPrim();
+                newPrim.SetActive(true);
+            } else {
+                WeapCont.upgradePrim("LaserSword");
+                GameObject newPrim = WeapCont.getPrim();
+            }
+            playercash.SubMoney(10);
+            audio_0.Play();
+        } else {
+            Debug.Log("Not enough (get a job)");
+        }
+    }
+
         public void buySlingShot(){
         WeapCont = FindObjectOfType<WeaponController>();
         var playercash = player.GetComponent<Money>();
