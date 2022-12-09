@@ -16130,6 +16130,7 @@ MonoBehaviour:
   - {fileID: 58542050}
   - {fileID: 2102539234}
   - {fileID: 106539713}
+  warriorcount: 0
   buyWarriorText: {fileID: 1530719407}
   maxWarriors: 4
 --- !u!1 &2000760136 stripped
@@ -17495,7 +17496,7 @@ PrefabInstance:
       objectReference: {fileID: 577584252}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: Weapons.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: weapons.Array.size
@@ -17516,11 +17517,11 @@ PrefabInstance:
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: Weapons.Array.data[3]
       value: 
-      objectReference: {fileID: 1687564899}
+      objectReference: {fileID: 577584252}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: Weapons.Array.data[4]
       value: 
-      objectReference: {fileID: 577584252}
+      objectReference: {fileID: 532633958}
     - target: {fileID: 5297717869134896693, guid: fc179ddbf3963c444ba94ef3aad93d5d, type: 3}
       propertyPath: Weapons.Array.data[5]
       value: 

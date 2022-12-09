@@ -90,8 +90,6 @@ public class LoadController : MonoBehaviour
             }
             else
             {
-                Debug.Log("shit1: " + PlayerPrefs.GetString("PrimaryWeaponSaved").ToString());
-                Debug.Log("shit2: " + weaponControlComponent.getWeaponByTag("LaserSword"));
                 GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
                 weaponControlComponent.Prim = Bat;
             }
