@@ -1412,8 +1412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AgentTypeID: 0
   m_CollectObjects: 1
-  m_Size: {x: 90.283264, y: 100, z: 79.51761}
-  m_Center: {x: 254.85837, y: 0, z: 208.71004}
+  m_Size: {x: 100, y: 100, z: 150}
+  m_Center: {x: 250, y: 0, z: 225}
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -3546,7 +3546,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 335164569}
-  - component: {fileID: 335164570}
   m_Layer: 9
   m_Name: doorway
   m_TagString: Untagged
@@ -3571,22 +3570,6 @@ Transform:
   m_Father: {fileID: 104227347}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!208 &335164570
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335164568}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 2.5, y: 2.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1001 &335856402
 PrefabInstance:
   m_ObjectHideFlags: 0
