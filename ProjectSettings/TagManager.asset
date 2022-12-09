@@ -3,6 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
   tags:
   - Wall
   - Enemy
@@ -33,6 +34,9 @@ TagManager:
   - West Walkway
   - East Walkway
   - LaserSword
+=======
+  tags: []
+>>>>>>> 34fa8f2903dc1bb7d6459024ee889a8d012c7a28
   layers:
   - Default
   - TransparentFX
@@ -40,16 +44,16 @@ TagManager:
   - 
   - Water
   - UI
-  - Treasure
-  - Player
-  - ground
-  - Wall
-  - Ghost
-  - destroyedWall
-  - TurretProjectile
-  - Turret
-  - Friendly
-  - stairs
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

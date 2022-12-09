@@ -79,8 +79,19 @@ public class LoadController : MonoBehaviour
                 Debug.Log("Made it");
                 weaponControlComponent.Prim = Sword;
             }
+            else if(PlayerPrefs.GetString("PrimaryWeaponSaved").ToString() == "lasersword_1 (UnityEngine.GameObject)" && weaponControlComponent.getWeaponByTag("LaserSword"))
+            {
+                GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
+                Bat.SetActive(false);
+                GameObject LaserSword = weaponControlComponent.getWeaponByTag("LaserSword");
+                Debug.Log("Made it");
+                weaponControlComponent.Prim = LaserSword;
+
+            }
             else
             {
+                Debug.Log("shit1: " + PlayerPrefs.GetString("PrimaryWeaponSaved").ToString());
+                Debug.Log("shit2: " + weaponControlComponent.getWeaponByTag("LaserSword"));
                 GameObject Bat = weaponControlComponent.getWeaponByTag("Bat");
                 weaponControlComponent.Prim = Bat;
             }

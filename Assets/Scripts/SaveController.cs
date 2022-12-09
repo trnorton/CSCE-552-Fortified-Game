@@ -49,6 +49,8 @@ public class SaveController : MonoBehaviour
 
         //Save Weapons Bought
         PlayerPrefs.SetString("PrimaryWeaponSaved", weaponcontrol.getPrim().ToString());
+        Debug.Log("Prim during save: " + PlayerPrefs.GetString("PrimaryWeaponSaved"));
+        Debug.Log("Prim during save tag: " + weaponcontrol.getPrim().tag);
         PlayerPrefs.SetString("SecondaryWeaponSaved", weaponcontrol.getSec().ToString());
 
         //Save Current Round

@@ -115,6 +115,7 @@ public class WeaponController : MonoBehaviour
 
     public GameObject getWeaponByTag(string str){
         foreach(GameObject g in Weapons){
+            Debug.Log("Tags in Weapons: " + g.tag);
             if(g.tag == str){
                 return g;
             }
