@@ -156,6 +156,8 @@ public class MeleeEnemyAI : MonoBehaviour
     //Enemy goes after player
     private void ChasePlayer()
     {
+        agent.isStopped = false;
+        ObjectAnimator.SetBool("IsAttacking", false);
         agent.SetDestination(player.transform.position);
     }
     //Atack Treasure

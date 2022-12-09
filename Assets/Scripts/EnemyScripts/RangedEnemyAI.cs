@@ -140,6 +140,7 @@ public class RangedEnemyAI : MonoBehaviour
     //Enemy goes after player
     private void ChasePlayer()
     {
+        agent.isStopped = false;
         agent.SetDestination(player.transform.position);
     }
     //Atack Treasure
