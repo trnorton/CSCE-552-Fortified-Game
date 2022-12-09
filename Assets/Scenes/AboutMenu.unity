@@ -651,10 +651,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Matt Vinson - Designed models for the Zombie, Boss Zombie, Weapons (Sword,
-    Bat, Slingshot //so far ), and in-game weapon upgrade station. Made the UI and
-    functionality of the upgrade shop. Wrote scripts for weapon collision detection
-    for melee weapons and projectile collision detection for ranged weapons. Made
-    the song for the game and sounds for confirming/denying upgrade purchases.
+    Bat, LaserSword, Slingshot, and bow ), and in-game weapon upgrade station. Made
+    the UI and functionality of the upgrade shop. Wrote scripts for weapon collision
+    detection for melee weapons and projectile collision detection for ranged weapons.
+    Made the song for the game and sounds for confirming/denying shop purchases,
+    sounds for weapons, and sounds for Boss Zombie.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
