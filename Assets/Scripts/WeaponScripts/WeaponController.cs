@@ -18,7 +18,9 @@ public class WeaponController : MonoBehaviour
     public GameObject projectile;
     public GameObject player_arrow;
     public Transform firePoint;
-    public float fireSpeed;
+    private float bowFireSpeed = 3000f;
+    private float slingFireSpeed = 1750f;
+
 
     public GameObject PauseUI;
 
@@ -98,14 +100,14 @@ public class WeaponController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.75F);
         GameObject newProjectile = Instantiate(projectile, firePoint.position, firePoint.rotation);
-        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * slingFireSpeed);
         yield return new WaitForSeconds(AttackCooldown);
     }
     IEnumerator fireBow()
     {
-        //yield return new WaitForSeconds(0.75F);
+        yield return new WaitForSeconds(0.5F);
         GameObject newProjectile = Instantiate(player_arrow, firePoint.position, firePoint.rotation);
-        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * fireSpeed);
+        newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * bowFireSpeed);
         yield return new WaitForSeconds(AttackCooldown);
     }
 
@@ -152,5 +154,10 @@ public class WeaponController : MonoBehaviour
     public void upgradeSec(string taggy){
         if(getWeaponByTag(taggy))
             Secondary =  getWeaponByTag(taggy);
+    }
+
+    public void hideWeapons(bool b){
+        Prim.SetActive(b);
+        Secondary.SetActive(b);
     }
 }
