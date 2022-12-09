@@ -19577,6 +19577,10 @@ PrefabInstance:
       value: treasureDefault
       objectReference: {fileID: 0}
     - target: {fileID: 7236002529525754271, guid: 56c05e488b7d4c64694b3f6938a20972, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236002529525754271, guid: 56c05e488b7d4c64694b3f6938a20972, type: 3}
       propertyPath: m_TagString
       value: Treasure
       objectReference: {fileID: 0}
@@ -19875,6 +19879,10 @@ PrefabInstance:
     - target: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2832560727615570650, guid: bdb1ec033ce99f441982334e2f9a24a3, type: 3}
       propertyPath: m_TagString

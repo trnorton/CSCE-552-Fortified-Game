@@ -38,16 +38,16 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Treasure
+  - Player
+  - ground
+  - Wall
+  - Ghost
+  - destroyedWall
+  - TurretProjectile
+  - Turret
+  - Friendly
+  - stairs
   - 
   - 
   - 
