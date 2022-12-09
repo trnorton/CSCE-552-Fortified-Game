@@ -21,6 +21,12 @@ public class WeaponController : MonoBehaviour
     private float bowFireSpeed = 3000f;
     private float slingFireSpeed = 1750f;
 
+    //Audio Sources
+    public AudioSource A1;
+    public AudioSource A2;
+    public AudioSource A3;
+    public AudioSource A4;
+    public AudioSource A5;
 
     public GameObject PauseUI;
 
@@ -32,9 +38,6 @@ public class WeaponController : MonoBehaviour
         }
         GameObject Bat = getWeaponByTag("Bat");
         GameObject Hands = getWeaponByTag("PH");
-        // Bat.SetActive(true);
-        // Prim = Bat;
-        // Secondary = Hands;
     }
 
     void Update()
@@ -60,6 +63,14 @@ public class WeaponController : MonoBehaviour
         Debug.Log(Prim.tag);
         Animator anim = Prim.GetComponent<Animator>();
         anim.SetTrigger("Attack");
+        //play sound
+        if(Prim.tag == "Bat"){
+            A1.Play();
+        } else if(Prim.tag == "Sword"){
+            A2.Play();
+        } else if(Prim.tag == "LaserSword"){
+            A3.Play();
+        }
         StartCoroutine(resetAttackCD());
     }
 
@@ -71,6 +82,7 @@ public class WeaponController : MonoBehaviour
             Animator anim = Secondary.GetComponent<Animator>();
             anim.SetTrigger("Attack");
             StartCoroutine(fireSling());
+            A4.Play();
             StartCoroutine(resetAttackCD());
         } 
         else if(Secondary.tag == "Bow"){
@@ -79,6 +91,7 @@ public class WeaponController : MonoBehaviour
             Animator anim = Secondary.GetComponent<Animator>();
             anim.SetTrigger("Attack");
             StartCoroutine(fireBow());
+            A5.Play();
             StartCoroutine(resetAttackCD());
         }
     }
@@ -105,7 +118,7 @@ public class WeaponController : MonoBehaviour
     }
     IEnumerator fireBow()
     {
-        yield return new WaitForSeconds(0.5F);
+        yield return new WaitForSeconds(0.75F);
         GameObject newProjectile = Instantiate(player_arrow, firePoint.position, firePoint.rotation);
         newProjectile.GetComponent<Rigidbody>().AddForce(newProjectile.transform.forward * bowFireSpeed);
         yield return new WaitForSeconds(AttackCooldown);

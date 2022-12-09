@@ -15,6 +15,8 @@ public class buywarrior : MonoBehaviour
     public int warriorcount;
     public TextMeshProUGUI buyWarriorText;
     public int maxWarriors;
+    public AudioSource bought;
+    public AudioSource notEnoughCash;
     
     // Start is called before the first frame update
     void Start()
@@ -40,12 +42,16 @@ public class buywarrior : MonoBehaviour
             playercash.SubMoney(warriorcost);
             spawn = spawnpositions[Random.Range(0, spawnpositions.Length)];
             Instantiate(warriorprefab, spawn.transform.position, spawn.transform.rotation);
-            
+            bought.Play();
             warriorcount++;
+        } else if(money < warriorcost){
+            Debug.Log("Not enough cash");
+            notEnoughCash.Play();
         }
         if(warriorcount >= maxWarriors)
         {
             buyWarriorText.text = "Max Warriors";
+            notEnoughCash.Play();
         }
         
     }

@@ -19,6 +19,7 @@ public class RepairWalls : MonoBehaviour
     private GameObject[] destroyedWalls;
     private int wallLevel;
     public AudioSource repairwallaudio;
+    public AudioSource notEnoughCash;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,13 +59,14 @@ public class RepairWalls : MonoBehaviour
             if(money >= repairCost && GameObject.FindGameObjectsWithTag("destroyedWall").Length != 0)
             {
                 if(repairwallaudio)
-                    repairwallaudio.Play(0);
+                    repairwallaudio.Play();
                 playercash.SubMoney(repairCost);
                 repairWoodWalls();
 
             }
             else
             {
+                notEnoughCash.Play();
                 Debug.Log("Not enough funds");
             }
         }
@@ -75,13 +77,14 @@ public class RepairWalls : MonoBehaviour
             if(money >= repairCost)
             {
                 if(repairwallaudio)
-                    repairwallaudio.Play(0);
+                    repairwallaudio.Play();
                 playercash.SubMoney(repairCost);
                 repairStoneWalls();
                 
             }
             else
             {
+                notEnoughCash.Play();
                 Debug.Log("Not enough funds");
             }
         }
@@ -91,13 +94,14 @@ public class RepairWalls : MonoBehaviour
             if(money >= repairCost)
             {
                 if(repairwallaudio)
-                    repairwallaudio.Play(0);
+                    repairwallaudio.Play();
                 playercash.SubMoney(repairCost);
                 repairMetalWalls();
 
             }
             else
             {
+                notEnoughCash.Play();
                 Debug.Log("Not enough funds");
             }
         }

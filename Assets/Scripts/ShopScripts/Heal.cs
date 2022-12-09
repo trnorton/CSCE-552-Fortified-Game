@@ -10,6 +10,8 @@ public class Heal : MonoBehaviour
     private int money;
     private float pHealth;
     private float tHealth;
+    public AudioSource bought;
+    public AudioSource notEnoughCash;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +33,14 @@ public class Heal : MonoBehaviour
           if(pHealth < PlayerHealth.MaxHealthtoInt()){
             PlayerHealth.HealToMax();
             playercash.SubMoney(5);
+            bought.Play();
           }
           else {
             Debug.Log("Already at max health");
           }
       } else {
           Debug.Log("Not enough (get a job)");
+          notEnoughCash.Play();
       }
     }
 
@@ -49,12 +53,14 @@ public class Heal : MonoBehaviour
           if(tHealth < TreasureHealth.MaxHealthtoInt()){
             TreasureHealth.HealToMax();
             playercash.SubMoney(5);
+            bought.Play();
           }
           else {
             Debug.Log("Already at max health");
           }
       } else {
           Debug.Log("Not enough (get a job)");
+          notEnoughCash.Play();
       }
     }
 }
