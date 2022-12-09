@@ -38,7 +38,7 @@ public class Shop : MonoBehaviour
                 WeapCont.upgradePrim("Sword");
                 GameObject newPrim = WeapCont.getPrim();
             }
-            playercash.SubMoney(10);
+            playercash.SubMoney(25);
             audio_0.Play();
         } else {
             audio_1.Play();
@@ -61,7 +61,7 @@ public class Shop : MonoBehaviour
                 WeapCont.upgradePrim("LaserSword");
                 GameObject newPrim = WeapCont.getPrim();
             }
-            playercash.SubMoney(10);
+            playercash.SubMoney(50);
             audio_0.Play();
         } else {
             audio_1.Play();
@@ -84,7 +84,7 @@ public class Shop : MonoBehaviour
                 WeapCont.upgradeSec("Slingshot");
                 GameObject newSec = WeapCont.getSec();
             }
-            playercash.SubMoney(10);
+            playercash.SubMoney(50);
             audio_0.Play();
         } else {
             audio_1.Play();
@@ -107,7 +107,7 @@ public class Shop : MonoBehaviour
                 WeapCont.upgradeSec("Bow");
                 GameObject newSec = WeapCont.getSec();
             }
-            playercash.SubMoney(10);
+            playercash.SubMoney(75);
             audio_0.Play();
         } else {
             audio_1.Play();
