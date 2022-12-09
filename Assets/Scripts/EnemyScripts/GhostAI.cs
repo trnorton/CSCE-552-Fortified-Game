@@ -160,7 +160,7 @@ public class GhostAI : MonoBehaviour
         {
             if(invincibleFrames <= System.DateTime.Now)
             {
-                enemyHealCompoent.TakeDamage(3);
+                enemyHealCompoent.TakeDamage(2);
                 isElim(enemyHealCompoent.currentHealth);
                 Reset();
             }
