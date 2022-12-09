@@ -52,7 +52,7 @@ public class MeleeEnemyAI : MonoBehaviour
         treasureDes = false;
         ObjectAnimator = this.GetComponent<Animator>();
         beingAttacked = false;
-        if(gameObject.tag == "Boss") {
+        if(gameObject.name == "Zombie_boss(Clone)") {
           Collider thisCollider = GetComponent<Collider>();
           GameObject eastWalkway = GameObject.FindWithTag("East Walkway");
           GameObject westWalkway = GameObject.FindWithTag("West Walkway");

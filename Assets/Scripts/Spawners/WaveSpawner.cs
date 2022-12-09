@@ -10,8 +10,8 @@ public class WaveSpawner : MonoBehaviour
     public Transform[] spawnPoints;
     public Transform[] spawnObjectMeleeRanged;
     public Transform spawnObjectGhost;
-    
-    
+
+
     public Transform spawnObjectBoss;
     public bool inRound;
     public int spawnTotal = 3;
@@ -21,14 +21,14 @@ public class WaveSpawner : MonoBehaviour
     public GameObject roundIndicator;
     public TextMeshProUGUI roundText;
     public bool check;
-   
+
 
     void Start()
     {
         //inRound = false;
         roundIndicator.SetActive(true);
-        
-        
+
+
     }
 
     void Update()
@@ -125,20 +125,22 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
     }
-    
+
     IEnumerator SpawnGameObjectBoss()
     {
         check = false;
-        Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(spawnObjectBoss, randomSpawn.position, randomSpawn.rotation);
+        //Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        //Instantiate(spawnObjectBoss, randomSpawn.position, randomSpawn.rotation);
         spawnTotal = spawnTotal + (roundNumber*2);
         for(var i = 0; i < spawnTotal; i++)
         {
-            randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Transform randomSpawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
             Transform randomEnemy = spawnObjectMeleeRanged[Random.Range(0, spawnObjectMeleeRanged.Length)];
             Instantiate(randomEnemy, randomSpawn.position, randomSpawn.rotation);
             yield return new WaitForSeconds(timeBetweenSpawns);
         }
+        Transform randomSpawn2 = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Instantiate(spawnObjectBoss, randomSpawn2.position, randomSpawn2.rotation);
     }
 
     public void setRound(int num)
